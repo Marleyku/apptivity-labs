@@ -10,6 +10,7 @@ All deployable files are in `public/`:
 - `contact.html` — public contact page
 - `privacy.html` — Privacy Policy, including SMS/mobile data language
 - `terms.html` — Terms of Service, including SMS terms
+- `sms-opt-in.html` — transactional SMS opt-in disclosures
 - `styles.css` — responsive site styles
 - `logo.svg` — simple APPtivity Labs wordmark
 - `favicon.svg` — browser favicon
@@ -37,3 +38,5 @@ python3 -m http.server 8080 --directory public
 ```
 
 Then open <http://localhost:8080>.
+
+Cloudflare serves the policy pages at the clean routes `/privacy`, `/terms`, and `/sms-opt-in`; visitors do not need to include `.html`.
