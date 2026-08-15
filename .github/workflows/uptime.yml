@@ -26,7 +26,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for route in / /privacy /terms /sms-opt-in; do
+          for route in / /privacy /terms /sms-opt-in /sms-opt-out; do
             curl --fail --silent --show-error \
               --max-time 20 --retry 2 --retry-delay 2 \
               "https://www.apptivity.online${route}" > /dev/null
