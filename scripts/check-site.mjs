@@ -9,6 +9,7 @@ const requiredRoutes = {
   "/privacy": "privacy.html",
   "/terms": "terms.html",
   "/sms-opt-in": "sms-opt-in.html",
+  "/sms-opt-out": "sms-opt-out.html",
 };
 
 const failures = [];
