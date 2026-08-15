@@ -33,7 +33,7 @@ jobs:
         run: npm run check
 
       - name: Validate Worker bundle
-        run: npx --yes wrangler@4 deploy --dry-run --outdir .wrangler/dry-run
+        run: npx --yes wrangler@4.123.0 deploy --dry-run --outdir .wrangler/dry-run
 
   deploy:
     if: github.event_name != 'pull_request'
@@ -50,4 +50,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.123.0"
           command: deploy
