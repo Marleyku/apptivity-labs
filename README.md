@@ -1,37 +1,33 @@
-# APPtivity Labs, LLC Static Website
+# APPtivity Labs website
 
-This repository contains a dependency-free static website for **APPtivity Labs, LLC**, intended for deployment to Cloudflare Pages at <https://www.apptivity.online>.
+This repository contains the public administrative website for **APPtivity Labs, LLC**. Production is deployed as the Cloudflare Worker `apptivity-labs`, with static assets served from `public/`.
+
+- Canonical production URL: <https://www.apptivity.online>
+- Worker preview URL: <https://apptivity-labs.mkunzler.workers.dev>
+- Source repository: <https://github.com/Marleyku/apptivity-labs>
+
+Requests to `https://apptivity.online` are permanently redirected to the same path and query string on `https://www.apptivity.online`.
 
 ## Project structure
 
-All deployable files are in `public/`:
+- `public/` â€” deployable HTML, CSS, SVG assets, and security headers
+- `worker/index.js` â€” canonical-host redirect and static-assets delegation
+- `wrangler.jsonc` â€” production Worker and assets configuration
+- `scripts/check-site.mjs` â€” dependency-free HTML, route, link, and Worker-routing checks
+- `.github/workflows/deploy.yml` â€” validation and production deployment workflow
 
-- `index.html` — homepage and product overview
-- `contact.html` — public contact page
-- `privacy.html` — Privacy Policy, including SMS/mobile data language
-- `terms.html` — Terms of Service, including SMS terms
-- `sms-opt-in.html` — transactional SMS opt-in disclosures
-- `styles.css` — responsive site styles
-- `logo.svg` — simple APPtivity Labs wordmark
-- `favicon.svg` — browser favicon
-- `_headers` — Cloudflare Pages security headers
+Clean policy routes are provided for `/privacy`, `/terms`, and `/sms-opt-in` through Workers static-assets HTML handling.
 
-## Cloudflare Pages deployment
+## Local validation
 
-1. Push this repository to GitHub.
-2. In Cloudflare, open **Workers & Pages** and choose **Create application**.
-3. Select **Pages** and connect the GitHub repository.
-4. Use these build settings:
-   - **Framework preset:** None
-   - **Build command:** leave blank
-   - **Build output directory:** `public`
-5. Deploy the site.
-6. Add the custom domain `www.apptivity.online` in the Cloudflare Pages project settings.
-7. Confirm DNS is proxied through Cloudflare and that the Pages custom domain status is active.
+Node.js 24 is used in CI. Run:
 
-## Local preview
+```bash
+npm run check
+npx --yes wrangler@4 deploy --dry-run --outdir .wrangler/dry-run
+```
 
-Because the website is plain HTML/CSS, it can be previewed with any static file server. For example:
+For a browser preview of the static files:
 
 ```bash
 python3 -m http.server 8080 --directory public
@@ -39,4 +35,19 @@ python3 -m http.server 8080 --directory public
 
 Then open <http://localhost:8080>.
 
-Cloudflare serves the policy pages at the clean routes `/privacy`, `/terms`, and `/sms-opt-in`; visitors do not need to include `.html`.
+## Production deployment
+
+Pushes to `main` trigger `.github/workflows/deploy.yml`. The workflow validates the site and Worker bundle before deploying with Cloudflare's official Wrangler action.
+
+Configure these GitHub Actions secrets for the repository:
+
+- `CLOUDFLARE_ACCOUNT_ID` â€” the Cloudflare account containing `apptivity-labs`
+- `CLOUDFLARE_API_TOKEN` â€” a narrowly scoped token with permission to deploy Workers in that account
+
+Never commit token values. The deployment job uses the protected GitHub `production` environment and prevents overlapping production deployments.
+
+Manual deployments can be started from the workflow's **Run workflow** control. For emergency rollback, select a previous deployment in the Cloudflare Worker dashboard or use Wrangler's rollback command from an authenticated workstation.
+
+## Monitoring
+
+Cloudflare Web Analytics should track `www.apptivity.online`. The scheduled `Uptime check` GitHub Actions workflow checks the homepage and public policy routes and creates or updates a GitHub issue when production is unhealthy.
