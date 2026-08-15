@@ -16,7 +16,7 @@ Requests to `https://apptivity.online` are permanently redirected to the same pa
 - `scripts/check-site.mjs` â€” dependency-free HTML, route, link, and Worker-routing checks
 - `.github/workflows/deploy.yml` â€” validation and production deployment workflow
 
-Clean policy routes are provided for `/privacy`, `/terms`, and `/sms-opt-in` through Workers static-assets HTML handling.
+Clean policy routes are provided for `/privacy`, `/terms`, `/sms-opt-in`, and `/sms-opt-out` through Workers static-assets HTML handling.
 
 ## Local validation
 
