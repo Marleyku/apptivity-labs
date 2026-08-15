@@ -1,6 +1,9 @@
 name: Deploy Worker
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
@@ -33,6 +36,7 @@ jobs:
         run: npx --yes wrangler@4 deploy --dry-run --outdir .wrangler/dry-run
 
   deploy:
+    if: github.event_name != 'pull_request'
     needs: validate
     runs-on: ubuntu-latest
     timeout-minutes: 15
