@@ -57,7 +57,9 @@ node scripts/setup-cloudflare-access.mjs
 4. Open https://www.apptivity.online/admin, complete the Access login (email OTP or configured IdP), then browse galleries.
 5. Do **not** add `/admin` to public uptime checks (they would fail without Access cookies).
 
-Until Access is enabled on the account, the Worker also supports optional Basic Auth via secrets `ADMIN_BASIC_USER` / `ADMIN_BASIC_PASS` (or returns 401). When Access is active, `Cf-Access-Authenticated-User-Email` unlocks admin without Basic Auth.
+**Browser access:** complete Cloudflare Access login (email / IdP). Access sits at the edge before the Worker.
+
+**Stored Worker Basic Auth** (second layer / local / fallback if Access identity is present or Access is disabled): secrets `ADMIN_BASIC_USER` + `ADMIN_BASIC_PASS`. Local copy (gitignored): `.admin-basic.local`. When Access has authenticated the request (`Cf-Access-Authenticated-User-Email`), Basic Auth is skipped.
 
 ### Regenerate catalogs
 
