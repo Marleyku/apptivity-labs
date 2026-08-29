@@ -3,6 +3,7 @@
  * - Apex → www redirect
  * - Beta application intake (KV)
  * - Static assets via ASSETS binding
+ * - /admin* expects Cloudflare Access at the edge; optional Worker gate as defense-in-depth
  */
 
 const ALLOWED_APPS = new Set(['Miles2Go', 'FavorBank', 'APPtivity']);
@@ -20,6 +21,52 @@ function json(data, status = 200) {
 function cleanText(value, max) {
   if (typeof value !== 'string') return '';
   return value.trim().slice(0, max);
+}
+
+function isAdminPath(pathname) {
+  return pathname === '/admin' || pathname.startsWith('/admin/');
+}
+
+/**
+ * Defense-in-depth for /admin* when Access JWT is present or ADMIN_BASIC_* secrets are set.
+ * Edge Access should still be the primary gate (see scripts/setup-cloudflare-access.mjs).
+ */
+function gateAdmin(request, env) {
+  const accessEmail = request.headers.get('Cf-Access-Authenticated-User-Email');
+  if (accessEmail) return null;
+
+  const user = env.ADMIN_BASIC_USER;
+  const pass = env.ADMIN_BASIC_PASS;
+  if (user && pass) {
+    const header = request.headers.get('Authorization') || '';
+    if (header.startsWith('Basic ')) {
+      try {
+        const decoded = atob(header.slice(6));
+        const idx = decoded.indexOf(':');
+        const u = decoded.slice(0, idx);
+        const p = decoded.slice(idx + 1);
+        if (u === user && p === pass) return null;
+      } catch {
+        /* fall through */
+      }
+    }
+    return new Response('Authentication required', {
+      status: 401,
+      headers: {
+        'WWW-Authenticate': 'Basic realm="APPtivity Labs Admin"',
+        'cache-control': 'no-store',
+      },
+    });
+  }
+
+  // No Access identity and no basic fallback — refuse rather than leave admin public.
+  return new Response(
+    'Admin gallery is locked. Configure Cloudflare Access for /admin* (see README) or set ADMIN_BASIC_USER / ADMIN_BASIC_PASS Worker secrets.',
+    {
+      status: 401,
+      headers: { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' },
+    }
+  );
 }
 
 async function handleBetaApplication(request, env) {
@@ -130,6 +177,11 @@ export default {
     if (url.hostname === 'apptivity.online') {
       url.hostname = 'www.apptivity.online';
       return Response.redirect(url.toString(), 308);
+    }
+
+    if (isAdminPath(url.pathname)) {
+      const denied = gateAdmin(request, env);
+      if (denied) return denied;
     }
 
     if (url.pathname === '/api/beta-applications') {

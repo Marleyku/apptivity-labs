@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "slug": "favorbank",
+    "name": "FavorBank",
+    "productUrl": "https://favorbank.app",
+    "updatedAt": "2026-08-29T05:43:54.102Z",
+    "notes": "Color themes: light + dark (dark derived for catalog matrix). Wallpaper variants skipped. Expand with live captures on next skill run."
+  },
+  "targetConsumers": [
+    {
+      "persona": "Partner who wants fair chore reciprocity",
+      "jobsToBeDone": [
+        "Make effort visible",
+        "Redeem meaningful favors"
+      ],
+      "pains": [
+        "Scorekeeping fights",
+        "Vague asks",
+        "Uneven load"
+      ]
+    }
+  ],
+  "positioning": {
+    "oneLiner": "Private two-person favors — make effort visible, redeem what matters.",
+    "category": "Couples task & reward app",
+    "differentiator": "Exactly two people; spouse-priced rewards — not family chore charts."
+  },
+  "objectionsAndAnswers": [
+    {
+      "objection": "This sounds like keeping score.",
+      "answer": "It replaces fuzzy resentment with agreed points and rewards you both chose."
+    }
+  ],
+  "proofPoints": [
+    "Two-person boundary",
+    "Points + redeemable favors",
+    "Love-language-aware onboarding"
+  ],
+  "ctaSuggestions": [
+    "Invite your partner",
+    "Start with one favor"
+  ],
+  "features": [
+    {
+      "id": "home",
+      "name": "Partner home & balances",
+      "utilityScore": 5,
+      "uniquenessScore": 4,
+      "consequenceScore": 5,
+      "why": "Makes effort visible at a glance — points and open work without nagging.",
+      "howToUse": "Open Home to see balances and jump into tasks or favors.",
+      "primaryRoute": "/",
+      "marketingHook": "See what each of you owes — without the scorekeeping fight.",
+      "rank": 1,
+      "shotIds": [
+        "dashboard-light-polished",
+        "dashboard-dark-polished"
+      ]
+    },
+    {
+      "id": "tasks",
+      "name": "Tasks",
+      "utilityScore": 5,
+      "uniquenessScore": 3,
+      "consequenceScore": 5,
+      "why": "Concrete assignments with points turn vague chore talks into clear asks.",
+      "howToUse": "Create a task, set points, assign to your partner.",
+      "primaryRoute": "/tasks",
+      "marketingHook": "Ask clearly. Earn fairly.",
+      "rank": 2,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "create-task",
+      "name": "Create task",
+      "utilityScore": 5,
+      "uniquenessScore": 3,
+      "consequenceScore": 4,
+      "why": "Frictionless creation keeps the bank alive day to day.",
+      "howToUse": "Tasks → New; set 1–100 points and due intent.",
+      "primaryRoute": "/tasks/new",
+      "marketingHook": "Turn “can you…?” into a fair favor.",
+      "rank": 3,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "rewards",
+      "name": "Favors & rewards",
+      "utilityScore": 5,
+      "uniquenessScore": 5,
+      "consequenceScore": 4,
+      "why": "Redeeming spouse-offered rewards is the emotional payoff loop.",
+      "howToUse": "Browse Favors, redeem when you have points, fulfill when claimed.",
+      "primaryRoute": "/rewards",
+      "marketingHook": "Rewards you both chose — not a generic points store.",
+      "rank": 4,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "suggestions",
+      "name": "Ideas / suggestions",
+      "utilityScore": 4,
+      "uniquenessScore": 4,
+      "consequenceScore": 3,
+      "why": "Partners can propose offers; pricing keeps reciprocity honest.",
+      "howToUse": "Suggest an idea; partner prices or accepts into the library.",
+      "primaryRoute": "/suggestions",
+      "marketingHook": "Propose what would actually feel good.",
+      "rank": 5,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "fulfillment",
+      "name": "Fulfillment",
+      "utilityScore": 4,
+      "uniquenessScore": 4,
+      "consequenceScore": 4,
+      "why": "Closing the loop on redeemed favors builds trust in the system.",
+      "howToUse": "Complete fulfilled favors from the Fulfillment queue.",
+      "primaryRoute": "/fulfillment",
+      "marketingHook": "Deliver what you promised — then clear the board.",
+      "rank": 6,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "history",
+      "name": "History ledger",
+      "utilityScore": 4,
+      "uniquenessScore": 3,
+      "consequenceScore": 3,
+      "why": "A shared ledger settles “I always do more” with receipts, not memory.",
+      "howToUse": "Open History to review point events.",
+      "primaryRoute": "/history",
+      "marketingHook": "The quiet record that ends the tally argument.",
+      "rank": 7,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "partner-invite",
+      "name": "Partner invite",
+      "utilityScore": 5,
+      "uniquenessScore": 3,
+      "consequenceScore": 5,
+      "why": "Exactly two people — invite is the product boundary.",
+      "howToUse": "Invite by phone/code during onboarding or Partner.",
+      "primaryRoute": "/partner",
+      "marketingHook": "Built for two. Not a group chat chore app.",
+      "rank": 8,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "onboarding",
+      "name": "Onboarding & love languages",
+      "utilityScore": 3,
+      "uniquenessScore": 4,
+      "consequenceScore": 3,
+      "why": "Sets tone and preference context before the first task.",
+      "howToUse": "Complete name → love languages → invite.",
+      "primaryRoute": "/onboarding",
+      "marketingHook": "Start with how you give — then bank the favors.",
+      "rank": 9,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "account",
+      "name": "Account & appearance",
+      "utilityScore": 3,
+      "uniquenessScore": 2,
+      "consequenceScore": 2,
+      "why": "Light/dark and wallpapers make daily use feel personal.",
+      "howToUse": "Account → appearance; toggle theme or wallpaper.",
+      "primaryRoute": "/account",
+      "marketingHook": "Your bank, your mood lighting.",
+      "rank": 10,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "tasks-created",
+      "name": "Tasks I created",
+      "utilityScore": 3,
+      "uniquenessScore": 2,
+      "consequenceScore": 3,
+      "why": "Outbound asks need a separate view so creators can follow up.",
+      "howToUse": "Open Tasks I created to manage what you assigned.",
+      "primaryRoute": "/tasks/created",
+      "marketingHook": "Track the favors you put into the world.",
+      "rank": 11,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "auth-otp",
+      "name": "Phone OTP auth",
+      "utilityScore": 4,
+      "uniquenessScore": 2,
+      "consequenceScore": 4,
+      "why": "Friction-light private login matches a couples app threat model.",
+      "howToUse": "Sign in with phone + SMS code.",
+      "primaryRoute": "/auth",
+      "marketingHook": "Private by default — just the two of you.",
+      "rank": 12,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "wallpaper",
+      "name": "Wallpapers",
+      "utilityScore": 2,
+      "uniquenessScore": 3,
+      "consequenceScore": 1,
+      "why": "Delight without clutter; seasonal presets keep the app fresh.",
+      "howToUse": "Pick a wallpaper under Account.",
+      "primaryRoute": "/account",
+      "marketingHook": "A little atmosphere for everyday kindness.",
+      "rank": 13,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "points",
+      "name": "Points economy (1–100)",
+      "utilityScore": 4,
+      "uniquenessScore": 4,
+      "consequenceScore": 4,
+      "why": "Bounded points keep valuation fair and gameable-but-kind.",
+      "howToUse": "Set points when creating tasks or pricing suggestions.",
+      "primaryRoute": "/tasks/new",
+      "marketingHook": "Fair weight for real effort.",
+      "rank": 14,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    },
+    {
+      "id": "library",
+      "name": "Rewards library",
+      "utilityScore": 3,
+      "uniquenessScore": 3,
+      "consequenceScore": 3,
+      "why": "Saved offers become a menu of meaningful redemptions.",
+      "howToUse": "Use the Library tab inside Favors.",
+      "primaryRoute": "/rewards",
+      "marketingHook": "A menu of favors worth redeeming.",
+      "rank": 15,
+      "shotIds": [
+        "dashboard-light-polished"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "dashboard-light-polished",
+      "theme": "light",
+      "kind": "polished",
+      "topDownPath": "/marketing/favorbank/frames/top-down/dashboard-light-iphone16-topdown.png",
+      "perspectivePath": "/marketing/favorbank/frames/perspective/dashboard-light-iphone16-perspective.png",
+      "alt": "favorbank dashboard (light) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "dashboard-light-wireframe",
+      "theme": "light",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/favorbank/wireframes/top-down/dashboard-light-iphone16-topdown.png",
+      "perspectivePath": "/marketing/favorbank/wireframes/perspective/dashboard-light-iphone16-perspective.png",
+      "alt": "favorbank dashboard wireframe (light) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "dashboard-dark-polished",
+      "theme": "dark",
+      "kind": "polished",
+      "topDownPath": "/marketing/favorbank/frames/top-down/dashboard-dark-iphone16-topdown.png",
+      "perspectivePath": "/marketing/favorbank/frames/perspective/dashboard-dark-iphone16-perspective.png",
+      "alt": "FavorBank dashboard (dark) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "dashboard-dark-wireframe",
+      "theme": "dark",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/favorbank/wireframes/top-down/dashboard-dark-iphone16-topdown.png",
+      "perspectivePath": "/marketing/favorbank/wireframes/perspective/dashboard-dark-iphone16-perspective.png",
+      "alt": "FavorBank dashboard wireframe (dark) on iPhone 16",
+      "heroApproved": false
+    }
+  ]
+}

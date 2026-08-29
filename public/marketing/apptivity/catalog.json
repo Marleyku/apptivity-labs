@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "slug": "apptivity",
+    "name": "APPtivity",
+    "productUrl": "https://www.apptivity.online",
+    "updatedAt": "2026-08-29T05:34:58.575Z",
+    "notes": "Single branded light experience (forest/sand). No multi-theme matrix in product settings."
+  },
+  "targetConsumers": [
+    {
+      "persona": "Group steward (faith, youth, club)",
+      "jobsToBeDone": [
+        "Run better repeatable activities",
+        "Coordinate roles"
+      ],
+      "pains": [
+        "Calendar-only plans",
+        "No reflection loop",
+        "Uneven ownership"
+      ]
+    }
+  ],
+  "positioning": {
+    "oneLiner": "Turn real interests into repeatable, high-quality group activities.",
+    "category": "Group activity system (DPAR)",
+    "differentiator": "Discover → Plan → Act → Reflect — not just another calendar."
+  },
+  "objectionsAndAnswers": [
+    {
+      "objection": "We already use GroupMe and Google Calendar.",
+      "answer": "Those schedule; APPtivity improves the activity itself across repeats."
+    }
+  ],
+  "proofPoints": [
+    "DPAR loop",
+    "Role-based participation",
+    "Local resource discovery"
+  ],
+  "ctaSuggestions": [
+    "Join with code",
+    "Request beta access"
+  ],
+  "features": [
+    {
+      "id": "dashboard",
+      "name": "DPAR dashboard",
+      "utilityScore": 5,
+      "uniquenessScore": 5,
+      "consequenceScore": 5,
+      "why": "Discover → Plan → Act → Reflect is the product spine for better group activities.",
+      "howToUse": "Open Dashboard and move through Discover, Plan, Act, Reflect.",
+      "primaryRoute": "/dashboard",
+      "marketingHook": "Activities that improve every time you run them.",
+      "rank": 1,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "discover",
+      "name": "Discover",
+      "utilityScore": 5,
+      "uniquenessScore": 4,
+      "consequenceScore": 4,
+      "why": "Interests and local heat turn vague “we should hang out” into signal.",
+      "howToUse": "Use Discover to like interests and explore local resources.",
+      "primaryRoute": "/dashboard#discover",
+      "marketingHook": "Find what the group actually wants to do.",
+      "rank": 2,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "plan",
+      "name": "Plan",
+      "utilityScore": 5,
+      "uniquenessScore": 4,
+      "consequenceScore": 5,
+      "why": "Modules and roles make plans executable, not just calendar blocks.",
+      "howToUse": "Build the activity in Plan with clear ownership.",
+      "primaryRoute": "/dashboard#plan",
+      "marketingHook": "Plans with roles — not hope and a group text.",
+      "rank": 3,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "act",
+      "name": "Act",
+      "utilityScore": 5,
+      "uniquenessScore": 4,
+      "consequenceScore": 5,
+      "why": "Execution view keeps guides and members aligned in the moment.",
+      "howToUse": "Run the activity from Act with live roles.",
+      "primaryRoute": "/dashboard#act",
+      "marketingHook": "Showtime with a checklist, not chaos.",
+      "rank": 4,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "reflect",
+      "name": "Reflect",
+      "utilityScore": 4,
+      "uniquenessScore": 5,
+      "consequenceScore": 4,
+      "why": "Reflection compounds quality across repeats — the anti-calendar insight.",
+      "howToUse": "Capture what worked after each activity.",
+      "primaryRoute": "/dashboard#reflect",
+      "marketingHook": "Leave the night better than you found it.",
+      "rank": 5,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "sherpa",
+      "name": "Sherpa AI",
+      "utilityScore": 4,
+      "uniquenessScore": 5,
+      "consequenceScore": 3,
+      "why": "Assists planning without replacing steward judgment.",
+      "howToUse": "Open Sherpa AI for planning help.",
+      "primaryRoute": "/sherpa-ai",
+      "marketingHook": "A guide for the plan — still your group’s call.",
+      "rank": 6,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "join-code",
+      "name": "Join with code",
+      "utilityScore": 4,
+      "uniquenessScore": 3,
+      "consequenceScore": 4,
+      "why": "Low-friction membership for real-world groups.",
+      "howToUse": "Enter a join code from Join with code.",
+      "primaryRoute": "/join-with-code",
+      "marketingHook": "One code. You are in.",
+      "rank": 7,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "inbox",
+      "name": "Inbox & chat",
+      "utilityScore": 3,
+      "uniquenessScore": 2,
+      "consequenceScore": 3,
+      "why": "Coordination stays inside the activity system.",
+      "howToUse": "Use inbox/chat from the dashboard chrome.",
+      "primaryRoute": "/dashboard#apptivity-inbox",
+      "marketingHook": "Coordination without another abandoned thread.",
+      "rank": 8,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "roles",
+      "name": "Role-based participation",
+      "utilityScore": 4,
+      "uniquenessScore": 4,
+      "consequenceScore": 4,
+      "why": "Stewards, guides, and spectators need different permissions.",
+      "howToUse": "Assign roles when inviting or managing the group.",
+      "primaryRoute": "/dashboard",
+      "marketingHook": "Everyone knows their job on the trail.",
+      "rank": 9,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "local-resources",
+      "name": "Local resources",
+      "utilityScore": 4,
+      "uniquenessScore": 4,
+      "consequenceScore": 3,
+      "why": "ZIP-aware venues/events ground Discover in place.",
+      "howToUse": "Browse local resources inside Discover.",
+      "primaryRoute": "/dashboard#discover",
+      "marketingHook": "What is near you — not generic internet ideas.",
+      "rank": 10,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "flyer",
+      "name": "Activity flyer",
+      "utilityScore": 3,
+      "uniquenessScore": 3,
+      "consequenceScore": 2,
+      "why": "Shareable flyers help invite beyond the app.",
+      "howToUse": "Preview/share an activity flyer.",
+      "primaryRoute": "/preview/activity-flyer",
+      "marketingHook": "Invite with a poster, not a wall of text.",
+      "rank": 11,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "onboarding",
+      "name": "Onboarding trail",
+      "utilityScore": 3,
+      "uniquenessScore": 3,
+      "consequenceScore": 3,
+      "why": "Founders and joiners land in the right role context.",
+      "howToUse": "Complete onboarding screens into a group.",
+      "primaryRoute": "/onboarding/group",
+      "marketingHook": "Start the trail together.",
+      "rank": 12,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "settings",
+      "name": "Settings",
+      "utilityScore": 2,
+      "uniquenessScore": 2,
+      "consequenceScore": 2,
+      "why": "Profile and prefs keep the group identity coherent.",
+      "howToUse": "Update profile under Settings.",
+      "primaryRoute": "/settings",
+      "marketingHook": "Your place in the group, clearly set.",
+      "rank": 13,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "beta",
+      "name": "Beta portal",
+      "utilityScore": 2,
+      "uniquenessScore": 2,
+      "consequenceScore": 2,
+      "why": "Early groups need a controlled on-ramp.",
+      "howToUse": "Enter via /beta when invited.",
+      "primaryRoute": "/beta",
+      "marketingHook": "Early access for real groups.",
+      "rank": 14,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    },
+    {
+      "id": "brand",
+      "name": "Forest brand experience",
+      "utilityScore": 3,
+      "uniquenessScore": 3,
+      "consequenceScore": 2,
+      "why": "Distinct emerald/sand identity signals calm, outdoor-ready community energy.",
+      "howToUse": "Use the default light branded UI (single color experience).",
+      "primaryRoute": "/dashboard",
+      "marketingHook": "Looks like a trailhead — not another SaaS dashboard.",
+      "rank": 15,
+      "shotIds": [
+        "dashboard-brand-polished"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "dashboard-brand-polished",
+      "theme": "brand",
+      "kind": "polished",
+      "topDownPath": "/marketing/apptivity/frames/top-down/dashboard-brand-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apptivity/frames/perspective/dashboard-brand-iphone16-perspective.png",
+      "alt": "apptivity dashboard (brand) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "dashboard-brand-wireframe",
+      "theme": "brand",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/apptivity/wireframes/top-down/dashboard-brand-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apptivity/wireframes/perspective/dashboard-brand-iphone16-perspective.png",
+      "alt": "apptivity dashboard wireframe (brand) on iPhone 16",
+      "heroApproved": false
+    }
+  ]
+}
