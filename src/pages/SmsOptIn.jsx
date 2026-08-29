@@ -126,8 +126,8 @@ export default function SmsOptIn() {
             <p className="fine-print">
               Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP
               for help. Consent is not a condition of purchase. We do not sell or share mobile
-              information with third parties for promotional or marketing purposes. See our Privacy
-              Policy and Terms of Service.
+              information with third parties for promotional or marketing purposes. See our{' '}
+              <Link to="/privacy">Privacy Policy</Link> and <Link to="/terms">Terms of Service</Link>.
             </p>
             {status === 'error' && error ? <p className="form-error">{error}</p> : null}
             <button type="submit" disabled={status === 'sending' || !consent || phoneDigits.length < 10}>

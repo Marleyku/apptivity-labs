@@ -211,6 +211,8 @@ export default function Home() {
       <footer>
         <Brand className="brand-footer" href="#top" />
         <p className="footer-links">
+          <Link to="/privacy">Privacy</Link>
+          <Link to="/terms">Terms</Link>
           <Link to="/sms-opt-in">SMS Opt-In</Link>
           <a href="mailto:hello@apptivity.online">Contact</a>
         </p>
