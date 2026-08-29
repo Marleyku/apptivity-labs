@@ -73,6 +73,56 @@ async function handleBetaApplication(request, env) {
   return json({ ok: true, id });
 }
 
+async function handleSmsOptIn(request, env) {
+  if (request.method !== 'POST') {
+    return json({ error: 'Method not allowed' }, 405);
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: 'Invalid JSON body' }, 400);
+  }
+
+  const phoneDigits = String(body.phone || '').replace(/\D/g, '');
+  const consent = body.consent === true;
+
+  if (!consent) {
+    return json({ error: 'Consent is required to opt in to SMS messages.' }, 400);
+  }
+  if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+    return json({ error: 'Please enter a valid mobile phone number.' }, 400);
+  }
+
+  if (!env.BETA_APPLICATIONS) {
+    return json({ error: 'SMS opt-in storage is not configured.' }, 503);
+  }
+
+  const id = crypto.randomUUID();
+  const record = {
+    id,
+    phone: phoneDigits,
+    consent: true,
+    source: 'sms-opt-in',
+    submittedAt: new Date().toISOString(),
+    userAgent: request.headers.get('user-agent') || '',
+    ip: request.headers.get('cf-connecting-ip') || '',
+  };
+
+  await env.BETA_APPLICATIONS.put(`sms:${id}`, JSON.stringify(record));
+  const indexKey = 'sms:index';
+  const existing = (await env.BETA_APPLICATIONS.get(indexKey, 'json')) || [];
+  existing.unshift({
+    id,
+    phoneLast4: phoneDigits.slice(-4),
+    submittedAt: record.submittedAt,
+  });
+  await env.BETA_APPLICATIONS.put(indexKey, JSON.stringify(existing.slice(0, 5000)));
+
+  return json({ ok: true, id });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -84,6 +134,10 @@ export default {
 
     if (url.pathname === '/api/beta-applications') {
       return handleBetaApplication(request, env);
+    }
+
+    if (url.pathname === '/api/sms-opt-in') {
+      return handleSmsOptIn(request, env);
     }
 
     if (url.pathname.startsWith('/api/')) {

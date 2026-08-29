@@ -1,7 +1,49 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BrandMark, IconArrow } from '../components/Icons.jsx';
+import { BrandMark, IconArrow, IconCheck } from '../components/Icons.jsx';
+
+function digitsOnly(value) {
+  return String(value || '').replace(/\D/g, '').slice(0, 15);
+}
+
+function formatPhoneUS(digits) {
+  const d = digitsOnly(digits);
+  if (d.length <= 3) return d;
+  if (d.length <= 6) return `(${d.slice(0, 3)}) ${d.slice(3)}`;
+  return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6, 10)}`;
+}
 
 export default function SmsOptIn() {
+  const [phoneDigits, setPhoneDigits] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [status, setStatus] = useState('idle');
+  const [error, setError] = useState('');
+
+  async function onSubmit(event) {
+    event.preventDefault();
+    setError('');
+    setStatus('sending');
+
+    try {
+      const res = await fetch('/api/sms-opt-in', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          phone: phoneDigits,
+          consent: true,
+        }),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.error || 'Submission failed.');
+      setPhoneDigits('');
+      setConsent(false);
+      setStatus('success');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Submission failed.');
+      setStatus('error');
+    }
+  }
+
   return (
     <main className="legal-page">
       <header className="legal-header">
@@ -26,34 +68,73 @@ export default function SmsOptIn() {
 
       <section className="consent-panel">
         <div>
-          <p className="section-kicker">The exact opt-in</p>
-          <h2>What you agree to</h2>
+          <p className="section-kicker">Opt in here</p>
+          <h2>Submit your number</h2>
           <p>
-            This consent appears next to the phone-number field in our applications. The checkbox is
-            optional, separate from our Terms and Privacy Policy, and is never pre-selected.
+            Use this form to record SMS consent for APPtivity Labs account messages. The checkbox is
+            required, separate from our Terms and Privacy Policy, and is never pre-selected.
           </p>
         </div>
-        <div className="consent-demo" aria-label="Example SMS consent form">
-          <label>
-            Mobile phone number
-            <input type="tel" placeholder="(555) 555-5555" readOnly />
-          </label>
-          <label className="check-row">
-            <input type="checkbox" readOnly />
-            <span>
-              <strong>I agree to receive SMS text messages from APPtivity Labs, LLC</strong> for
-              account verification codes, authentication, security alerts, and important account
-              notifications.
-            </span>
-          </label>
-          <p className="fine-print">
-            Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP
-            for help. Consent is not a condition of purchase. We do not sell or share mobile
-            information with third parties for promotional or marketing purposes. See our Privacy
-            Policy and Terms of Service.
-          </p>
-          <button type="button">Continue</button>
-        </div>
+
+        {status === 'success' ? (
+          <div className="consent-demo consent-success" role="status">
+            <IconCheck />
+            <h3>You’re opted in</h3>
+            <p>
+              We’ve recorded your consent. You can withdraw anytime by replying STOP to a message, or
+              email hello@apptivity.online.
+            </p>
+            <button type="button" className="button button-quiet" onClick={() => setStatus('idle')}>
+              Submit another number
+            </button>
+          </div>
+        ) : (
+          <form className="consent-demo" onSubmit={onSubmit} aria-label="SMS opt-in form">
+            <label>
+              Mobile phone number
+              <input
+                type="tel"
+                name="phone"
+                inputMode="tel"
+                autoComplete="tel"
+                placeholder="(555) 555-5555"
+                value={formatPhoneUS(phoneDigits)}
+                onChange={(e) => {
+                  setPhoneDigits(digitsOnly(e.target.value));
+                  setError('');
+                }}
+                required
+              />
+            </label>
+            <label className="check-row">
+              <input
+                type="checkbox"
+                name="consent"
+                checked={consent}
+                onChange={(e) => {
+                  setConsent(e.target.checked);
+                  setError('');
+                }}
+                required
+              />
+              <span>
+                <strong>I agree to receive SMS text messages from APPtivity Labs, LLC</strong> for
+                account verification codes, authentication, security alerts, and important account
+                notifications.
+              </span>
+            </label>
+            <p className="fine-print">
+              Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP
+              for help. Consent is not a condition of purchase. We do not sell or share mobile
+              information with third parties for promotional or marketing purposes. See our Privacy
+              Policy and Terms of Service.
+            </p>
+            {status === 'error' && error ? <p className="form-error">{error}</p> : null}
+            <button type="submit" disabled={status === 'sending' || !consent || phoneDigits.length < 10}>
+              {status === 'sending' ? 'Submitting…' : 'Submit opt-in'}
+            </button>
+          </form>
+        )}
       </section>
 
       <section className="sms-details">
