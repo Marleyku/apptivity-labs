@@ -1,0 +1,23 @@
+name = "apptivity-labs"
+main = "worker/index.js"
+compatibility_date = "2026-08-15"
+workers_dev = true
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = true
+
+
+[[routes]]
+pattern = "apptivity.online/*"
+zone_name = "apptivity.online"
+
+[[routes]]
+pattern = "www.apptivity.online/*"
+zone_name = "apptivity.online"
+
+[[kv_namespaces]]
+binding = "BETA_APPLICATIONS"
+id = "7c5aa0fedc5e44bc897adaf76f7daeee"
