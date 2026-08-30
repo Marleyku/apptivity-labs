@@ -56,7 +56,7 @@ export default function BetaForm() {
       <div className="form-row">
         <label>
           Full name
-          <input name="name" autoComplete="name" required maxLength={100} placeholder="Your name" />
+          <input name="name" autoComplete="name" required maxLength={100} placeholder="Your name" data-feedback-mask />
         </label>
         <label>
           Email address
@@ -67,6 +67,7 @@ export default function BetaForm() {
             required
             maxLength={254}
             placeholder="you@example.com"
+            data-feedback-mask
           />
         </label>
       </div>

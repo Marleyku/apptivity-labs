@@ -104,6 +104,7 @@ export default function SmsOptIn() {
                   setError('');
                 }}
                 required
+                data-feedback-mask
               />
             </label>
             <label className="check-row">

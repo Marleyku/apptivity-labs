@@ -1,0 +1,13 @@
+# Local Worker secrets / vars (do not commit real keys)
+
+# Required for FAB → Linear sync (Personal API key in Cursor Apps workspace)
+LINEAR_API_KEY=
+
+# Optional overrides (defaults match Cursor Apps team)
+# LINEAR_TEAM_ID=a1565639-bc8b-4101-9969-8ae775e626a3
+# LINEAR_FEEDBACK_LABEL_ID=ce252be7-84b7-4e92-a675-dd594483fcf4
+# LINEAR_FEEDBACK_STATE_ID=8ea9b562-ba0b-4e94-83e1-71e31e9ac4d0
+
+# Optional admin basic auth fallback when Cloudflare Access JWT is absent
+# ADMIN_BASIC_USER=
+# ADMIN_BASIC_PASS=

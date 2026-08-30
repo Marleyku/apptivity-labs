@@ -31,6 +31,28 @@ Deploys Worker `apptivity-labs` to `apptivity.online` and `www.apptivity.online`
 
 Beta applications are stored in the `BETA_APPLICATIONS` KV namespace (`beta:<uuid>` keys plus `beta:index`).
 
+## In-app Feedback FAB
+
+Public floating **Feedback** button (screenshot + markup → `POST /api/feedback`).
+
+- Persists to KV as `feedback:<uuid>` (+ `feedback:index`)
+- Best-effort sync to Linear **Cursor Apps** as `[Needs Review][category] …` (Backlog + **Needs Review** label)
+- Agents must **not** implement FAB issues until a human explicitly approves them (see `.cursor/rules/fab-feedback-gate.mdc`)
+
+### Linear secrets (Worker)
+
+```bash
+npx wrangler secret put LINEAR_API_KEY
+# optional overrides:
+# npx wrangler secret put LINEAR_TEAM_ID
+# npx wrangler secret put LINEAR_FEEDBACK_LABEL_ID
+# npx wrangler secret put LINEAR_FEEDBACK_STATE_ID
+```
+
+Defaults (Cursor Apps): team `a1565639-bc8b-4101-9969-8ae775e626a3`, Needs Review label `ce252be7-84b7-4e92-a675-dd594483fcf4`, Backlog `8ea9b562-ba0b-4e94-83e1-71e31e9ac4d0`.
+
+Local: copy `.dev.vars.example` → `.dev.vars` and set `LINEAR_API_KEY`.
+
 ## Marketing catalogs + Access admin
 
 Catalogs live under `public/marketing/<appSlug>/` (`catalog.json` + iPhone 16 framed shot pairs).

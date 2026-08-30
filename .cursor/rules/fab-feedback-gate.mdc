@@ -1,0 +1,28 @@
+---
+description: Gate in-app FAB feedback — review and explicit approval required before any implementation.
+alwaysApply: true
+---
+
+# FAB feedback gate (APPtivity Labs site)
+
+In-app **Feedback FAB** submissions create Linear issues on **Cursor Apps**. They are **intake only**.
+
+## Hard rule
+
+- **Do not** implement, code, commit, or “just fix” anything that arrived via the FAB / `POST /api/feedback` / Linear issues marked `[Needs Review]` or labeled **Needs Review**, unless the user has **explicitly approved** that specific issue in this conversation (or clearly moved it out of review with intent to build).
+- Allowed without approval: list/summarize feedback, open the Linear issue, clarify requirements, propose a plan, wait.
+- After approval: implement only the approved issue; do not batch-implement other pending FAB items.
+
+## Signals an issue is gated
+
+- Title starts with `[Needs Review]`
+- Label **Needs Review**
+- Description contains `NEEDS REVIEW — DO NOT IMPLEMENT YET` or `Approval: pending`
+- Source metadata `in-app-fab`
+- Site: `apptivity.online`
+
+## When the user says “process feedback” / “next iteration”
+
+1. Fetch the newest FAB issue for this site.
+2. Summarize it and ask for **approve / defer / reject**.
+3. Implement only after explicit approval.
