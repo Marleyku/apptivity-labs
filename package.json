@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler deploy",
+    "test:e2e:pw": "playwright test",
+    "test:e2e:pw:ui": "playwright test --ui",
+    "playwright:install": "playwright install chromium"
   },
   "dependencies": {
     "modern-screenshot": "^4.7.0",
@@ -16,7 +19,11 @@
     "react-router-dom": "^7.13.0"
   },
   "devDependencies": {
+    "@playwright/mcp": "^0.0.80",
+    "@playwright/test": "^1.62.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "dotenv": "^17.4.2",
+    "twilio": "^6.1.0",
     "vite": "^6.0.0",
     "wrangler": "^4.127.1"
   }
