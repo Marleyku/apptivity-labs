@@ -241,6 +241,8 @@ export function FeedbackModal() {
       if (!res.ok) {
         throw new Error(result.error || `Could not send feedback (${res.status})`);
       }
+      const { trackActivation } = await import('../observability/index.js');
+      trackActivation('feedback_submitted', { category });
       setReference(result?.reference || result?.linearIdentifier || result?.id || null);
       setSent(true);
     } catch (err) {

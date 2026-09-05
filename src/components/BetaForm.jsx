@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { IconArrow, IconCheck, IconGift } from './Icons.jsx';
+import { trackActivation } from '../observability/index.js';
 
 const APPS = ['Miles2Go', 'FavorBank', 'APPtivity'];
 
@@ -27,6 +28,7 @@ export default function BetaForm() {
       });
       const body = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(body.error || 'Submission failed.');
+      trackActivation('beta_application_submitted', { app: data.get('app') });
       form.reset();
       setStatus('success');
     } catch (err) {

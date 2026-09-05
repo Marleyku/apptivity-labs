@@ -1,49 +1,11 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BrandMark, IconArrow, IconCheck } from '../components/Icons.jsx';
+import { BrandMark, IconArrow } from '../components/Icons.jsx';
 
-function digitsOnly(value) {
-  return String(value || '').replace(/\D/g, '').slice(0, 15);
-}
-
-function formatPhoneUS(digits) {
-  const d = digitsOnly(digits);
-  if (d.length <= 3) return d;
-  if (d.length <= 6) return `(${d.slice(0, 3)}) ${d.slice(3)}`;
-  return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6, 10)}`;
-}
+const SMS_NUMBER = '+1 833-633-6162';
+const SMS_NUMBER_TEL = '+18336336162';
+const APP_NAME = 'APPtivity Labs';
 
 export default function SmsOptIn() {
-  const [phoneDigits, setPhoneDigits] = useState('');
-  const [consent, setConsent] = useState(false);
-  const [status, setStatus] = useState('idle');
-  const [error, setError] = useState('');
-
-  async function onSubmit(event) {
-    event.preventDefault();
-    setError('');
-    setStatus('sending');
-
-    try {
-      const res = await fetch('/api/sms-opt-in', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-          phone: phoneDigits,
-          consent: true,
-        }),
-      });
-      const body = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(body.error || 'Submission failed.');
-      setPhoneDigits('');
-      setConsent(false);
-      setStatus('success');
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Submission failed.');
-      setStatus('error');
-    }
-  }
-
   return (
     <main className="legal-page">
       <header className="legal-header">
@@ -63,96 +25,112 @@ export default function SmsOptIn() {
           <br />
           <span>No surprises.</span>
         </h1>
-        <p>APPtivity Labs only sends text messages after you explicitly choose to receive them.</p>
+        <p>
+          {APP_NAME} only sends optional <strong>transactional/service</strong> texts after you opt
+          in by texting <strong>START</strong> or <strong>Y</strong>. Consent happens from your
+          phone — not through a website form.
+        </p>
       </section>
 
       <section className="consent-panel">
         <div>
-          <p className="section-kicker">Opt in here</p>
-          <h2>Submit your number</h2>
+          <p className="section-kicker">Opt in by text</p>
+          <h2>Text START or Y</h2>
           <p>
-            Use this form to record SMS consent for APPtivity Labs account messages. The checkbox is
-            required, separate from our Terms and Privacy Policy, and is never pre-selected.
+            Send <strong>START</strong> or <strong>Y</strong> to our toll-free number to subscribe
+            to {APP_NAME} transactional SMS. Consent is never assumed and is never collected through
+            a website form.
           </p>
         </div>
 
-        {status === 'success' ? (
-          <div className="consent-demo consent-success" role="status">
-            <IconCheck />
-            <h3>You’re opted in</h3>
-            <p>
-              We’ve recorded your consent. You can withdraw anytime by replying STOP to a message, or
-              email hello@apptivity.online.
-            </p>
-            <button type="button" className="button button-quiet" onClick={() => setStatus('idle')}>
-              Submit another number
-            </button>
-          </div>
-        ) : (
-          <form className="consent-demo" onSubmit={onSubmit} aria-label="SMS opt-in form">
-            <label>
-              Mobile phone number
-              <input
-                type="tel"
-                name="phone"
-                inputMode="tel"
-                autoComplete="tel"
-                placeholder="(555) 555-5555"
-                value={formatPhoneUS(phoneDigits)}
-                onChange={(e) => {
-                  setPhoneDigits(digitsOnly(e.target.value));
-                  setError('');
-                }}
-                required
-                data-feedback-mask
-              />
-            </label>
-            <label className="check-row">
-              <input
-                type="checkbox"
-                name="consent"
-                checked={consent}
-                onChange={(e) => {
-                  setConsent(e.target.checked);
-                  setError('');
-                }}
-                required
-              />
-              <span>
-                <strong>I agree to receive SMS text messages from APPtivity Labs, LLC</strong> for
-                account verification codes, authentication, security alerts, and important account
-                notifications.
-              </span>
-            </label>
-            <p className="fine-print">
-              Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP
-              for help. Consent is not a condition of purchase. We do not sell or share mobile
-              information with third parties for promotional or marketing purposes. See our{' '}
-              <Link to="/privacy">Privacy Policy</Link> and <Link to="/terms">Terms of Service</Link>.
-            </p>
-            {status === 'error' && error ? <p className="form-error">{error}</p> : null}
-            <button type="submit" disabled={status === 'sending' || !consent || phoneDigits.length < 10}>
-              {status === 'sending' ? 'Submitting…' : 'Submit opt-in'}
-            </button>
-          </form>
-        )}
+        <div className="consent-demo text-opt-in" aria-label="SMS text opt-in instructions">
+          <p className="text-opt-in-label">Send this message</p>
+          <p className="text-opt-in-keyword">START</p>
+          <p className="text-opt-in-to">
+            or <strong>Y</strong> to{' '}
+            <a href={`sms:${SMS_NUMBER_TEL}?body=START`}>
+              <strong>{SMS_NUMBER}</strong>
+            </a>
+          </p>
+          <a className="text-opt-in-cta" href={`sms:${SMS_NUMBER_TEL}?body=START`}>
+            Open Messages with START
+          </a>
+          <p className="fine-print">
+            By texting START or Y, you agree to receive transactional/service SMS from APPtivity
+            Labs, LLC for: verification and two-factor authentication codes; account notifications;
+            customer care and support replies; delivery and fulfillment notices; event, schedule, and
+            reminder notices; and security alerts. These are not marketing or promotional messages.
+            Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP
+            for help. Consent is not a condition of purchase. We do not sell or share mobile
+            information with third parties for promotional or marketing purposes. See our{' '}
+            <Link to="/privacy">Privacy Policy</Link> and <Link to="/terms">Terms of Service</Link>.
+          </p>
+        </div>
       </section>
 
       <section className="sms-details">
         <article>
           <h3>Messages you may receive</h3>
-          <p>
-            One-time verification codes, login and authentication messages, security alerts, and
-            important notices about your APPtivity Labs account.
-          </p>
+          <ul>
+            <li>Verification and two-factor authentication codes</li>
+            <li>Account notifications</li>
+            <li>Customer care and support replies</li>
+            <li>Delivery and fulfillment notices</li>
+            <li>Event, schedule, and reminder notices</li>
+            <li>Security alerts</li>
+          </ul>
         </article>
         <article>
           <h3>Your choice stays yours</h3>
           <p>
-            Opting in is optional. You can withdraw consent at any time by replying STOP. For
-            assistance, reply HELP or email hello@apptivity.online.
+            Opting in is optional. Reply <strong>STOP</strong> anytime to unsubscribe, or{' '}
+            <strong>HELP</strong> for assistance. You can also email hello@apptivity.online.
           </p>
         </article>
+      </section>
+
+      <section className="sms-program">
+        <div className="sms-program-inner">
+          <article>
+            <h3>Confirmation after START or Y</h3>
+            <p>
+              “{APP_NAME}: You’re subscribed to transactional SMS for verification codes, account
+              notifications, customer care, delivery notices, event/schedule reminders, and security
+              alerts. Msg&amp;data rates may apply. Reply HELP for help, STOP to cancel.
+              https://www.apptivity.online/sms-opt-in”
+            </p>
+          </article>
+          <article>
+            <h3>HELP reply</h3>
+            <p>
+              “{APP_NAME} Support: Transactional SMS for verification, account notices, customer
+              care, delivery notices, events/reminders, and security alerts. Msg&amp;data rates may
+              apply. Reply STOP to cancel. Help: hello@apptivity.online”
+            </p>
+          </article>
+          <article>
+            <h3>Sample messages</h3>
+            <p>
+              Verification: “{APP_NAME}: Your verification code is 123456. Do not share this code.”
+            </p>
+            <p>
+              Account: “{APP_NAME}: Account notice — your profile settings were updated.”
+            </p>
+            <p>
+              Customer care: “{APP_NAME}: Support update — we received your request.”
+            </p>
+            <p>
+              Delivery: “{APP_NAME}: Delivery/fulfillment update — your item is on the way.”
+            </p>
+            <p>
+              Events: “{APP_NAME}: Reminder — your scheduled activity starts tomorrow at 9:00 AM.”
+            </p>
+            <p>
+              Security: “{APP_NAME}: Security alert — new sign-in detected. Contact
+              hello@apptivity.online if this wasn’t you.”
+            </p>
+          </article>
+        </div>
       </section>
 
       <section className="sms-help">
