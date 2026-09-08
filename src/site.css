@@ -1425,6 +1425,239 @@ footer {
   }
 }
 
+.admin-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ops-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ops-title-row h1 {
+  margin: 0;
+}
+
+.ops-overall {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px 24px;
+  margin: 24px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.ops-overall--up {
+  border-color: color-mix(in srgb, var(--teal) 45%, var(--line));
+}
+
+.ops-overall--degraded {
+  border-color: color-mix(in srgb, #b45309 40%, var(--line));
+}
+
+.ops-overall--down {
+  border-color: color-mix(in srgb, #b42318 45%, var(--line));
+}
+
+.ops-overall-label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ops-overall-value {
+  margin: 4px 0 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.ops-overall--up .ops-overall-value {
+  color: var(--teal);
+}
+
+.ops-overall--degraded .ops-overall-value {
+  color: #b45309;
+}
+
+.ops-overall--down .ops-overall-value {
+  color: #b42318;
+}
+
+.ops-overall-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
+.ops-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.ops-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  padding: 16px;
+}
+
+.ops-card--degraded {
+  border-color: color-mix(in srgb, #b45309 35%, var(--line));
+}
+
+.ops-card--down {
+  border-color: color-mix(in srgb, #b42318 40%, var(--line));
+}
+
+.ops-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.ops-card-head h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.ops-card-head p {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.ops-pill {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+}
+
+.ops-pill--up {
+  color: var(--teal);
+  background: var(--teal-soft);
+  border-color: color-mix(in srgb, var(--teal) 40%, var(--line));
+}
+
+.ops-pill--degraded {
+  color: #b45309;
+  background: color-mix(in srgb, #b45309 12%, white);
+  border-color: color-mix(in srgb, #b45309 35%, var(--line));
+}
+
+.ops-pill--down {
+  color: #b42318;
+  background: color-mix(in srgb, #b42318 10%, white);
+  border-color: color-mix(in srgb, #b42318 35%, var(--line));
+}
+
+.ops-checks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ops-check {
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 80%, var(--surface));
+}
+
+.ops-check--ok {
+  border-color: color-mix(in srgb, var(--teal) 28%, var(--line));
+}
+
+.ops-check--skip {
+  border-color: color-mix(in srgb, var(--navy) 20%, var(--line));
+  background: color-mix(in srgb, var(--navy) 4%, var(--paper));
+}
+
+.ops-check--bad {
+  border-color: color-mix(in srgb, #b42318 30%, var(--line));
+}
+
+.ops-check-top {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ops-check-kind {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ops-check-label {
+  font-weight: 600;
+  color: var(--ink);
+  flex: 1;
+}
+
+.ops-check-ms {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.ops-check-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.ops-check-bottom a {
+  color: var(--teal);
+  word-break: break-all;
+}
+
+.ops-check-bottom a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+  .ops-overall-meta {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
 /* —— In-app FAB feedback —— */
 .feedback-fab {
   position: fixed;

@@ -53,7 +53,12 @@ export default function AdminIndex() {
 
       <main className="admin-main">
         <p className="admin-kicker">Marketing catalog</p>
-        <h1>Product galleries</h1>
+        <div className="ops-title-row">
+          <h1>Product galleries</h1>
+          <Link to="/admin/control" className="button button-quiet">
+            Control panel
+          </Link>
+        </div>
         <p className="admin-lead">
           Feature rankings, selling copy, and iPhone 16 framed shot pairs (top-down + perspective). Protected by
           Cloudflare Access.

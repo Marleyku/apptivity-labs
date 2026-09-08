@@ -8,6 +8,7 @@
  */
 
 import { createLinearIssueFromFeedback } from './linearFeedback.js';
+import { handleOpsHealth } from './healthPanel.js';
 
 const ALLOWED_APPS = new Set(['Miles2Go', 'FavorBank', 'APPtivity']);
 const FEEDBACK_CATEGORIES = new Set(['general', 'bug', 'idea', 'praise']);
@@ -346,6 +347,16 @@ export default {
 
     if (url.pathname === '/api/feedback') {
       return handleFeedback(request, env);
+    }
+
+    if (url.pathname === '/api/ops/health') {
+      const denied = gateAdmin(request, env);
+      if (denied) return denied;
+      if (request.method !== 'GET' && request.method !== 'HEAD') {
+        return json({ error: 'Method not allowed' }, 405);
+      }
+      const payload = await handleOpsHealth(request, env);
+      return json(payload);
     }
 
     if (url.pathname.startsWith('/api/')) {
