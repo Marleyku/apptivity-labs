@@ -225,7 +225,8 @@ async function handleFeedback(request, env) {
 
   const category = cleanText(body.category, 40).toLowerCase();
   const message = cleanText(body.message, 4000);
-  const route = cleanText(body.route, 500) || null;
+  const route =
+    cleanText(body.pageUrl, 2000) || cleanText(body.route, 2000) || null;
   const userAgent =
     cleanText(body.userAgent, 400) || request.headers.get('user-agent') || null;
   const site = cleanText(body.site, 80) || 'apptivity.online';
@@ -248,6 +249,20 @@ async function handleFeedback(request, env) {
   }
 
   const id = crypto.randomUUID();
+  // Cloudflare Access (when enabled) provides verified email; never trust client body alone.
+  const accessEmail =
+    cleanText(request.headers.get('cf-access-authenticated-user-email'), 200) || '';
+  const accessName =
+    cleanText(request.headers.get('cf-access-authenticated-user-name'), 120) || '';
+  const submitter = accessEmail
+    ? {
+        label: 'Submitter',
+        email: accessEmail,
+        name: accessName || null,
+        anonymous: false,
+      }
+    : { anonymous: true };
+
   const record = {
     id,
     category,
@@ -258,6 +273,8 @@ async function handleFeedback(request, env) {
     hasScreenshot: !!shot.bytes,
     submittedAt: new Date().toISOString(),
     ip,
+    submitterEmail: submitter.email || null,
+    submitterName: submitter.name || null,
     linearIssueId: null,
     linearIdentifier: null,
     linearUrl: null,
@@ -271,6 +288,7 @@ async function handleFeedback(request, env) {
     category,
     submittedAt: record.submittedAt,
     route,
+    submitterEmail: record.submitterEmail,
   });
   await env.BETA_APPLICATIONS.put(indexKey, JSON.stringify(existing.slice(0, 5000)));
 
@@ -278,9 +296,11 @@ async function handleFeedback(request, env) {
     category,
     message: record.message,
     feedbackId: id,
+    pageUrl: route,
     route,
     userAgent,
     site,
+    submitter,
     screenshotBytes: shot.bytes,
     screenshotContentType: shot.contentType,
   });

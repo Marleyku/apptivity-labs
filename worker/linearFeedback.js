@@ -21,6 +21,52 @@ const REVIEW_BANNER = [
   '> before any code changes. Agents: summarize only; wait for approval.',
 ].join('\n');
 
+/**
+ * @param {{
+ *   id?: string|null,
+ *   email?: string|null,
+ *   name?: string|null,
+ *   phone?: string|null,
+ *   label?: string,
+ *   anonymous?: boolean,
+ *   extras?: Array<string|null|undefined>,
+ * }} submitter
+ */
+export function formatSubmitterMarkdownLines(submitter = {}) {
+  const id = submitter.id != null ? String(submitter.id).trim() : '';
+  const email = submitter.email != null ? String(submitter.email).trim() : '';
+  const name = submitter.name != null ? String(submitter.name).trim() : '';
+  const phone = submitter.phone != null ? String(submitter.phone).trim() : '';
+  const label = submitter.label || 'Submitter';
+  const known = Boolean(id || email || name || phone);
+  if (!known || submitter.anonymous) {
+    return ['Submitter: _anonymous / not signed in_'];
+  }
+  const lines = [];
+  if (id) lines.push(`${label} id: \`${id.slice(0, 80)}\``);
+  if (name) lines.push(`Name: \`${name.slice(0, 120)}\``);
+  if (email) lines.push(`Email: \`${email.slice(0, 200)}\``);
+  if (phone) lines.push(`Phone: \`${phone.slice(0, 40)}\``);
+  for (const extra of submitter.extras || []) {
+    if (extra) lines.push(extra);
+  }
+  return lines;
+}
+
+export function logFeedbackSubmitter(context, submitter = {}) {
+  const id = submitter.id != null ? String(submitter.id).trim() : '';
+  const email = submitter.email != null ? String(submitter.email).trim() : '';
+  const name = submitter.name != null ? String(submitter.name).trim() : '';
+  const phone = submitter.phone != null ? String(submitter.phone).trim() : '';
+  console.log(`[feedback] submitter ${context}`, {
+    id: id || null,
+    email: email || null,
+    name: name || null,
+    phone: phone || null,
+    anonymous: Boolean(submitter.anonymous) || !(id || email || name || phone),
+  });
+}
+
 function linearConfigured(env) {
   return !!(env.LINEAR_API_KEY && (env.LINEAR_TEAM_ID || DEFAULT_TEAM_ID));
 }
@@ -87,6 +133,15 @@ async function uploadFileToLinear(env, bytes, contentType, filename) {
  *   route?: string|null,
  *   userAgent?: string|null,
  *   site?: string|null,
+ *   submitter?: {
+ *     id?: string|null,
+ *     email?: string|null,
+ *     name?: string|null,
+ *     phone?: string|null,
+ *     label?: string,
+ *     anonymous?: boolean,
+ *     extras?: Array<string|null|undefined>,
+ *   },
  *   screenshotBytes?: ArrayBuffer|null,
  *   screenshotContentType?: string|null,
  * }} input
@@ -96,6 +151,9 @@ export async function createLinearIssueFromFeedback(env, input) {
     console.warn('[feedback] LINEAR_API_KEY unset — skipping Linear sync');
     return null;
   }
+
+  const submitter = input.submitter || { anonymous: true };
+  logFeedbackSubmitter(`fab:${input.feedbackId}`, submitter);
 
   try {
     let imageMd = '';
@@ -123,7 +181,8 @@ export async function createLinearIssueFromFeedback(env, input) {
       `Approval: \`pending\``,
       `Feedback id: \`${input.feedbackId}\``,
       `Site: \`${input.site || 'apptivity.online'}\``,
-      input.route ? `Route: \`${input.route}\`` : null,
+      ...formatSubmitterMarkdownLines(submitter),
+      (input.pageUrl || input.route) ? `Page URL: \`${input.pageUrl || input.route}\`` : null,
       input.userAgent ? `UA: \`${String(input.userAgent).slice(0, 200)}\`` : null,
       imageMd || null,
     ]

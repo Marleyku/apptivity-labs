@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { domToJpeg } from 'modern-screenshot';
 import { useFeedback } from '../context/FeedbackContext.jsx';
 
@@ -62,7 +61,6 @@ async function captureScreenshot(mode) {
 
 export function FeedbackModal() {
   const { open, closeFeedback } = useFeedback();
-  const location = useLocation();
   const canvasRef = useRef(null);
   const drawingRef = useRef(false);
   const lastPt = useRef(null);
@@ -232,7 +230,8 @@ export function FeedbackModal() {
           category,
           message: message.trim(),
           screenshotDataUrl,
-          route: `${location.pathname}${location.search || ''}`,
+          pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+          route: typeof window !== 'undefined' ? window.location.href : '',
           userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : null,
           site: 'apptivity.online',
         }),
