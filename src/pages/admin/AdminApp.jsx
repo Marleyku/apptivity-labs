@@ -187,7 +187,9 @@ export default function AdminApp() {
                   <span className="admin-rank">#{f.rank}</span>
                   <h3>{f.name}</h3>
                   <span className="admin-scores">
-                    U{f.utilityScore} · N{f.uniquenessScore} · C{f.consequenceScore}
+                    {f.uniqueScore != null
+                      ? `Uniq ${f.uniqueScore} · Use ${f.usefulScore} · Pop ${f.popularScore} = ${f.totalScore}`
+                      : `U${f.utilityScore} · N${f.uniquenessScore} · C${f.consequenceScore}`}
                   </span>
                 </div>
                 <p className="admin-hook">{f.marketingHook}</p>

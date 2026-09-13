@@ -39,6 +39,17 @@ const PRODUCTS = [
     image: '/products/apptivity-dashboard.png',
     alt: 'APPtivity dashboard showing the Discover, Plan, Act, Reflect trail',
   },
+  {
+    id: 'createacal',
+    name: 'CreateACal',
+    kicker: 'Family calendars',
+    tagline: 'A calendar that feels like home.',
+    description:
+      'Collect family photos, captions, and dates, then print a calendar you’ll keep. Collaborative intake and print-ready layouts for households.',
+    href: 'https://www.createacal.com',
+    image: '/products/createacal-dashboard.png',
+    alt: 'CreateACal family calendar workspace with photos, captions, and monthly layout',
+  },
 ];
 
 function Brand({ className = '', href = '#top' }) {
@@ -89,7 +100,7 @@ export default function Home() {
           </h1>
           <p className="hero-lead">
             APPtivity Labs builds focused web apps that help people strengthen relationships, plan
-            meaningful activities, and organize everyday life.
+            meaningful activities, organize everyday life, and create family calendars that last.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#products">

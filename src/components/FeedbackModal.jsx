@@ -12,8 +12,37 @@ const CATEGORIES = [
 const TOOLS = [
   { id: 'pen', label: 'Pen' },
   { id: 'highlight', label: 'Highlight' },
+  { id: 'square', label: 'Square' },
+  { id: 'circle', label: 'Circle' },
   { id: 'eraser', label: 'Eraser' },
 ];
+
+function isShapeTool(id) {
+  return id === 'square' || id === 'circle';
+}
+
+function strokeShape(ctx, toolId, start, end) {
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.strokeStyle = '#e11d48';
+  ctx.lineWidth = 3;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  const dx = end.x - start.x;
+  const dy = end.y - start.y;
+  const side = Math.max(Math.abs(dx), Math.abs(dy));
+  if (side < 1) return;
+  const x = dx >= 0 ? start.x : start.x - side;
+  const y = dy >= 0 ? start.y : start.y - side;
+  if (toolId === 'square') {
+    ctx.strokeRect(x, y, side, side);
+    return;
+  }
+  const r = side / 2;
+  ctx.beginPath();
+  ctx.arc(x + r, y + r, r, 0, Math.PI * 2);
+  ctx.stroke();
+}
+
 
 const ZOOM_MIN = 0.75;
 const ZOOM_MAX = 2.5;
@@ -64,6 +93,8 @@ export function FeedbackModal() {
   const canvasRef = useRef(null);
   const drawingRef = useRef(false);
   const lastPt = useRef(null);
+  const shapeStartRef = useRef(null);
+  const snapshotRef = useRef(null);
 
   const [category, setCategory] = useState('bug');
   const [message, setMessage] = useState('');
@@ -152,7 +183,16 @@ export function FeedbackModal() {
   function startDraw(e) {
     e.preventDefault();
     drawingRef.current = true;
-    lastPt.current = pointerPos(e);
+    const pt = pointerPos(e);
+    lastPt.current = pt;
+    if (isShapeTool(tool) && canvasRef.current) {
+      shapeStartRef.current = pt;
+      const ctx = canvasRef.current.getContext('2d');
+      snapshotRef.current = ctx.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height);
+    } else {
+      shapeStartRef.current = null;
+      snapshotRef.current = null;
+    }
   }
 
   function moveDraw(e) {
@@ -160,6 +200,14 @@ export function FeedbackModal() {
     e.preventDefault();
     const ctx = canvasRef.current.getContext('2d');
     const pt = pointerPos(e);
+
+    if (isShapeTool(tool) && shapeStartRef.current && snapshotRef.current) {
+      ctx.putImageData(snapshotRef.current, 0, 0);
+      strokeShape(ctx, tool, shapeStartRef.current, pt);
+      lastPt.current = pt;
+      return;
+    }
+
     const prev = lastPt.current || pt;
     ctx.beginPath();
     ctx.moveTo(prev.x, prev.y);
@@ -187,6 +235,8 @@ export function FeedbackModal() {
   function endDraw() {
     drawingRef.current = false;
     lastPt.current = null;
+    shapeStartRef.current = null;
+    snapshotRef.current = null;
   }
 
   function clearMarkup() {

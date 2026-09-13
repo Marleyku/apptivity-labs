@@ -1,0 +1,430 @@
+{
+  "meta": {
+    "slug": "createacal",
+    "name": "CreateACal",
+    "productUrl": "https://createacal.com",
+    "updatedAt": "2026-09-13T08:16:32.010Z",
+    "notes": "Deep audit 2026-09-13 from calendar repo + createacal-www. Commerce/PrintCheck gate not shipped.",
+    "suggestions": [
+      "Contributor tracking + reminders",
+      "PrintCheck → digital proof → approve → lock",
+      "PDF + print commerce",
+      "Annual edition rollover",
+      "Paid Collaborative Contributions"
+    ],
+    "adminEmail": "admin@createacal.com"
+  },
+  "targetConsumers": [
+    {
+      "persona": "Family calendar organizer",
+      "jobsToBeDone": [
+        "Collect everyone’s photos and dates",
+        "Ship a print-ready year calendar"
+      ],
+      "pains": [
+        "Photo chase",
+        "Layout chaos",
+        "Print mistakes"
+      ]
+    }
+  ],
+  "positioning": {
+    "oneLiner": "Everyone's dates. Everyone's photos. One beautiful calendar.",
+    "category": "Collaborative family photo calendar",
+    "differentiator": "Intake → face tag → mosaic QC → print PDF — not a Canva collage alone."
+  },
+  "objectionsAndAnswers": [
+    {
+      "objection": "We can just use a photo book site.",
+      "answer": "CreateACal is built for multi-contributor dates + photos with print QC, not a solo design session."
+    }
+  ],
+  "proofPoints": [
+    "Collaborative verify-before-upload",
+    "Dual face-tagging",
+    "42-step Quality Check",
+    "Print-ready PDF pipeline"
+  ],
+  "ctaSuggestions": [
+    "Open your family calendar",
+    "Upload photos",
+    "Generate PDF"
+  ],
+  "features": [
+    {
+      "id": "pdf-generate",
+      "name": "Print-ready PDF pipeline",
+      "rank": 1,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 9,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "WeasyPrint Jan–Dec 26-page calendar with optional CMYK/ICC and R2 preview PNGs.",
+      "howToUse": "Open /admin/:slug/generate and use Print-ready PDF pipeline.",
+      "primaryRoute": "/admin/:slug/generate",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "WeasyPrint Jan–Dec 26-page calendar with optional CMYK/ICC and R2 preview PNGs.",
+      "description": "WeasyPrint Jan–Dec 26-page calendar with optional CMYK/ICC and R2 preview PNGs."
+    },
+    {
+      "id": "public-intake",
+      "name": "Collaborative public upload",
+      "rank": 2,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Verify-before-upload via magic/OTP or SMS OTP with Turnstile/quotas when configured.",
+      "howToUse": "Open /{slug} and use Collaborative public upload.",
+      "primaryRoute": "/{slug}",
+      "shotIds": [
+        "public-intake-default-polished",
+        "public-intake-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Verify-before-upload via magic/OTP or SMS OTP with Turnstile/quotas when configured.",
+      "description": "Verify-before-upload via magic/OTP or SMS OTP with Turnstile/quotas when configured."
+    },
+    {
+      "id": "face-tagging",
+      "name": "Dual face-tagging",
+      "rank": 3,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Per-photo tilted-line slider or on-device MediaPipe tap tagging.",
+      "howToUse": "Open /admin/:slug/tagging-stats and use Dual face-tagging.",
+      "primaryRoute": "/admin/:slug/tagging-stats",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Per-photo tilted-line slider or on-device MediaPipe tap tagging.",
+      "description": "Per-photo tilted-line slider or on-device MediaPipe tap tagging."
+    },
+    {
+      "id": "mosaic-slots",
+      "name": "Mosaic layouts + Slot Editor",
+      "rank": 4,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Shared mosaic catalog with zoom/pan framing and auto-assign heroes.",
+      "howToUse": "Open /admin/:slug/months/:month/photos and use Mosaic layouts + Slot Editor.",
+      "primaryRoute": "/admin/:slug/months/:month/photos",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Shared mosaic catalog with zoom/pan framing and auto-assign heroes.",
+      "description": "Shared mosaic catalog with zoom/pan framing and auto-assign heroes."
+    },
+    {
+      "id": "quality-check",
+      "name": "Quality Check (42 steps)",
+      "rank": 5,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Six-group automated audit with page banners (advisory today).",
+      "howToUse": "Open /admin/:slug/generate and use Quality Check (42 steps).",
+      "primaryRoute": "/admin/:slug/generate",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Six-group automated audit with page banners (advisory today).",
+      "description": "Six-group automated audit with page banners (advisory today)."
+    },
+    {
+      "id": "design-studio",
+      "name": "Design Studio / theme",
+      "rank": 6,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Per-calendar landscape theme: typography, captions, quotes, backgrounds.",
+      "howToUse": "Open /admin/:slug/design and use Design Studio / theme.",
+      "primaryRoute": "/admin/:slug/design",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Per-calendar landscape theme: typography, captions, quotes, backgrounds.",
+      "description": "Per-calendar landscape theme: typography, captions, quotes, backgrounds."
+    },
+    {
+      "id": "special-dates",
+      "name": "Calendar Fields",
+      "rank": 7,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Birthdays/anniversaries CSV import plus verified-lock spreadsheet.",
+      "howToUse": "Open /admin/:slug/calendar-fields and use Calendar Fields.",
+      "primaryRoute": "/admin/:slug/calendar-fields",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Birthdays/anniversaries CSV import plus verified-lock spreadsheet.",
+      "description": "Birthdays/anniversaries CSV import plus verified-lock spreadsheet."
+    },
+    {
+      "id": "multi-tenant",
+      "name": "Subdomain multi-tenant",
+      "rank": 8,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "{slug}.createacal.com tenants with routes and one-active rule.",
+      "howToUse": "Open /admin/:slug/* and use Subdomain multi-tenant.",
+      "primaryRoute": "/admin/:slug/*",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "{slug}.createacal.com tenants with routes and one-active rule.",
+      "description": "{slug}.createacal.com tenants with routes and one-active rule."
+    },
+    {
+      "id": "year-board",
+      "name": "Year Board",
+      "rank": 9,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Cross-month drag placement with atomic slot moves.",
+      "howToUse": "Open /admin/:slug/year-board and use Year Board.",
+      "primaryRoute": "/admin/:slug/year-board",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Cross-month drag placement with atomic slot moves.",
+      "description": "Cross-month drag placement with atomic slot moves."
+    },
+    {
+      "id": "captions-balance",
+      "name": "Captions + photo balance",
+      "rank": 10,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Year caption verify/edit and caption-name vs birthday roster balance.",
+      "howToUse": "Open /admin/:slug/captions and use Captions + photo balance.",
+      "primaryRoute": "/admin/:slug/captions",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Year caption verify/edit and caption-name vs birthday roster balance.",
+      "description": "Year caption verify/edit and caption-name vs birthday roster balance."
+    },
+    {
+      "id": "print-binding",
+      "name": "Punch / binding",
+      "rank": 11,
+      "uniqueScore": 3,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 5,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Square vs spiral; comb + hanging-hole geometry with editor overlays.",
+      "howToUse": "Open /admin/:slug/print-binding and use Punch / binding.",
+      "primaryRoute": "/admin/:slug/print-binding",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Square vs spiral; comb + hanging-hole geometry with editor overlays.",
+      "description": "Square vs spiral; comb + hanging-hole geometry with editor overlays."
+    },
+    {
+      "id": "covers-content",
+      "name": "Covers + monthly content",
+      "rank": 12,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Front/back cover plus monthly quotes/backgrounds.",
+      "howToUse": "Open /admin/:slug/cover and use Covers + monthly content.",
+      "primaryRoute": "/admin/:slug/cover",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Front/back cover plus monthly quotes/backgrounds.",
+      "description": "Front/back cover plus monthly quotes/backgrounds."
+    },
+    {
+      "id": "photo-lifecycle",
+      "name": "Review / trash / archive / dedupe",
+      "rank": 13,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Submitted review hub, 14-day trash, archives, and near-dup tools.",
+      "howToUse": "Open /admin/:slug and use Review / trash / archive / dedupe.",
+      "primaryRoute": "/admin/:slug",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Submitted review hub, 14-day trash, archives, and near-dup tools.",
+      "description": "Submitted review hub, 14-day trash, archives, and near-dup tools."
+    },
+    {
+      "id": "auth-passkeys",
+      "name": "Organizer + contributor auth",
+      "rank": 14,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 6,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Sessions, join codes, WebAuthn preferred after verify, magic/OTP backup.",
+      "howToUse": "Open /login and use Organizer + contributor auth.",
+      "primaryRoute": "/login",
+      "shotIds": [
+        "auth-passkeys-default-polished",
+        "auth-passkeys-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Sessions, join codes, WebAuthn preferred after verify, magic/OTP backup.",
+      "description": "Sessions, join codes, WebAuthn preferred after verify, magic/OTP backup."
+    },
+    {
+      "id": "platform-portal",
+      "name": "Platform admin",
+      "rank": 15,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 1,
+      "totalScore": 6,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 2,
+      "why": "Provision tenants/routes, upload kill switch, seats, secrets envelope.",
+      "howToUse": "Open https://platform.calemarley.com and use Platform admin.",
+      "primaryRoute": "https://platform.calemarley.com",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Provision tenants/routes, upload kill switch, seats, secrets envelope.",
+      "description": "Provision tenants/routes, upload kill switch, seats, secrets envelope."
+    }
+  ],
+  "shots": [
+    {
+      "id": "public-intake-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/createacal/frames/top-down/public-intake-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/createacal/frames/perspective/public-intake-default-iphone16-perspective.png",
+      "alt": "createacal public-intake (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "public-intake-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/createacal/wireframes/top-down/public-intake-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/createacal/wireframes/perspective/public-intake-default-iphone16-perspective.png",
+      "alt": "createacal public-intake (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "auth-passkeys-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/createacal/frames/top-down/auth-passkeys-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/createacal/frames/perspective/auth-passkeys-default-iphone16-perspective.png",
+      "alt": "createacal auth-passkeys (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "auth-passkeys-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/createacal/wireframes/top-down/auth-passkeys-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/createacal/wireframes/perspective/auth-passkeys-default-iphone16-perspective.png",
+      "alt": "createacal auth-passkeys (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "home-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/createacal/frames/top-down/home-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/createacal/frames/perspective/home-default-iphone16-perspective.png",
+      "alt": "createacal home (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "home-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/createacal/wireframes/top-down/home-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/createacal/wireframes/perspective/home-default-iphone16-perspective.png",
+      "alt": "createacal home (default) on iPhone 16",
+      "heroApproved": false
+    }
+  ]
+}

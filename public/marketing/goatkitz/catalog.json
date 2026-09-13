@@ -1,0 +1,528 @@
+{
+  "meta": {
+    "slug": "goatkitz",
+    "name": "GOATkitz",
+    "productUrl": "https://goatkitz.store",
+    "updatedAt": "2026-09-13T08:16:32.010Z",
+    "notes": "Deep audit 2026-09-13. Live shoppers still on Shopify; native stack targeting goatkitz.com.",
+    "suggestions": [
+      "Finish goatkitz.com cutover",
+      "Surface personalization preview on PDP",
+      "Market Help Agent + order status as post-purchase confidence"
+    ],
+    "adminEmail": "admin@goatkitz.com"
+  },
+  "targetConsumers": [
+    {
+      "persona": "Soccer fan buying personalized kits",
+      "jobsToBeDone": [
+        "Find the right jersey",
+        "Add name/number confidently",
+        "Track the order"
+      ],
+      "pains": [
+        "Generic storefronts",
+        "Personalization friction",
+        "Support black holes"
+      ]
+    }
+  ],
+  "positioning": {
+    "oneLiner": "Elite soccer jerseys & patches — personalized without the Shopify tax.",
+    "category": "Specialty soccer apparel ecommerce",
+    "differentiator": "Owned personalization + Help Agent + staff console, migrating off Shopify."
+  },
+  "objectionsAndAnswers": [
+    {
+      "objection": "Why not just stay on Shopify?",
+      "answer": "Owned checkout, personalization, and support tooling without platform lock-in."
+    }
+  ],
+  "proofPoints": [
+    "Jersey personalization without Quikify",
+    "Stripe checkout on owned stack",
+    "Help Agent with staff handoff"
+  ],
+  "ctaSuggestions": [
+    "Shop World Cup kits",
+    "Personalize a jersey",
+    "Track your order"
+  ],
+  "features": [
+    {
+      "id": "jersey-personalization",
+      "name": "Jersey personalization",
+      "rank": 1,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 9,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Owned option sets (name/number/add-ons) on PDP with line props in cart.",
+      "howToUse": "Open /products/:handle and use Jersey personalization.",
+      "primaryRoute": "/products/:handle",
+      "shotIds": [
+        "jersey-personalization-default-polished",
+        "jersey-personalization-default-wireframe",
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Owned option sets (name/number/add-ons) on PDP with line props in cart.",
+      "description": "Owned option sets (name/number/add-ons) on PDP with line props in cart."
+    },
+    {
+      "id": "collections-browse",
+      "name": "Collection browsing",
+      "rank": 2,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Shopify-handle collections with World Cup / adult / kids IA.",
+      "howToUse": "Open /collections/:handle and use Collection browsing.",
+      "primaryRoute": "/collections/:handle",
+      "shotIds": [
+        "collections-browse-default-polished",
+        "collections-browse-default-wireframe",
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Shopify-handle collections with World Cup / adult / kids IA.",
+      "description": "Shopify-handle collections with World Cup / adult / kids IA."
+    },
+    {
+      "id": "search-filter",
+      "name": "Search & filters",
+      "rank": 3,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Search plus team/league filters, sort, and pagination.",
+      "howToUse": "Open /search and use Search & filters.",
+      "primaryRoute": "/search",
+      "shotIds": [
+        "search-filter-default-polished",
+        "search-filter-default-wireframe",
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Search plus team/league filters, sort, and pagination.",
+      "description": "Search plus team/league filters, sort, and pagination."
+    },
+    {
+      "id": "stripe-checkout",
+      "name": "Stripe checkout",
+      "rank": 4,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Checkout Sessions to local Order with zone shipping and optional Stripe Tax.",
+      "howToUse": "Open /cart and use Stripe checkout.",
+      "primaryRoute": "/cart",
+      "shotIds": [
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Checkout Sessions to local Order with zone shipping and optional Stripe Tax.",
+      "description": "Checkout Sessions to local Order with zone shipping and optional Stripe Tax."
+    },
+    {
+      "id": "cart-discounts",
+      "name": "Cart + promo codes",
+      "rank": 5,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Persistent cart, discount codes, jersey free-shipping messaging.",
+      "howToUse": "Open /cart and use Cart + promo codes.",
+      "primaryRoute": "/cart",
+      "shotIds": [
+        "cart-discounts-default-polished",
+        "cart-discounts-default-wireframe",
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Persistent cart, discount codes, jersey free-shipping messaging.",
+      "description": "Persistent cart, discount codes, jersey free-shipping messaging."
+    },
+    {
+      "id": "customer-account",
+      "name": "Account (OTP / passkeys)",
+      "rank": 6,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Register/sign-in with email OTP, passkeys, password reset, and orders.",
+      "howToUse": "Open /account and use Account (OTP / passkeys).",
+      "primaryRoute": "/account",
+      "shotIds": [
+        "customer-account-default-polished",
+        "customer-account-default-wireframe",
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Register/sign-in with email OTP, passkeys, password reset, and orders.",
+      "description": "Register/sign-in with email OTP, passkeys, password reset, and orders."
+    },
+    {
+      "id": "help-agent",
+      "name": "Help Agent",
+      "rank": 7,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Storefront chat widget + FAQ topics with staff live handoff.",
+      "howToUse": "Open / and use Help Agent.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Storefront chat widget + FAQ topics with staff live handoff.",
+      "description": "Storefront chat widget + FAQ topics with staff live handoff."
+    },
+    {
+      "id": "favorites",
+      "name": "Favorites",
+      "rank": 8,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 3,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 5,
+      "why": "Star products, favorites page, add-all-to-cart.",
+      "howToUse": "Open /favorites and use Favorites.",
+      "primaryRoute": "/favorites",
+      "shotIds": [
+        "favorites-default-polished",
+        "favorites-default-wireframe",
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Star products, favorites page, add-all-to-cart.",
+      "description": "Star products, favorites page, add-all-to-cart."
+    },
+    {
+      "id": "track-order",
+      "name": "Track order",
+      "rank": 9,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Lookup by order/tracking # + email against owned Order DB.",
+      "howToUse": "Open /pages/track-order and use Track order.",
+      "primaryRoute": "/pages/track-order",
+      "shotIds": [
+        "track-order-default-polished",
+        "track-order-default-wireframe",
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Lookup by order/tracking # + email against owned Order DB.",
+      "description": "Lookup by order/tracking # + email against owned Order DB."
+    },
+    {
+      "id": "staff-fulfillment",
+      "name": "Staff orders & fulfillment",
+      "rank": 10,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 1,
+      "totalScore": 7,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 2,
+      "why": "Staff console for orders, fulfillments, returns, stock.",
+      "howToUse": "Open /staff/orders and use Staff orders & fulfillment.",
+      "primaryRoute": "/staff/orders",
+      "shotIds": [
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Staff console for orders, fulfillments, returns, stock.",
+      "description": "Staff console for orders, fulfillments, returns, stock."
+    },
+    {
+      "id": "staff-catalog",
+      "name": "Staff catalog & merch",
+      "rank": 11,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 1,
+      "totalScore": 6,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 2,
+      "why": "Products, collections, menus, homepage merch, pages.",
+      "howToUse": "Open /staff/products and use Staff catalog & merch.",
+      "primaryRoute": "/staff/products",
+      "shotIds": [
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Products, collections, menus, homepage merch, pages.",
+      "description": "Products, collections, menus, homepage merch, pages."
+    },
+    {
+      "id": "newsletter",
+      "name": "Newsletter signup",
+      "rank": 12,
+      "uniqueScore": 1,
+      "usefulScore": 2,
+      "popularScore": 3,
+      "totalScore": 6,
+      "uniquenessScore": 2,
+      "utilityScore": 3,
+      "consequenceScore": 5,
+      "why": "Homepage signup plus unsubscribe page.",
+      "howToUse": "Open / and use Newsletter signup.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Homepage signup plus unsubscribe page.",
+      "description": "Homepage signup plus unsubscribe page."
+    },
+    {
+      "id": "reviews-merch",
+      "name": "Homepage reviews",
+      "rank": 13,
+      "uniqueScore": 1,
+      "usefulScore": 2,
+      "popularScore": 3,
+      "totalScore": 6,
+      "uniquenessScore": 2,
+      "utilityScore": 3,
+      "consequenceScore": 5,
+      "why": "Staff-managed review strip on home.",
+      "howToUse": "Open / and use Homepage reviews.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Staff-managed review strip on home.",
+      "description": "Staff-managed review strip on home."
+    },
+    {
+      "id": "abandoned-cart",
+      "name": "Abandoned cart recovery",
+      "rank": 14,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 1,
+      "totalScore": 6,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 2,
+      "why": "Webhook + timer for expired Checkout Sessions.",
+      "howToUse": "Open /cart and use Abandoned cart recovery.",
+      "primaryRoute": "/cart",
+      "shotIds": [
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Webhook + timer for expired Checkout Sessions.",
+      "description": "Webhook + timer for expired Checkout Sessions."
+    },
+    {
+      "id": "mega-nav",
+      "name": "Mega-nav / redirects",
+      "rank": 15,
+      "uniqueScore": 1,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 5,
+      "uniquenessScore": 2,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Shopify-parity menus plus legacy path redirects.",
+      "howToUse": "Open / and use Mega-nav / redirects.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "storefront-default-polished",
+        "storefront-default-wireframe"
+      ],
+      "marketingHook": "Shopify-parity menus plus legacy path redirects.",
+      "description": "Shopify-parity menus plus legacy path redirects."
+    }
+  ],
+  "shots": [
+    {
+      "id": "jersey-personalization-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/goatkitz/frames/top-down/jersey-personalization-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/frames/perspective/jersey-personalization-default-iphone16-perspective.png",
+      "alt": "goatkitz jersey-personalization (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "jersey-personalization-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/goatkitz/wireframes/top-down/jersey-personalization-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/wireframes/perspective/jersey-personalization-default-iphone16-perspective.png",
+      "alt": "goatkitz jersey-personalization (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "collections-browse-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/goatkitz/frames/top-down/collections-browse-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/frames/perspective/collections-browse-default-iphone16-perspective.png",
+      "alt": "goatkitz collections-browse (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "collections-browse-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/goatkitz/wireframes/top-down/collections-browse-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/wireframes/perspective/collections-browse-default-iphone16-perspective.png",
+      "alt": "goatkitz collections-browse (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "search-filter-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/goatkitz/frames/top-down/search-filter-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/frames/perspective/search-filter-default-iphone16-perspective.png",
+      "alt": "goatkitz search-filter (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "search-filter-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/goatkitz/wireframes/top-down/search-filter-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/wireframes/perspective/search-filter-default-iphone16-perspective.png",
+      "alt": "goatkitz search-filter (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "cart-discounts-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/goatkitz/frames/top-down/cart-discounts-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/frames/perspective/cart-discounts-default-iphone16-perspective.png",
+      "alt": "goatkitz cart-discounts (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "cart-discounts-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/goatkitz/wireframes/top-down/cart-discounts-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/wireframes/perspective/cart-discounts-default-iphone16-perspective.png",
+      "alt": "goatkitz cart-discounts (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "customer-account-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/goatkitz/frames/top-down/customer-account-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/frames/perspective/customer-account-default-iphone16-perspective.png",
+      "alt": "goatkitz customer-account (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "customer-account-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/goatkitz/wireframes/top-down/customer-account-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/wireframes/perspective/customer-account-default-iphone16-perspective.png",
+      "alt": "goatkitz customer-account (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "favorites-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/goatkitz/frames/top-down/favorites-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/frames/perspective/favorites-default-iphone16-perspective.png",
+      "alt": "goatkitz favorites (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "favorites-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/goatkitz/wireframes/top-down/favorites-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/wireframes/perspective/favorites-default-iphone16-perspective.png",
+      "alt": "goatkitz favorites (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "track-order-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/goatkitz/frames/top-down/track-order-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/frames/perspective/track-order-default-iphone16-perspective.png",
+      "alt": "goatkitz track-order (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "track-order-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/goatkitz/wireframes/top-down/track-order-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/wireframes/perspective/track-order-default-iphone16-perspective.png",
+      "alt": "goatkitz track-order (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "storefront-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/goatkitz/frames/top-down/storefront-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/frames/perspective/storefront-default-iphone16-perspective.png",
+      "alt": "goatkitz storefront (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "storefront-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/goatkitz/wireframes/top-down/storefront-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/goatkitz/wireframes/perspective/storefront-default-iphone16-perspective.png",
+      "alt": "goatkitz storefront (default) on iPhone 16",
+      "heroApproved": false
+    }
+  ]
+}

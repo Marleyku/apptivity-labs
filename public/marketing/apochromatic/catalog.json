@@ -1,0 +1,487 @@
+{
+  "meta": {
+    "slug": "apochromatic",
+    "name": "Apochromatic",
+    "productUrl": "https://apo.kunzlerfamily.com",
+    "updatedAt": "2026-09-13T08:16:32.010Z",
+    "notes": "Deep audit 2026-09-13. Timer/scores/next-task APIs exist without SPA — omitted from top 15.",
+    "suggestions": [
+      "Sell rank-drives-calendar with preview→confirm hero",
+      "Finish timer / scores / next-task UI",
+      "Make segment importance the visible differentiator"
+    ],
+    "adminEmail": "admin@kunzlerfamily.com"
+  },
+  "targetConsumers": [
+    {
+      "persona": "Knowledge worker who plans capacity intentionally",
+      "jobsToBeDone": [
+        "Rank work honestly",
+        "Fit work into real calendar capacity"
+      ],
+      "pains": [
+        "Calendar-order lies",
+        "Estimates ignore segments",
+        "Accidental calendar writes"
+      ]
+    }
+  ],
+  "positioning": {
+    "oneLiner": "Rank drives the calendar — not the reverse.",
+    "category": "Personal capacity planning",
+    "differentiator": "Segments + importance + explicit Google confirm writes."
+  },
+  "objectionsAndAnswers": [
+    {
+      "objection": "Isn’t this just another todo + Google Calendar?",
+      "answer": "Apochromatic ranks segments across tasks and only writes blocks you explicitly confirm."
+    }
+  ],
+  "proofPoints": [
+    "Segment importance tiers",
+    "Working windows + capacity preview",
+    "Explicit confirm-to-Google"
+  ],
+  "ctaSuggestions": [
+    "Open planner",
+    "Link Google Calendar",
+    "Rank your segments"
+  ],
+  "features": [
+    {
+      "id": "schedule-confirm",
+      "name": "Day plan → Google confirm",
+      "rank": 1,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Preview segments into free capacity; explicit confirm writes app blocks.",
+      "howToUse": "Open /planner and use Day plan → Google confirm.",
+      "primaryRoute": "/planner",
+      "shotIds": [
+        "schedule-confirm-default-polished",
+        "schedule-confirm-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Preview segments into free capacity; explicit confirm writes app blocks.",
+      "description": "Preview segments into free capacity; explicit confirm writes app blocks."
+    },
+    {
+      "id": "calendar-sync",
+      "name": "Google Calendar link",
+      "rank": 2,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "OAuth, calendar selections, sync mirrored events.",
+      "howToUse": "Open /calendar and use Google Calendar link.",
+      "primaryRoute": "/calendar",
+      "shotIds": [
+        "calendar-sync-default-polished",
+        "calendar-sync-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "OAuth, calendar selections, sync mirrored events.",
+      "description": "OAuth, calendar selections, sync mirrored events."
+    },
+    {
+      "id": "working-windows",
+      "name": "Working windows",
+      "rank": 3,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Recurring capacity bands with presets and CRUD.",
+      "howToUse": "Open /calendar and use Working windows.",
+      "primaryRoute": "/calendar",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Recurring capacity bands with presets and CRUD.",
+      "description": "Recurring capacity bands with presets and CRUD."
+    },
+    {
+      "id": "task-segments",
+      "name": "Task segments",
+      "rank": 4,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Segment spreadsheet; estimate equals sum of segment minutes.",
+      "howToUse": "Open /tasks/:id and use Task segments.",
+      "primaryRoute": "/tasks/:id",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Segment spreadsheet; estimate equals sum of segment minutes.",
+      "description": "Segment spreadsheet; estimate equals sum of segment minutes."
+    },
+    {
+      "id": "segment-importance",
+      "name": "Segment importance 0–8",
+      "rank": 5,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 1,
+      "totalScore": 7,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 2,
+      "why": "Cross-task urgency tiers drive planning order.",
+      "howToUse": "Open /tasks/:id and use Segment importance 0–8.",
+      "primaryRoute": "/tasks/:id",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Cross-task urgency tiers drive planning order.",
+      "description": "Cross-task urgency tiers drive planning order."
+    },
+    {
+      "id": "rankings-pairwise",
+      "name": "Rankings + pairwise",
+      "rank": 6,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 1,
+      "totalScore": 7,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 2,
+      "why": "Drag task order plus pairwise preference for ranked segments.",
+      "howToUse": "Open /rankings and use Rankings + pairwise.",
+      "primaryRoute": "/rankings",
+      "shotIds": [
+        "rankings-pairwise-default-polished",
+        "rankings-pairwise-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Drag task order plus pairwise preference for ranked segments.",
+      "description": "Drag task order plus pairwise preference for ranked segments."
+    },
+    {
+      "id": "task-list-filters",
+      "name": "Tasks list / inbox",
+      "rank": 7,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Filters, sorts, grouping, rapid inbox create, reorder.",
+      "howToUse": "Open /tasks and use Tasks list / inbox.",
+      "primaryRoute": "/tasks",
+      "shotIds": [
+        "task-list-filters-default-polished",
+        "task-list-filters-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Filters, sorts, grouping, rapid inbox create, reorder.",
+      "description": "Filters, sorts, grouping, rapid inbox create, reorder."
+    },
+    {
+      "id": "hierarchy",
+      "name": "Domains / projects / contexts",
+      "rank": 8,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Hierarchy management plus active-list scope.",
+      "howToUse": "Open /projects-domains and use Domains / projects / contexts.",
+      "primaryRoute": "/projects-domains",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Hierarchy management plus active-list scope.",
+      "description": "Hierarchy management plus active-list scope."
+    },
+    {
+      "id": "capacity-preview",
+      "name": "Capacity preview",
+      "rank": 9,
+      "uniqueScore": 3,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 5,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Effective capacity after busy mirrored time.",
+      "howToUse": "Open /calendar and use Capacity preview.",
+      "primaryRoute": "/calendar",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Effective capacity after busy mirrored time.",
+      "description": "Effective capacity after busy mirrored time."
+    },
+    {
+      "id": "maintenance-tasks",
+      "name": "Maintenance recurrence",
+      "rank": 10,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 1,
+      "totalScore": 7,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 2,
+      "why": "Complete instance → spawn next with interval/anchor.",
+      "howToUse": "Open /tasks/:id and use Maintenance recurrence.",
+      "primaryRoute": "/tasks/:id",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Complete instance → spawn next with interval/anchor.",
+      "description": "Complete instance → spawn next with interval/anchor."
+    },
+    {
+      "id": "history-actuals",
+      "name": "History + actual minutes",
+      "rank": 11,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 6,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Completed history with optional actual minutes on complete.",
+      "howToUse": "Open /history and use History + actual minutes.",
+      "primaryRoute": "/history",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Completed history with optional actual minutes on complete.",
+      "description": "Completed history with optional actual minutes on complete."
+    },
+    {
+      "id": "task-dependencies",
+      "name": "Follows / precedes",
+      "rank": 12,
+      "uniqueScore": 3,
+      "usefulScore": 2,
+      "popularScore": 1,
+      "totalScore": 6,
+      "uniquenessScore": 5,
+      "utilityScore": 3,
+      "consequenceScore": 2,
+      "why": "Task- and segment-level deps with circular reject.",
+      "howToUse": "Open /tasks/:id and use Follows / precedes.",
+      "primaryRoute": "/tasks/:id",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Task- and segment-level deps with circular reject.",
+      "description": "Task- and segment-level deps with circular reject."
+    },
+    {
+      "id": "auth",
+      "name": "Auth",
+      "rank": 13,
+      "uniqueScore": 1,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 6,
+      "uniquenessScore": 2,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Register, login, forgot/reset password, JWT.",
+      "howToUse": "Open /login and use Auth.",
+      "primaryRoute": "/login",
+      "shotIds": [
+        "auth-default-polished",
+        "auth-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Register, login, forgot/reset password, JWT.",
+      "description": "Register, login, forgot/reset password, JWT."
+    },
+    {
+      "id": "notes",
+      "name": "Scoped notes",
+      "rank": 14,
+      "uniqueScore": 1,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 5,
+      "uniquenessScore": 2,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Domain/project notes plus file attachments.",
+      "howToUse": "Open /notes and use Scoped notes.",
+      "primaryRoute": "/notes",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Domain/project notes plus file attachments.",
+      "description": "Domain/project notes plus file attachments."
+    },
+    {
+      "id": "admin-backup",
+      "name": "Admin DB/repo backup",
+      "rank": 15,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 1,
+      "totalScore": 5,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 2,
+      "why": "Download or GitHub push dumps for allowlisted emails.",
+      "howToUse": "Open /admin and use Admin DB/repo backup.",
+      "primaryRoute": "/admin",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Download or GitHub push dumps for allowlisted emails.",
+      "description": "Download or GitHub push dumps for allowlisted emails."
+    }
+  ],
+  "shots": [
+    {
+      "id": "schedule-confirm-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/apochromatic/frames/top-down/schedule-confirm-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apochromatic/frames/perspective/schedule-confirm-default-iphone16-perspective.png",
+      "alt": "apochromatic schedule-confirm (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "schedule-confirm-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/apochromatic/wireframes/top-down/schedule-confirm-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apochromatic/wireframes/perspective/schedule-confirm-default-iphone16-perspective.png",
+      "alt": "apochromatic schedule-confirm (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "calendar-sync-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/apochromatic/frames/top-down/calendar-sync-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apochromatic/frames/perspective/calendar-sync-default-iphone16-perspective.png",
+      "alt": "apochromatic calendar-sync (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "calendar-sync-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/apochromatic/wireframes/top-down/calendar-sync-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apochromatic/wireframes/perspective/calendar-sync-default-iphone16-perspective.png",
+      "alt": "apochromatic calendar-sync (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "rankings-pairwise-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/apochromatic/frames/top-down/rankings-pairwise-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apochromatic/frames/perspective/rankings-pairwise-default-iphone16-perspective.png",
+      "alt": "apochromatic rankings-pairwise (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "rankings-pairwise-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/apochromatic/wireframes/top-down/rankings-pairwise-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apochromatic/wireframes/perspective/rankings-pairwise-default-iphone16-perspective.png",
+      "alt": "apochromatic rankings-pairwise (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "task-list-filters-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/apochromatic/frames/top-down/task-list-filters-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apochromatic/frames/perspective/task-list-filters-default-iphone16-perspective.png",
+      "alt": "apochromatic task-list-filters (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "task-list-filters-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/apochromatic/wireframes/top-down/task-list-filters-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apochromatic/wireframes/perspective/task-list-filters-default-iphone16-perspective.png",
+      "alt": "apochromatic task-list-filters (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "auth-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/apochromatic/frames/top-down/auth-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apochromatic/frames/perspective/auth-default-iphone16-perspective.png",
+      "alt": "apochromatic auth (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "auth-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/apochromatic/wireframes/top-down/auth-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apochromatic/wireframes/perspective/auth-default-iphone16-perspective.png",
+      "alt": "apochromatic auth (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "home-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/apochromatic/frames/top-down/home-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apochromatic/frames/perspective/home-default-iphone16-perspective.png",
+      "alt": "apochromatic home (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "home-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/apochromatic/wireframes/top-down/home-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/apochromatic/wireframes/perspective/home-default-iphone16-perspective.png",
+      "alt": "apochromatic home (default) on iPhone 16",
+      "heroApproved": false
+    }
+  ]
+}

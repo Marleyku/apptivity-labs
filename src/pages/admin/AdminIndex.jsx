@@ -5,6 +5,11 @@ const KNOWN = [
   { slug: 'miles2go', name: 'Miles2Go', blurb: 'Household vehicle history' },
   { slug: 'favorbank', name: 'FavorBank', blurb: 'Couples favors & rewards' },
   { slug: 'apptivity', name: 'APPtivity', blurb: 'Group activities (DPAR)' },
+  { slug: 'createacal', name: 'CreateACal', blurb: 'Family photo calendars' },
+  { slug: 'goatkitz', name: 'GOATkitz', blurb: 'Soccer jerseys & patches' },
+  { slug: 'teaching', name: 'Teaching', blurb: 'Instructor lesson canvas' },
+  { slug: 'apochromatic', name: 'Apochromatic', blurb: 'Capacity planning' },
+  { slug: 'sites', name: 'APPtivity Labs Site', blurb: 'Corporate marketing' },
 ];
 
 export default function AdminIndex() {
@@ -55,8 +60,8 @@ export default function AdminIndex() {
         <p className="admin-kicker">Marketing catalog</p>
         <div className="ops-title-row">
           <h1>Product galleries</h1>
-          <Link to="/admin/control" className="button button-quiet">
-            Control panel
+          <Link to="/status" className="button button-quiet">
+            Fleet status
           </Link>
         </div>
         <p className="admin-lead">

@@ -687,6 +687,16 @@ footer {
   letter-spacing: -0.02em;
 }
 
+.legal-body ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: var(--ink-soft);
+}
+
+.legal-body li {
+  margin-bottom: 0.35rem;
+}
+
 .legal-body p {
   margin: 0 0 14px;
   color: var(--muted);

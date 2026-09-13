@@ -36,6 +36,8 @@ export const HEALTH_SERVICES = [
         kind: 'frontend',
         label: 'www.apptivity.online',
         url: 'https://www.apptivity.online/',
+        // Same-zone Worker→www fetch can return transient 522; treat as self-healthy.
+        self: true,
       },
       {
         id: 'worker',
@@ -114,14 +116,15 @@ export const HEALTH_SERVICES = [
       {
         id: 'front',
         kind: 'frontend',
-        label: 'Web app',
+        label: 'Marketing www',
         url: 'https://www.createacal.com/',
       },
       {
         id: 'api',
         kind: 'backend',
-        label: 'API /api/health',
-        url: 'https://www.createacal.com/api/health',
+        // Apex/www is a separate marketing Worker; API is on tenant tunnel hosts.
+        label: 'API /api/health (platform)',
+        url: 'https://platform.createacal.com/api/health',
         expectJsonOk: true,
       },
     ],
@@ -251,7 +254,8 @@ export async function handleOpsHealth(_request, _env) {
               id: check.id,
               kind: check.kind,
               label: check.label,
-              url: check.url,
+              // Do not publish private/Tailscale hostnames on the public status API.
+              url: null,
               ok: null,
               skipped: true,
               status: null,

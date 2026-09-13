@@ -1,0 +1,514 @@
+{
+  "meta": {
+    "slug": "sites",
+    "name": "APPtivity Labs Site",
+    "productUrl": "https://www.apptivity.online",
+    "updatedAt": "2026-09-13T08:16:32.010Z",
+    "notes": "Corporate marketing site — thin catalog (11 features). sms-opt-in + APPtivity-public repos skipped as non-product.",
+    "suggestions": [
+      "Add GoatKitz / CreateACal / Apo into product grid when ready",
+      "Use Feedback FAB as proof of listening",
+      "Keep admin catalogs as hero-frame source of truth"
+    ],
+    "adminEmail": "admin@apptivity.online"
+  },
+  "targetConsumers": [
+    {
+      "persona": "Prospective beta user / partner",
+      "jobsToBeDone": [
+        "Learn what Labs ships",
+        "Request access"
+      ],
+      "pains": [
+        "Unclear product line",
+        "No trust signals"
+      ]
+    }
+  ],
+  "positioning": {
+    "oneLiner": "APPtivity Labs — household and group software, built carefully.",
+    "category": "Corporate marketing",
+    "differentiator": "Product-led Labs site with Access-protected catalogs and gated feedback."
+  },
+  "objectionsAndAnswers": [
+    {
+      "objection": "Is this just a landing page?",
+      "answer": "It also runs beta intake, legal/SMS compliance, fleet status, and the marketing catalog gallery."
+    }
+  ],
+  "proofPoints": [
+    "Live product showcase",
+    "Beta KV intake",
+    "Access-protected admin catalogs"
+  ],
+  "ctaSuggestions": [
+    "Request beta access",
+    "Explore products",
+    "Read privacy"
+  ],
+  "features": [
+    {
+      "id": "product-showcase",
+      "name": "Product showcase",
+      "rank": 1,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Miles2Go, FavorBank, APPtivity, CreateACal sections with product shots.",
+      "howToUse": "Open /#products and use Product showcase.",
+      "primaryRoute": "/#products",
+      "shotIds": [
+        "product-showcase-default-polished",
+        "product-showcase-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Miles2Go, FavorBank, APPtivity, CreateACal sections with product shots.",
+      "description": "Miles2Go, FavorBank, APPtivity, CreateACal sections with product shots."
+    },
+    {
+      "id": "beta-form",
+      "name": "Beta applications",
+      "rank": 2,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Form → Worker KV BETA_APPLICATIONS.",
+      "howToUse": "Open /#beta and use Beta applications.",
+      "primaryRoute": "/#beta",
+      "shotIds": [
+        "beta-form-default-polished",
+        "beta-form-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Form → Worker KV BETA_APPLICATIONS.",
+      "description": "Form → Worker KV BETA_APPLICATIONS."
+    },
+    {
+      "id": "feedback-fab",
+      "name": "Feedback FAB",
+      "rank": 3,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 1,
+      "totalScore": 7,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 2,
+      "why": "Screenshot + markup → KV + Linear [Needs Review].",
+      "howToUse": "Open / and use Feedback FAB.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Screenshot + markup → KV + Linear [Needs Review].",
+      "description": "Screenshot + markup → KV + Linear [Needs Review]."
+    },
+    {
+      "id": "admin-catalogs",
+      "name": "Admin marketing catalogs",
+      "rank": 4,
+      "uniqueScore": 3,
+      "usefulScore": 2,
+      "popularScore": 1,
+      "totalScore": 6,
+      "uniquenessScore": 5,
+      "utilityScore": 3,
+      "consequenceScore": 2,
+      "why": "Top-15 + iPhone frames per app under Access-protected /admin.",
+      "howToUse": "Open /admin/:appSlug and use Admin marketing catalogs.",
+      "primaryRoute": "/admin/:appSlug",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Top-15 + iPhone frames per app under Access-protected /admin.",
+      "description": "Top-15 + iPhone frames per app under Access-protected /admin."
+    },
+    {
+      "id": "fleet-status",
+      "name": "Fleet status panel",
+      "rank": 5,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 1,
+      "totalScore": 5,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 2,
+      "why": "/api/ops/health probes + UI.",
+      "howToUse": "Open /status and use Fleet status panel.",
+      "primaryRoute": "/status",
+      "shotIds": [
+        "fleet-status-default-polished",
+        "fleet-status-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "/api/ops/health probes + UI.",
+      "description": "/api/ops/health probes + UI."
+    },
+    {
+      "id": "sms-opt-in",
+      "name": "SMS opt-in page",
+      "rank": 6,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 1,
+      "totalScore": 5,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 2,
+      "why": "Carrier/Twilio consent copy for Labs messaging.",
+      "howToUse": "Open /sms-opt-in and use SMS opt-in page.",
+      "primaryRoute": "/sms-opt-in",
+      "shotIds": [
+        "sms-opt-in-default-polished",
+        "sms-opt-in-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Carrier/Twilio consent copy for Labs messaging.",
+      "description": "Carrier/Twilio consent copy for Labs messaging."
+    },
+    {
+      "id": "privacy",
+      "name": "Privacy policy",
+      "rank": 7,
+      "uniqueScore": 1,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 5,
+      "uniquenessScore": 2,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Legal privacy page.",
+      "howToUse": "Open /privacy and use Privacy policy.",
+      "primaryRoute": "/privacy",
+      "shotIds": [
+        "privacy-default-polished",
+        "privacy-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Legal privacy page.",
+      "description": "Legal privacy page."
+    },
+    {
+      "id": "terms",
+      "name": "Terms of service",
+      "rank": 8,
+      "uniqueScore": 1,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 5,
+      "uniquenessScore": 2,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Legal terms page.",
+      "howToUse": "Open /terms and use Terms of service.",
+      "primaryRoute": "/terms",
+      "shotIds": [
+        "terms-default-polished",
+        "terms-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Legal terms page.",
+      "description": "Legal terms page."
+    },
+    {
+      "id": "approach-story",
+      "name": "Approach / about",
+      "rank": 9,
+      "uniqueScore": 1,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 5,
+      "uniquenessScore": 2,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Brand principles + Utah about.",
+      "howToUse": "Open /#approach and use Approach / about.",
+      "primaryRoute": "/#approach",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Brand principles + Utah about.",
+      "description": "Brand principles + Utah about."
+    },
+    {
+      "id": "contact-cta",
+      "name": "Contact",
+      "rank": 10,
+      "uniqueScore": 1,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 5,
+      "uniquenessScore": 2,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "hello@apptivity.online CTAs.",
+      "howToUse": "Open / and use Contact.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "hello@apptivity.online CTAs.",
+      "description": "hello@apptivity.online CTAs."
+    },
+    {
+      "id": "access-admin",
+      "name": "Cloudflare Access admin",
+      "rank": 11,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 1,
+      "totalScore": 5,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 2,
+      "why": "Edge-protected /admin* (+ optional Basic Auth).",
+      "howToUse": "Open /admin and use Cloudflare Access admin.",
+      "primaryRoute": "/admin",
+      "shotIds": [
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Edge-protected /admin* (+ optional Basic Auth).",
+      "description": "Edge-protected /admin* (+ optional Basic Auth)."
+    },
+    {
+      "id": "home-hero",
+      "name": "Marketing hero",
+      "rank": 12,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 6,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Brand-first first viewport for APPtivity Labs.",
+      "howToUse": "Open /.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "product-showcase-default-polished",
+        "product-showcase-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Brand-first first viewport for APPtivity Labs.",
+      "description": "Brand-first first viewport for APPtivity Labs."
+    },
+    {
+      "id": "createacal-promo",
+      "name": "CreateACal product card",
+      "rank": 13,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 6,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "CreateACal highlight in the product grid / shots.",
+      "howToUse": "Open /#products.",
+      "primaryRoute": "/#products",
+      "shotIds": [
+        "product-showcase-default-polished",
+        "product-showcase-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "CreateACal highlight in the product grid / shots.",
+      "description": "CreateACal highlight in the product grid / shots."
+    },
+    {
+      "id": "legal-layout",
+      "name": "Legal layout shell",
+      "rank": 14,
+      "uniqueScore": 1,
+      "usefulScore": 2,
+      "popularScore": 1,
+      "totalScore": 4,
+      "uniquenessScore": 2,
+      "utilityScore": 3,
+      "consequenceScore": 2,
+      "why": "Shared legal page chrome for Privacy/Terms/SMS.",
+      "howToUse": "Open /privacy.",
+      "primaryRoute": "/privacy",
+      "shotIds": [
+        "product-showcase-default-polished",
+        "product-showcase-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Shared legal page chrome for Privacy/Terms/SMS.",
+      "description": "Shared legal page chrome for Privacy/Terms/SMS."
+    },
+    {
+      "id": "ops-health-api",
+      "name": "Ops health API",
+      "rank": 15,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 1,
+      "totalScore": 5,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 2,
+      "why": "Worker /api/ops/health for fleet probes feeding Status.",
+      "howToUse": "Open /api/ops/health.",
+      "primaryRoute": "/api/ops/health",
+      "shotIds": [
+        "product-showcase-default-polished",
+        "product-showcase-default-wireframe",
+        "home-default-polished",
+        "home-default-wireframe"
+      ],
+      "marketingHook": "Worker /api/ops/health for fleet probes feeding Status.",
+      "description": "Worker /api/ops/health for fleet probes feeding Status."
+    }
+  ],
+  "shots": [
+    {
+      "id": "product-showcase-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/sites/frames/top-down/product-showcase-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/frames/perspective/product-showcase-default-iphone16-perspective.png",
+      "alt": "sites product-showcase (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "product-showcase-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/sites/wireframes/top-down/product-showcase-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/wireframes/perspective/product-showcase-default-iphone16-perspective.png",
+      "alt": "sites product-showcase (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "beta-form-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/sites/frames/top-down/beta-form-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/frames/perspective/beta-form-default-iphone16-perspective.png",
+      "alt": "sites beta-form (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "beta-form-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/sites/wireframes/top-down/beta-form-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/wireframes/perspective/beta-form-default-iphone16-perspective.png",
+      "alt": "sites beta-form (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "fleet-status-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/sites/frames/top-down/fleet-status-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/frames/perspective/fleet-status-default-iphone16-perspective.png",
+      "alt": "sites fleet-status (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "fleet-status-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/sites/wireframes/top-down/fleet-status-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/wireframes/perspective/fleet-status-default-iphone16-perspective.png",
+      "alt": "sites fleet-status (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "sms-opt-in-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/sites/frames/top-down/sms-opt-in-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/frames/perspective/sms-opt-in-default-iphone16-perspective.png",
+      "alt": "sites sms-opt-in (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "sms-opt-in-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/sites/wireframes/top-down/sms-opt-in-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/wireframes/perspective/sms-opt-in-default-iphone16-perspective.png",
+      "alt": "sites sms-opt-in (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "privacy-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/sites/frames/top-down/privacy-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/frames/perspective/privacy-default-iphone16-perspective.png",
+      "alt": "sites privacy (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "privacy-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/sites/wireframes/top-down/privacy-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/wireframes/perspective/privacy-default-iphone16-perspective.png",
+      "alt": "sites privacy (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "terms-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/sites/frames/top-down/terms-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/frames/perspective/terms-default-iphone16-perspective.png",
+      "alt": "sites terms (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "terms-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/sites/wireframes/top-down/terms-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/wireframes/perspective/terms-default-iphone16-perspective.png",
+      "alt": "sites terms (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "home-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/sites/frames/top-down/home-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/frames/perspective/home-default-iphone16-perspective.png",
+      "alt": "sites home (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "home-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/sites/wireframes/top-down/home-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/sites/wireframes/perspective/home-default-iphone16-perspective.png",
+      "alt": "sites home (default) on iPhone 16",
+      "heroApproved": false
+    }
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "meta": {
+    "slug": "teaching",
+    "name": "Teaching — No Greater Call",
+    "productUrl": null,
+    "updatedAt": "2026-09-13T08:16:32.010Z",
+    "notes": "Deep audit 2026-09-13. No public product URL; Tailscale HTTPS for private instructor use.",
+    "suggestions": [
+      "Index cards that present (canvas → path → slides)",
+      "Lead with private instructor notes during screen share",
+      "True offline present/edit on tablets"
+    ],
+    "adminEmail": "admin@goapptivity.com"
+  },
+  "targetConsumers": [
+    {
+      "persona": "Instructor / seminary teacher",
+      "jobsToBeDone": [
+        "Author a lesson spatially",
+        "Present without losing private notes"
+      ],
+      "pains": [
+        "Slide tools fight freeform prep",
+        "Private notes leak on share"
+      ]
+    }
+  ],
+  "positioning": {
+    "oneLiner": "Index-card lessons that present — privately.",
+    "category": "Instructor lesson workspace",
+    "differentiator": "Infinite cards + relationships + private presenter window + offline."
+  },
+  "objectionsAndAnswers": [
+    {
+      "objection": "I already use PowerPoint.",
+      "answer": "Teaching keeps authoring spatial and presentation linked, with private cards that never hit the projector."
+    }
+  ],
+  "proofPoints": [
+    "Infinite canvas",
+    "Private presenter window",
+    "Take Offline portable backup"
+  ],
+  "ctaSuggestions": [
+    "Open workspace",
+    "Take Offline",
+    "Start presenting"
+  ],
+  "features": [
+    {
+      "id": "infinite-canvas",
+      "name": "Infinite card canvas",
+      "rank": 1,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Pan/zoom workspace with cream/whiteboard/cork/bulletin looks.",
+      "howToUse": "Open / and use Infinite card canvas.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "infinite-canvas-default-polished",
+        "infinite-canvas-default-wireframe",
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Pan/zoom workspace with cream/whiteboard/cork/bulletin looks.",
+      "description": "Pan/zoom workspace with cream/whiteboard/cork/bulletin looks."
+    },
+    {
+      "id": "card-content",
+      "name": "Rich cards",
+      "rank": 2,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Text, freehand ink, images/photos; colors, patterns, URL, type tools.",
+      "howToUse": "Open / and use Rich cards.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Text, freehand ink, images/photos; colors, patterns, URL, type tools.",
+      "description": "Text, freehand ink, images/photos; colors, patterns, URL, type tools."
+    },
+    {
+      "id": "relationships",
+      "name": "Relationship rules",
+      "rank": 3,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Closely follows / after / before / side-by-side / locked offset / stack / deck.",
+      "howToUse": "Open / and use Relationship rules.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Closely follows / after / before / side-by-side / locked offset / stack / deck.",
+      "description": "Closely follows / after / before / side-by-side / locked offset / stack / deck."
+    },
+    {
+      "id": "presentation-path",
+      "name": "Presentation path",
+      "rank": 4,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Tap or draw path with conflict resolution before present.",
+      "howToUse": "Open / and use Presentation path.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Tap or draw path with conflict resolution before present.",
+      "description": "Tap or draw path with conflict resolution before present."
+    },
+    {
+      "id": "present-mode",
+      "name": "Presentation mode",
+      "rank": 5,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Slide/doc advance with tap vs hold-to-interact.",
+      "howToUse": "Open / and use Presentation mode.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Slide/doc advance with tap vs hold-to-interact.",
+      "description": "Slide/doc advance with tap vs hold-to-interact."
+    },
+    {
+      "id": "private-presenter",
+      "name": "Private + presenter window",
+      "rank": 6,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Private cards → P placeholders; content in separate presenter window.",
+      "howToUse": "Open / and use Private + presenter window.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Private cards → P placeholders; content in separate presenter window.",
+      "description": "Private cards → P placeholders; content in separate presenter window."
+    },
+    {
+      "id": "stacks-decks",
+      "name": "Stacks & decks",
+      "rank": 7,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Stack selection / deck whole lesson; column→grid→row→collapsed.",
+      "howToUse": "Open / and use Stacks & decks.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Stack selection / deck whole lesson; column→grid→row→collapsed.",
+      "description": "Stack selection / deck whole lesson; column→grid→row→collapsed."
+    },
+    {
+      "id": "merge-drop",
+      "name": "Drop merge",
+      "rank": 8,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Drop onto card merges; onto stack adds; undo restores.",
+      "howToUse": "Open / and use Drop merge.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Drop onto card merges; onto stack adds; undo restores.",
+      "description": "Drop onto card merges; onto stack adds; undo restores."
+    },
+    {
+      "id": "offline",
+      "name": "Take Offline",
+      "rank": 9,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Service worker + IndexedDB + .teaching.json portable backup.",
+      "howToUse": "Open / and use Take Offline.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Service worker + IndexedDB + .teaching.json portable backup.",
+      "description": "Service worker + IndexedDB + .teaching.json portable backup."
+    },
+    {
+      "id": "handwriting-ocr",
+      "name": "Handwriting → text",
+      "rank": 10,
+      "uniqueScore": 3,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 5,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Device handwriting API or local Tesseract while keeping ink.",
+      "howToUse": "Open / and use Handwriting → text.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Device handwriting API or local Tesseract while keeping ink.",
+      "description": "Device handwriting API or local Tesseract while keeping ink."
+    },
+    {
+      "id": "templates",
+      "name": "Templates",
+      "rank": 11,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Save/import full lesson arrangements.",
+      "howToUse": "Open / and use Templates.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Save/import full lesson arrangements.",
+      "description": "Save/import full lesson arrangements."
+    },
+    {
+      "id": "export-md-pdf",
+      "name": "Markdown / PDF export",
+      "rank": 12,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "ZIP+assets or card pages / spatial PDF with private opt-in.",
+      "howToUse": "Open / and use Markdown / PDF export.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "ZIP+assets or card pages / spatial PDF with private opt-in.",
+      "description": "ZIP+assets or card pages / spatial PDF with private opt-in."
+    },
+    {
+      "id": "flowchart",
+      "name": "Flowchart mode",
+      "rank": 13,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 6,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Audience map of cards + relationships.",
+      "howToUse": "Open / and use Flowchart mode.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Audience map of cards + relationships.",
+      "description": "Audience map of cards + relationships."
+    },
+    {
+      "id": "undo-history",
+      "name": "Undo (3 actions)",
+      "rank": 14,
+      "uniqueScore": 1,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 6,
+      "uniquenessScore": 2,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Last three canvas actions; stroke undo separate.",
+      "howToUse": "Open / and use Undo (3 actions).",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Last three canvas actions; stroke undo separate.",
+      "description": "Last three canvas actions; stroke undo separate."
+    },
+    {
+      "id": "collab-presence",
+      "name": "Concurrent edit warnings",
+      "rank": 15,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 1,
+      "totalScore": 5,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 2,
+      "why": "Presence + conflict snapshots for resolution.",
+      "howToUse": "Open / and use Concurrent edit warnings.",
+      "primaryRoute": "/",
+      "shotIds": [
+        "workspace-default-polished",
+        "workspace-default-wireframe"
+      ],
+      "marketingHook": "Presence + conflict snapshots for resolution.",
+      "description": "Presence + conflict snapshots for resolution."
+    }
+  ],
+  "shots": [
+    {
+      "id": "infinite-canvas-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/teaching/frames/top-down/infinite-canvas-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/teaching/frames/perspective/infinite-canvas-default-iphone16-perspective.png",
+      "alt": "teaching infinite-canvas (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "infinite-canvas-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/teaching/wireframes/top-down/infinite-canvas-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/teaching/wireframes/perspective/infinite-canvas-default-iphone16-perspective.png",
+      "alt": "teaching infinite-canvas (default) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "workspace-default-polished",
+      "theme": "default",
+      "kind": "polished",
+      "topDownPath": "/marketing/teaching/frames/top-down/workspace-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/teaching/frames/perspective/workspace-default-iphone16-perspective.png",
+      "alt": "teaching workspace (default) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "workspace-default-wireframe",
+      "theme": "default",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/teaching/wireframes/top-down/workspace-default-iphone16-topdown.png",
+      "perspectivePath": "/marketing/teaching/wireframes/perspective/workspace-default-iphone16-perspective.png",
+      "alt": "teaching workspace (default) on iPhone 16",
+      "heroApproved": false
+    }
+  ]
+}

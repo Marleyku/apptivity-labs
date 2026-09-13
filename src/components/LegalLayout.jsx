@@ -34,7 +34,7 @@ export default function LegalLayout({ kicker, title, lead, updated, children }) 
           <Link to="/privacy">Privacy</Link>
           <Link to="/terms">Terms</Link>
           <Link to="/sms-opt-in">SMS Opt-In</Link>
-          <a href="mailto:hello@apptivity.online">Contact</a>
+          <a href="mailto:marley@goapptivity.com">Contact</a>
         </p>
         <p>© 2026 APPtivity Labs, LLC</p>
       </footer>

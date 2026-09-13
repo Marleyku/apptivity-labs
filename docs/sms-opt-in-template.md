@@ -2,6 +2,8 @@
 
 Single source of wording for Twilio toll-free verification (TFV). Keep **VIA_TEXT** (`START` / `Y`). Do **not** use a website checkbox form as the primary consent method.
 
+**Status (2026-09-08):** TFV `HH6be322bb18d525e85294198c7d06d7fd` for **+18336336162** (APPTIVITY LABS, LLC) is **`TWILIO_APPROVED`**. Programmatic SMS is available for APPtivity Labs products using this number. Keep opt-in pages and consent copy congruent with the approved use cases.
+
 Replace placeholders per product. Consent structure stays identical; only names, emails, and sample flavor change.
 
 ## Placeholders

@@ -3,8 +3,22 @@
     "slug": "miles2go",
     "name": "Miles2Go",
     "productUrl": "https://www.mymiles2go.com",
-    "updatedAt": "2026-08-29T05:34:55.483Z",
-    "notes": "Themes captured from theme-qa (light, dark, nature, mountain) plus steel when available. Seeded from existing QA captures; regenerate via app-marketing-catalog skill after UI changes."
+    "updatedAt": "2026-09-13T08:16:32.010Z",
+    "notes": "Deep audit 2026-09-13. Scores: unique/useful/popular 1–3. Themes: light, dark, nature, mountain, steel. Some new feature ids reuse nearest existing iPhone frames until live re-capture.",
+    "scoring": {
+      "unique": "1-3 differentiation",
+      "useful": "1-3 utility",
+      "popular": "1-3 mass appeal",
+      "total": "sum of three"
+    },
+    "suggestions": [
+      "Buyer-ready PDF vehicle history pack",
+      "Service-bay receipt AI (costs-style scan on service)",
+      "Wait-for-the-drop gas timing advice",
+      "App Store / Play native shells",
+      "One-tap Google / Apple sign-in"
+    ],
+    "adminEmail": "admin@mymiles2go.com"
   },
   "targetConsumers": [
     {
@@ -33,7 +47,7 @@
   "positioning": {
     "oneLiner": "Every vehicle has a history. Miles2Go keeps the record.",
     "category": "Household vehicle history & costs",
-    "differentiator": "Shared garage + NFC/receipt capture — not a solo MPG hobby tracker."
+    "differentiator": "Shared garage + NFC/receipt capture + Predictive Fueling — not a solo MPG hobby tracker."
   },
   "objectionsAndAnswers": [
     {
@@ -48,6 +62,7 @@
   "proofPoints": [
     "Invite-only beta with household plans (Free / Duo / Family)",
     "NFC tags and receipt capture for low-friction fuel logs",
+    "Predictive Fueling with local gas prices",
     "Reports for TCO and cost-per-mile"
   ],
   "ctaSuggestions": [
@@ -57,258 +72,434 @@
   ],
   "features": [
     {
-      "id": "dashboard",
-      "name": "Household dashboard",
+      "id": "nfc-capture",
+      "name": "NFC / receipt fuel capture",
       "rank": 1,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 9,
+      "uniquenessScore": 5,
       "utilityScore": 5,
-      "uniquenessScore": 4,
       "consequenceScore": 5,
-      "why": "Gives the household one place to see alerts, costs, and next actions across every vehicle.",
-      "howToUse": "Open the app home after sign-in; skim alerts and jump into fuel or service.",
-      "primaryRoute": "/",
+      "why": "Windshield tag or guided receipt/odometer photos pre-fill a vehicle-scoped fuel form.",
+      "howToUse": "Open /fuel/new?ocr=1 and use NFC / receipt fuel capture.",
+      "primaryRoute": "/fuel/new?ocr=1",
       "shotIds": [
-        "dashboard-dark-polished",
-        "dashboard-light-polished"
+        "fuel-light-polished",
+        "fuel-light-wireframe",
+        "fuel-dark-polished",
+        "fuel-dark-wireframe",
+        "fuel-nature-polished",
+        "fuel-nature-wireframe",
+        "fuel-mountain-polished",
+        "fuel-mountain-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
       ],
-      "marketingHook": "The family garage at a glance — before anyone forgets an oil change."
+      "marketingHook": "Log fuel at the pump — tap the tag or snap the receipt.",
+      "description": "Windshield tag or guided receipt/odometer photos pre-fill a vehicle-scoped fuel form."
+    },
+    {
+      "id": "predictive-fueling",
+      "name": "Should I Fuel? + local gas prices",
+      "rank": 2,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 9,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Tank/range estimates, nearby station prices/map, Expect to Pay, and Navigate handoff.",
+      "howToUse": "Open /fuel/prices and use Should I Fuel? + local gas prices.",
+      "primaryRoute": "/fuel/prices",
+      "shotIds": [
+        "fuel-light-polished",
+        "fuel-light-wireframe",
+        "fuel-dark-polished",
+        "fuel-dark-wireframe",
+        "fuel-nature-polished",
+        "fuel-nature-wireframe",
+        "fuel-mountain-polished",
+        "fuel-mountain-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
+      ],
+      "marketingHook": "Know whether to fill up — and where the price is fair.",
+      "description": "Tank/range estimates, nearby station prices/map, Expect to Pay, and Navigate handoff."
     },
     {
       "id": "fuel",
       "name": "Fuel & MPG log",
-      "rank": 2,
-      "utilityScore": 5,
+      "rank": 3,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
       "uniquenessScore": 3,
+      "utilityScore": 5,
       "consequenceScore": 5,
-      "why": "Fill-ups are the highest-frequency cost event; logging them unlocks MPG and cost-per-mile.",
-      "howToUse": "Add a fill-up from Fuel or capture via NFC/receipt; confirm odometer and gallons.",
+      "why": "Log fill-ups with odometer, gallons, price, and vendor; rolling MPG on full fills.",
+      "howToUse": "Open /fuel and use Fuel & MPG log.",
       "primaryRoute": "/fuel",
       "shotIds": [
+        "fuel-light-polished",
+        "fuel-light-wireframe",
         "fuel-dark-polished",
-        "fuel-nature-polished"
+        "fuel-dark-wireframe",
+        "fuel-nature-polished",
+        "fuel-nature-wireframe",
+        "fuel-mountain-polished",
+        "fuel-mountain-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
       ],
-      "marketingHook": "Every fill-up becomes usable history, not a crumpled receipt."
+      "marketingHook": "Log fill-ups with odometer, gallons, price, and vendor; rolling MPG on full fills.",
+      "description": "Log fill-ups with odometer, gallons, price, and vendor; rolling MPG on full fills."
     },
     {
-      "id": "nfc-capture",
-      "name": "NFC / receipt fuel capture",
-      "rank": 3,
-      "utilityScore": 4,
-      "uniquenessScore": 5,
-      "consequenceScore": 4,
-      "why": "Differentiates Miles2Go from spreadsheet apps — windshield tap or OCR instead of typing.",
-      "howToUse": "Tap the vehicle NFC tag or scan a receipt from the capture flow.",
-      "primaryRoute": "/fuel/capture/vehicle/:vehicleId",
-      "shotIds": [
-        "fuel-dark-polished"
-      ],
-      "marketingHook": "Log fuel at the pump — not later on the couch."
-    },
-    {
-      "id": "service",
-      "name": "Service history",
+      "id": "dashboard",
+      "name": "Household dashboard",
       "rank": 4,
-      "utilityScore": 5,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
       "uniquenessScore": 3,
+      "utilityScore": 5,
       "consequenceScore": 5,
-      "why": "Shops, DIY, and line items stay attached to the vehicle for resale and warranty proof.",
-      "howToUse": "Record a service visit with shop, mileage, and what was done.",
-      "primaryRoute": "/service",
+      "why": "Alerts, vehicle stats, recent activity, and quick actions across the garage.",
+      "howToUse": "Open / and use Household dashboard.",
+      "primaryRoute": "/",
       "shotIds": [
-        "service-dark-polished",
-        "service-mountain-polished"
+        "dashboard-light-polished",
+        "dashboard-light-wireframe",
+        "dashboard-dark-polished",
+        "dashboard-dark-wireframe",
+        "dashboard-nature-polished",
+        "dashboard-nature-wireframe",
+        "dashboard-mountain-polished",
+        "dashboard-mountain-wireframe",
+        "dashboard-steel-polished",
+        "dashboard-steel-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
       ],
-      "marketingHook": "A service record that travels with the car, not the shoebox."
+      "marketingHook": "Alerts, vehicle stats, recent activity, and quick actions across the garage.",
+      "description": "Alerts, vehicle stats, recent activity, and quick actions across the garage."
     },
     {
       "id": "reminders",
       "name": "Maintenance reminders",
       "rank": 5,
-      "utilityScore": 5,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
       "uniquenessScore": 3,
+      "utilityScore": 5,
       "consequenceScore": 5,
-      "why": "Missed intervals destroy engines and trust; time/mileage reminders prevent that.",
-      "howToUse": "Create reminders tied to mileage or calendar; act from dashboard alerts.",
+      "why": "Mileage- and time-based schedules with due-soon / overdue surfacing.",
+      "howToUse": "Open /reminders and use Maintenance reminders.",
       "primaryRoute": "/reminders",
       "shotIds": [
-        "dashboard-dark-polished"
+        "dashboard-dark-polished",
+        "dashboard-dark-wireframe",
+        "dashboard-light-polished",
+        "dashboard-light-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
       ],
-      "marketingHook": "Know what is due before the dashboard light does."
+      "marketingHook": "Mileage- and time-based schedules with due-soon / overdue surfacing.",
+      "description": "Mileage- and time-based schedules with due-soon / overdue surfacing."
     },
     {
-      "id": "vehicles",
-      "name": "Shared vehicles garage",
+      "id": "service",
+      "name": "Service history",
       "rank": 6,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
+      "uniquenessScore": 3,
       "utilityScore": 5,
-      "uniquenessScore": 4,
-      "consequenceScore": 4,
-      "why": "Households manage multiple cars; a garage roster is the product spine.",
-      "howToUse": "Add vehicles under Vehicles; assign them to the household.",
-      "primaryRoute": "/vehicles",
+      "consequenceScore": 5,
+      "why": "Shop/DIY visits with line items, recommendations, and attachments.",
+      "howToUse": "Open /service and use Service history.",
+      "primaryRoute": "/service",
       "shotIds": [
-        "dashboard-light-polished"
+        "service-light-polished",
+        "service-light-wireframe",
+        "service-dark-polished",
+        "service-dark-wireframe",
+        "service-nature-polished",
+        "service-nature-wireframe",
+        "service-mountain-polished",
+        "service-mountain-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
       ],
-      "marketingHook": "One garage for every driver in the household."
-    },
-    {
-      "id": "vehicle-tags",
-      "name": "NFC vehicle tags",
-      "rank": 7,
-      "utilityScore": 4,
-      "uniquenessScore": 5,
-      "consequenceScore": 3,
-      "why": "Physical tags make capture frictionless for whoever is driving.",
-      "howToUse": "Pair tags in Settings → Vehicle tags; stick on windshield.",
-      "primaryRoute": "/settings/vehicle-tags",
-      "shotIds": [
-        "dashboard-nature-polished"
-      ],
-      "marketingHook": "The car itself becomes the shortcut."
-    },
-    {
-      "id": "tco",
-      "name": "Total cost of ownership",
-      "rank": 8,
-      "utilityScore": 4,
-      "uniquenessScore": 4,
-      "consequenceScore": 4,
-      "why": "Fuel alone lies; TCO shows insurance, registration, and service together.",
-      "howToUse": "Open Reports → TCO for a rollup by vehicle.",
-      "primaryRoute": "/reports/tco",
-      "shotIds": [
-        "dashboard-mountain-polished"
-      ],
-      "marketingHook": "See what the car actually costs to keep."
-    },
-    {
-      "id": "cost-per-mile",
-      "name": "Cost per mile",
-      "rank": 9,
-      "utilityScore": 4,
-      "uniquenessScore": 3,
-      "consequenceScore": 3,
-      "why": "Turns ownership into a comparable operating metric across vehicles.",
-      "howToUse": "Use Reports → Cost per mile after logging fuel and ownership costs.",
-      "primaryRoute": "/reports/cost-per-mile",
-      "shotIds": [
-        "fuel-light-polished"
-      ],
-      "marketingHook": "Compare cars by the mile, not the myth."
-    },
-    {
-      "id": "ownership-costs",
-      "name": "Ownership costs",
-      "rank": 10,
-      "utilityScore": 4,
-      "uniquenessScore": 3,
-      "consequenceScore": 4,
-      "why": "Insurance and registration dwarf some fuel years; they must be first-class.",
-      "howToUse": "Log recurring and one-off costs under Costs.",
-      "primaryRoute": "/costs",
-      "shotIds": [
-        "dashboard-steel-polished",
-        "dashboard-dark-polished"
-      ],
-      "marketingHook": "The quiet bills that decide whether a car is a bargain."
+      "marketingHook": "Shop/DIY visits with line items, recommendations, and attachments.",
+      "description": "Shop/DIY visits with line items, recommendations, and attachments."
     },
     {
       "id": "household",
       "name": "Household sharing",
-      "rank": 11,
-      "utilityScore": 4,
-      "uniquenessScore": 4,
-      "consequenceScore": 4,
-      "why": "Vehicle history is a family asset; invites keep spouses and teens on the same record.",
-      "howToUse": "Invite members from Household; share the garage.",
+      "rank": 7,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Invite/join shared vehicles, vendors, and history with plan member caps.",
+      "howToUse": "Open /household and use Household sharing.",
       "primaryRoute": "/household",
       "shotIds": [
-        "dashboard-dark-polished"
+        "dashboard-light-polished",
+        "dashboard-light-wireframe",
+        "dashboard-dark-polished",
+        "dashboard-dark-wireframe",
+        "dashboard-nature-polished",
+        "dashboard-nature-wireframe",
+        "dashboard-mountain-polished",
+        "dashboard-mountain-wireframe",
+        "dashboard-steel-polished",
+        "dashboard-steel-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
       ],
-      "marketingHook": "One shared history — no more “who got the oil changed?”"
+      "marketingHook": "Invite/join shared vehicles, vendors, and history with plan member caps.",
+      "description": "Invite/join shared vehicles, vendors, and history with plan member caps."
     },
     {
-      "id": "tires",
-      "name": "Tire sets",
-      "rank": 12,
-      "utilityScore": 3,
-      "uniquenessScore": 4,
-      "consequenceScore": 3,
-      "why": "Seasonal tire swaps are easy to lose track of across years.",
-      "howToUse": "Track tire sets and rotations under Tires.",
-      "primaryRoute": "/tires",
-      "shotIds": [
-        "service-light-polished"
-      ],
-      "marketingHook": "Know which rubber is on the car this season."
-    },
-    {
-      "id": "accidents",
-      "name": "Accident & incident log",
-      "rank": 13,
-      "utilityScore": 3,
+      "id": "vehicles",
+      "name": "Shared vehicles garage",
+      "rank": 8,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
       "uniquenessScore": 3,
-      "consequenceScore": 4,
-      "why": "Claims and repairs need a chronological record attached to the vehicle.",
-      "howToUse": "Log incidents under Accidents with photos and notes.",
-      "primaryRoute": "/accidents",
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Multi-vehicle roster with identity, VIN, photos, and plan caps.",
+      "howToUse": "Open /vehicles and use Shared vehicles garage.",
+      "primaryRoute": "/vehicles",
       "shotIds": [
-        "accidents-dark-polished",
-        "accidents-light-polished"
+        "dashboard-dark-polished",
+        "dashboard-dark-wireframe",
+        "dashboard-light-polished",
+        "dashboard-light-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
       ],
-      "marketingHook": "When something happens, the record is already in place."
+      "marketingHook": "Multi-vehicle roster with identity, VIN, photos, and plan caps.",
+      "description": "Multi-vehicle roster with identity, VIN, photos, and plan caps."
     },
     {
-      "id": "attachments",
-      "name": "Receipts & attachments",
-      "rank": 14,
-      "utilityScore": 3,
-      "uniquenessScore": 2,
+      "id": "vehicle-tags",
+      "name": "NFC vehicle tags",
+      "rank": 9,
+      "uniqueScore": 3,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 8,
+      "uniquenessScore": 5,
+      "utilityScore": 5,
       "consequenceScore": 3,
-      "why": "Proof lives next to the event — warranty and resale both need it.",
-      "howToUse": "Attach photos/PDFs from records or the Attachments library.",
-      "primaryRoute": "/attachments",
+      "why": "Pair NFC tags to vehicle actions so a tap opens the right flow.",
+      "howToUse": "Open /settings/vehicle-tags and use NFC vehicle tags.",
+      "primaryRoute": "/settings/vehicle-tags",
       "shotIds": [
-        "service-dark-polished"
+        "dashboard-dark-polished",
+        "dashboard-dark-wireframe",
+        "dashboard-light-polished",
+        "dashboard-light-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
       ],
-      "marketingHook": "Receipts that stay with the repair, not the junk drawer."
+      "marketingHook": "Pair NFC tags to vehicle actions so a tap opens the right flow.",
+      "description": "Pair NFC tags to vehicle actions so a tap opens the right flow."
     },
     {
-      "id": "appearance",
-      "name": "Color themes",
-      "rank": 15,
-      "utilityScore": 3,
+      "id": "offline-pwa",
+      "name": "Offline & PWA sync",
+      "rank": 10,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 3,
+      "totalScore": 8,
       "uniquenessScore": 3,
-      "consequenceScore": 2,
-      "why": "Theme choice makes daily logging feel personal and readable in any light.",
-      "howToUse": "Settings → Appearance; pick light, dark, nature, mountain, or steel.",
+      "utilityScore": 5,
+      "consequenceScore": 5,
+      "why": "Installable PWA with cached lists and outbox sync when back online.",
+      "howToUse": "Open /settings and use Offline & PWA sync.",
       "primaryRoute": "/settings",
       "shotIds": [
         "dashboard-light-polished",
+        "dashboard-light-wireframe",
         "dashboard-dark-polished",
+        "dashboard-dark-wireframe",
         "dashboard-nature-polished",
-        "dashboard-mountain-polished"
+        "dashboard-nature-wireframe",
+        "dashboard-mountain-polished",
+        "dashboard-mountain-wireframe",
+        "dashboard-steel-polished",
+        "dashboard-steel-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
       ],
-      "marketingHook": "Cockpit, trail, or daylight — same garage, your look."
+      "marketingHook": "Installable PWA with cached lists and outbox sync when back online.",
+      "description": "Installable PWA with cached lists and outbox sync when back online."
+    },
+    {
+      "id": "ownership-costs",
+      "name": "Ownership costs + AI bill scan",
+      "rank": 11,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Insurance/registration and more with AI receipt scan on new costs.",
+      "howToUse": "Open /costs and use Ownership costs + AI bill scan.",
+      "primaryRoute": "/costs",
+      "shotIds": [
+        "dashboard-light-polished",
+        "dashboard-light-wireframe",
+        "dashboard-dark-polished",
+        "dashboard-dark-wireframe",
+        "dashboard-nature-polished",
+        "dashboard-nature-wireframe",
+        "dashboard-mountain-polished",
+        "dashboard-mountain-wireframe",
+        "dashboard-steel-polished",
+        "dashboard-steel-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
+      ],
+      "marketingHook": "Insurance/registration and more with AI receipt scan on new costs.",
+      "description": "Insurance/registration and more with AI receipt scan on new costs."
+    },
+    {
+      "id": "tco",
+      "name": "Total cost of ownership",
+      "rank": 12,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Roll up fuel, service, and ownership costs by vehicle and range.",
+      "howToUse": "Open /reports/tco and use Total cost of ownership.",
+      "primaryRoute": "/reports/tco",
+      "shotIds": [
+        "dashboard-light-polished",
+        "dashboard-light-wireframe",
+        "dashboard-dark-polished",
+        "dashboard-dark-wireframe",
+        "dashboard-nature-polished",
+        "dashboard-nature-wireframe",
+        "dashboard-mountain-polished",
+        "dashboard-mountain-wireframe",
+        "dashboard-steel-polished",
+        "dashboard-steel-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
+      ],
+      "marketingHook": "Roll up fuel, service, and ownership costs by vehicle and range.",
+      "description": "Roll up fuel, service, and ownership costs by vehicle and range."
+    },
+    {
+      "id": "qr-stickers",
+      "name": "Printable QR stickers",
+      "rank": 13,
+      "uniqueScore": 3,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 5,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Print QR stickers for vehicle-scoped quick actions without NFC hardware.",
+      "howToUse": "Open /vehicles/qr-stickers and use Printable QR stickers.",
+      "primaryRoute": "/vehicles/qr-stickers",
+      "shotIds": [
+        "dashboard-dark-polished",
+        "dashboard-dark-wireframe",
+        "dashboard-light-polished",
+        "dashboard-light-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
+      ],
+      "marketingHook": "Print QR stickers for vehicle-scoped quick actions without NFC hardware.",
+      "description": "Print QR stickers for vehicle-scoped quick actions without NFC hardware."
+    },
+    {
+      "id": "notifications",
+      "name": "Email / SMS reminder digests",
+      "rank": 14,
+      "uniqueScore": 2,
+      "usefulScore": 3,
+      "popularScore": 2,
+      "totalScore": 7,
+      "uniquenessScore": 3,
+      "utilityScore": 5,
+      "consequenceScore": 3,
+      "why": "Duo+ email and SMS delivery for reminder attention.",
+      "howToUse": "Open /settings and use Email / SMS reminder digests.",
+      "primaryRoute": "/settings",
+      "shotIds": [
+        "dashboard-dark-polished",
+        "dashboard-dark-wireframe",
+        "dashboard-light-polished",
+        "dashboard-light-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
+      ],
+      "marketingHook": "Duo+ email and SMS delivery for reminder attention.",
+      "description": "Duo+ email and SMS delivery for reminder attention."
+    },
+    {
+      "id": "cost-per-mile",
+      "name": "Cost per mile",
+      "rank": 15,
+      "uniqueScore": 2,
+      "usefulScore": 2,
+      "popularScore": 2,
+      "totalScore": 6,
+      "uniquenessScore": 3,
+      "utilityScore": 3,
+      "consequenceScore": 3,
+      "why": "Operating cost-per-mile trends after fuel and ownership data.",
+      "howToUse": "Open /reports/cost-per-mile and use Cost per mile.",
+      "primaryRoute": "/reports/cost-per-mile",
+      "shotIds": [
+        "dashboard-light-polished",
+        "dashboard-light-wireframe",
+        "dashboard-dark-polished",
+        "dashboard-dark-wireframe",
+        "dashboard-nature-polished",
+        "dashboard-nature-wireframe",
+        "dashboard-mountain-polished",
+        "dashboard-mountain-wireframe",
+        "dashboard-steel-polished",
+        "dashboard-steel-wireframe",
+        "login-gate-light-polished",
+        "login-gate-light-wireframe"
+      ],
+      "marketingHook": "Operating cost-per-mile trends after fuel and ownership data.",
+      "description": "Operating cost-per-mile trends after fuel and ownership data."
     }
   ],
   "shots": [
-    {
-      "id": "dashboard-light-polished",
-      "theme": "light",
-      "kind": "polished",
-      "topDownPath": "/marketing/miles2go/frames/top-down/dashboard-light-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/frames/perspective/dashboard-light-iphone16-perspective.png",
-      "alt": "miles2go dashboard (light) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "dashboard-light-wireframe",
-      "theme": "light",
-      "kind": "wireframe",
-      "topDownPath": "/marketing/miles2go/wireframes/top-down/dashboard-light-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/wireframes/perspective/dashboard-light-iphone16-perspective.png",
-      "alt": "miles2go dashboard wireframe (light) on iPhone 16",
-      "heroApproved": false
-    },
     {
       "id": "fuel-light-polished",
       "theme": "light",
@@ -316,7 +507,7 @@
       "topDownPath": "/marketing/miles2go/frames/top-down/fuel-light-iphone16-topdown.png",
       "perspectivePath": "/marketing/miles2go/frames/perspective/fuel-light-iphone16-perspective.png",
       "alt": "miles2go fuel (light) on iPhone 16",
-      "heroApproved": false
+      "heroApproved": true
     },
     {
       "id": "fuel-light-wireframe",
@@ -324,61 +515,7 @@
       "kind": "wireframe",
       "topDownPath": "/marketing/miles2go/wireframes/top-down/fuel-light-iphone16-topdown.png",
       "perspectivePath": "/marketing/miles2go/wireframes/perspective/fuel-light-iphone16-perspective.png",
-      "alt": "miles2go fuel wireframe (light) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "service-light-polished",
-      "theme": "light",
-      "kind": "polished",
-      "topDownPath": "/marketing/miles2go/frames/top-down/service-light-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/frames/perspective/service-light-iphone16-perspective.png",
-      "alt": "miles2go service (light) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "service-light-wireframe",
-      "theme": "light",
-      "kind": "wireframe",
-      "topDownPath": "/marketing/miles2go/wireframes/top-down/service-light-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/wireframes/perspective/service-light-iphone16-perspective.png",
-      "alt": "miles2go service wireframe (light) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "accidents-light-polished",
-      "theme": "light",
-      "kind": "polished",
-      "topDownPath": "/marketing/miles2go/frames/top-down/accidents-light-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/frames/perspective/accidents-light-iphone16-perspective.png",
-      "alt": "miles2go accidents (light) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "accidents-light-wireframe",
-      "theme": "light",
-      "kind": "wireframe",
-      "topDownPath": "/marketing/miles2go/wireframes/top-down/accidents-light-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/wireframes/perspective/accidents-light-iphone16-perspective.png",
-      "alt": "miles2go accidents wireframe (light) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "dashboard-dark-polished",
-      "theme": "dark",
-      "kind": "polished",
-      "topDownPath": "/marketing/miles2go/frames/top-down/dashboard-dark-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/frames/perspective/dashboard-dark-iphone16-perspective.png",
-      "alt": "miles2go dashboard (dark) on iPhone 16",
-      "heroApproved": true
-    },
-    {
-      "id": "dashboard-dark-wireframe",
-      "theme": "dark",
-      "kind": "wireframe",
-      "topDownPath": "/marketing/miles2go/wireframes/top-down/dashboard-dark-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/wireframes/perspective/dashboard-dark-iphone16-perspective.png",
-      "alt": "miles2go dashboard wireframe (dark) on iPhone 16",
+      "alt": "miles2go fuel (light) on iPhone 16",
       "heroApproved": false
     },
     {
@@ -396,61 +533,7 @@
       "kind": "wireframe",
       "topDownPath": "/marketing/miles2go/wireframes/top-down/fuel-dark-iphone16-topdown.png",
       "perspectivePath": "/marketing/miles2go/wireframes/perspective/fuel-dark-iphone16-perspective.png",
-      "alt": "miles2go fuel wireframe (dark) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "service-dark-polished",
-      "theme": "dark",
-      "kind": "polished",
-      "topDownPath": "/marketing/miles2go/frames/top-down/service-dark-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/frames/perspective/service-dark-iphone16-perspective.png",
-      "alt": "miles2go service (dark) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "service-dark-wireframe",
-      "theme": "dark",
-      "kind": "wireframe",
-      "topDownPath": "/marketing/miles2go/wireframes/top-down/service-dark-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/wireframes/perspective/service-dark-iphone16-perspective.png",
-      "alt": "miles2go service wireframe (dark) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "accidents-dark-polished",
-      "theme": "dark",
-      "kind": "polished",
-      "topDownPath": "/marketing/miles2go/frames/top-down/accidents-dark-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/frames/perspective/accidents-dark-iphone16-perspective.png",
-      "alt": "miles2go accidents (dark) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "accidents-dark-wireframe",
-      "theme": "dark",
-      "kind": "wireframe",
-      "topDownPath": "/marketing/miles2go/wireframes/top-down/accidents-dark-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/wireframes/perspective/accidents-dark-iphone16-perspective.png",
-      "alt": "miles2go accidents wireframe (dark) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "dashboard-nature-polished",
-      "theme": "nature",
-      "kind": "polished",
-      "topDownPath": "/marketing/miles2go/frames/top-down/dashboard-nature-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/frames/perspective/dashboard-nature-iphone16-perspective.png",
-      "alt": "miles2go dashboard (nature) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "dashboard-nature-wireframe",
-      "theme": "nature",
-      "kind": "wireframe",
-      "topDownPath": "/marketing/miles2go/wireframes/top-down/dashboard-nature-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/wireframes/perspective/dashboard-nature-iphone16-perspective.png",
-      "alt": "miles2go dashboard wireframe (nature) on iPhone 16",
+      "alt": "miles2go fuel (dark) on iPhone 16",
       "heroApproved": false
     },
     {
@@ -460,7 +543,7 @@
       "topDownPath": "/marketing/miles2go/frames/top-down/fuel-nature-iphone16-topdown.png",
       "perspectivePath": "/marketing/miles2go/frames/perspective/fuel-nature-iphone16-perspective.png",
       "alt": "miles2go fuel (nature) on iPhone 16",
-      "heroApproved": false
+      "heroApproved": true
     },
     {
       "id": "fuel-nature-wireframe",
@@ -468,61 +551,7 @@
       "kind": "wireframe",
       "topDownPath": "/marketing/miles2go/wireframes/top-down/fuel-nature-iphone16-topdown.png",
       "perspectivePath": "/marketing/miles2go/wireframes/perspective/fuel-nature-iphone16-perspective.png",
-      "alt": "miles2go fuel wireframe (nature) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "service-nature-polished",
-      "theme": "nature",
-      "kind": "polished",
-      "topDownPath": "/marketing/miles2go/frames/top-down/service-nature-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/frames/perspective/service-nature-iphone16-perspective.png",
-      "alt": "miles2go service (nature) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "service-nature-wireframe",
-      "theme": "nature",
-      "kind": "wireframe",
-      "topDownPath": "/marketing/miles2go/wireframes/top-down/service-nature-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/wireframes/perspective/service-nature-iphone16-perspective.png",
-      "alt": "miles2go service wireframe (nature) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "accidents-nature-polished",
-      "theme": "nature",
-      "kind": "polished",
-      "topDownPath": "/marketing/miles2go/frames/top-down/accidents-nature-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/frames/perspective/accidents-nature-iphone16-perspective.png",
-      "alt": "miles2go accidents (nature) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "accidents-nature-wireframe",
-      "theme": "nature",
-      "kind": "wireframe",
-      "topDownPath": "/marketing/miles2go/wireframes/top-down/accidents-nature-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/wireframes/perspective/accidents-nature-iphone16-perspective.png",
-      "alt": "miles2go accidents wireframe (nature) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "dashboard-mountain-polished",
-      "theme": "mountain",
-      "kind": "polished",
-      "topDownPath": "/marketing/miles2go/frames/top-down/dashboard-mountain-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/frames/perspective/dashboard-mountain-iphone16-perspective.png",
-      "alt": "miles2go dashboard (mountain) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "dashboard-mountain-wireframe",
-      "theme": "mountain",
-      "kind": "wireframe",
-      "topDownPath": "/marketing/miles2go/wireframes/top-down/dashboard-mountain-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/wireframes/perspective/dashboard-mountain-iphone16-perspective.png",
-      "alt": "miles2go dashboard wireframe (mountain) on iPhone 16",
+      "alt": "miles2go fuel (nature) on iPhone 16",
       "heroApproved": false
     },
     {
@@ -532,7 +561,7 @@
       "topDownPath": "/marketing/miles2go/frames/top-down/fuel-mountain-iphone16-topdown.png",
       "perspectivePath": "/marketing/miles2go/frames/perspective/fuel-mountain-iphone16-perspective.png",
       "alt": "miles2go fuel (mountain) on iPhone 16",
-      "heroApproved": false
+      "heroApproved": true
     },
     {
       "id": "fuel-mountain-wireframe",
@@ -540,43 +569,79 @@
       "kind": "wireframe",
       "topDownPath": "/marketing/miles2go/wireframes/top-down/fuel-mountain-iphone16-topdown.png",
       "perspectivePath": "/marketing/miles2go/wireframes/perspective/fuel-mountain-iphone16-perspective.png",
-      "alt": "miles2go fuel wireframe (mountain) on iPhone 16",
+      "alt": "miles2go fuel (mountain) on iPhone 16",
       "heroApproved": false
     },
     {
-      "id": "service-mountain-polished",
+      "id": "dashboard-light-polished",
+      "theme": "light",
+      "kind": "polished",
+      "topDownPath": "/marketing/miles2go/frames/top-down/dashboard-light-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/dashboard-light-iphone16-perspective.png",
+      "alt": "miles2go dashboard (light) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "dashboard-light-wireframe",
+      "theme": "light",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/dashboard-light-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/dashboard-light-iphone16-perspective.png",
+      "alt": "miles2go dashboard (light) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "dashboard-dark-polished",
+      "theme": "dark",
+      "kind": "polished",
+      "topDownPath": "/marketing/miles2go/frames/top-down/dashboard-dark-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/dashboard-dark-iphone16-perspective.png",
+      "alt": "miles2go dashboard (dark) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "dashboard-dark-wireframe",
+      "theme": "dark",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/dashboard-dark-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/dashboard-dark-iphone16-perspective.png",
+      "alt": "miles2go dashboard (dark) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "dashboard-nature-polished",
+      "theme": "nature",
+      "kind": "polished",
+      "topDownPath": "/marketing/miles2go/frames/top-down/dashboard-nature-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/dashboard-nature-iphone16-perspective.png",
+      "alt": "miles2go dashboard (nature) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "dashboard-nature-wireframe",
+      "theme": "nature",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/dashboard-nature-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/dashboard-nature-iphone16-perspective.png",
+      "alt": "miles2go dashboard (nature) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "dashboard-mountain-polished",
       "theme": "mountain",
       "kind": "polished",
-      "topDownPath": "/marketing/miles2go/frames/top-down/service-mountain-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/frames/perspective/service-mountain-iphone16-perspective.png",
-      "alt": "miles2go service (mountain) on iPhone 16",
-      "heroApproved": false
+      "topDownPath": "/marketing/miles2go/frames/top-down/dashboard-mountain-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/dashboard-mountain-iphone16-perspective.png",
+      "alt": "miles2go dashboard (mountain) on iPhone 16",
+      "heroApproved": true
     },
     {
-      "id": "service-mountain-wireframe",
+      "id": "dashboard-mountain-wireframe",
       "theme": "mountain",
       "kind": "wireframe",
-      "topDownPath": "/marketing/miles2go/wireframes/top-down/service-mountain-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/wireframes/perspective/service-mountain-iphone16-perspective.png",
-      "alt": "miles2go service wireframe (mountain) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "accidents-mountain-polished",
-      "theme": "mountain",
-      "kind": "polished",
-      "topDownPath": "/marketing/miles2go/frames/top-down/accidents-mountain-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/frames/perspective/accidents-mountain-iphone16-perspective.png",
-      "alt": "miles2go accidents (mountain) on iPhone 16",
-      "heroApproved": false
-    },
-    {
-      "id": "accidents-mountain-wireframe",
-      "theme": "mountain",
-      "kind": "wireframe",
-      "topDownPath": "/marketing/miles2go/wireframes/top-down/accidents-mountain-iphone16-topdown.png",
-      "perspectivePath": "/marketing/miles2go/wireframes/perspective/accidents-mountain-iphone16-perspective.png",
-      "alt": "miles2go accidents wireframe (mountain) on iPhone 16",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/dashboard-mountain-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/dashboard-mountain-iphone16-perspective.png",
+      "alt": "miles2go dashboard (mountain) on iPhone 16",
       "heroApproved": false
     },
     {
@@ -586,7 +651,7 @@
       "topDownPath": "/marketing/miles2go/frames/top-down/dashboard-steel-iphone16-topdown.png",
       "perspectivePath": "/marketing/miles2go/frames/perspective/dashboard-steel-iphone16-perspective.png",
       "alt": "miles2go dashboard (steel) on iPhone 16",
-      "heroApproved": false
+      "heroApproved": true
     },
     {
       "id": "dashboard-steel-wireframe",
@@ -594,7 +659,169 @@
       "kind": "wireframe",
       "topDownPath": "/marketing/miles2go/wireframes/top-down/dashboard-steel-iphone16-topdown.png",
       "perspectivePath": "/marketing/miles2go/wireframes/perspective/dashboard-steel-iphone16-perspective.png",
-      "alt": "miles2go dashboard wireframe (steel) on iPhone 16",
+      "alt": "miles2go dashboard (steel) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "service-light-polished",
+      "theme": "light",
+      "kind": "polished",
+      "topDownPath": "/marketing/miles2go/frames/top-down/service-light-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/service-light-iphone16-perspective.png",
+      "alt": "miles2go service (light) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "service-light-wireframe",
+      "theme": "light",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/service-light-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/service-light-iphone16-perspective.png",
+      "alt": "miles2go service (light) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "service-dark-polished",
+      "theme": "dark",
+      "kind": "polished",
+      "topDownPath": "/marketing/miles2go/frames/top-down/service-dark-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/service-dark-iphone16-perspective.png",
+      "alt": "miles2go service (dark) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "service-dark-wireframe",
+      "theme": "dark",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/service-dark-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/service-dark-iphone16-perspective.png",
+      "alt": "miles2go service (dark) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "service-nature-polished",
+      "theme": "nature",
+      "kind": "polished",
+      "topDownPath": "/marketing/miles2go/frames/top-down/service-nature-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/service-nature-iphone16-perspective.png",
+      "alt": "miles2go service (nature) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "service-nature-wireframe",
+      "theme": "nature",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/service-nature-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/service-nature-iphone16-perspective.png",
+      "alt": "miles2go service (nature) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "service-mountain-polished",
+      "theme": "mountain",
+      "kind": "polished",
+      "topDownPath": "/marketing/miles2go/frames/top-down/service-mountain-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/service-mountain-iphone16-perspective.png",
+      "alt": "miles2go service (mountain) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "service-mountain-wireframe",
+      "theme": "mountain",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/service-mountain-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/service-mountain-iphone16-perspective.png",
+      "alt": "miles2go service (mountain) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "login-gate-light-polished",
+      "theme": "light",
+      "kind": "polished",
+      "topDownPath": "/marketing/miles2go/frames/top-down/login-gate-light-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/login-gate-light-iphone16-perspective.png",
+      "alt": "miles2go login-gate (light) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "login-gate-light-wireframe",
+      "theme": "light",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/login-gate-light-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/login-gate-light-iphone16-perspective.png",
+      "alt": "miles2go login-gate (light) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "accidents-light-polished",
+      "theme": "light",
+      "kind": "polished",
+      "topDownPath": "/marketing/miles2go/frames/top-down/accidents-light-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/accidents-light-iphone16-perspective.png",
+      "alt": "miles2go accidents (light) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "accidents-light-wireframe",
+      "theme": "light",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/accidents-light-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/accidents-light-iphone16-perspective.png",
+      "alt": "miles2go accidents (light) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "accidents-dark-polished",
+      "theme": "dark",
+      "kind": "polished",
+      "topDownPath": "/marketing/miles2go/frames/top-down/accidents-dark-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/accidents-dark-iphone16-perspective.png",
+      "alt": "miles2go accidents (dark) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "accidents-dark-wireframe",
+      "theme": "dark",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/accidents-dark-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/accidents-dark-iphone16-perspective.png",
+      "alt": "miles2go accidents (dark) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "accidents-nature-polished",
+      "theme": "nature",
+      "kind": "polished",
+      "topDownPath": "/marketing/miles2go/frames/top-down/accidents-nature-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/accidents-nature-iphone16-perspective.png",
+      "alt": "miles2go accidents (nature) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "accidents-nature-wireframe",
+      "theme": "nature",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/accidents-nature-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/accidents-nature-iphone16-perspective.png",
+      "alt": "miles2go accidents (nature) on iPhone 16",
+      "heroApproved": false
+    },
+    {
+      "id": "accidents-mountain-polished",
+      "theme": "mountain",
+      "kind": "polished",
+      "topDownPath": "/marketing/miles2go/frames/top-down/accidents-mountain-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/frames/perspective/accidents-mountain-iphone16-perspective.png",
+      "alt": "miles2go accidents (mountain) on iPhone 16",
+      "heroApproved": true
+    },
+    {
+      "id": "accidents-mountain-wireframe",
+      "theme": "mountain",
+      "kind": "wireframe",
+      "topDownPath": "/marketing/miles2go/wireframes/top-down/accidents-mountain-iphone16-topdown.png",
+      "perspectivePath": "/marketing/miles2go/wireframes/perspective/accidents-mountain-iphone16-perspective.png",
+      "alt": "miles2go accidents (mountain) on iPhone 16",
       "heroApproved": false
     }
   ]
