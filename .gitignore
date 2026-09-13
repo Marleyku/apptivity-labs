@@ -9,3 +9,6 @@ dist
 
 # Local admin gate (not Access)
 .admin-basic.local
+
+# FAB watcher local state
+docs/ops/.fab-watcher-seen.json
