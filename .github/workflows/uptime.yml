@@ -1,8 +1,10 @@
 name: Uptime check
 
+# Scheduled GitHub Actions cron removed (burned Marleyku free Actions minutes).
+# Production check runs on linuxmk via systemd user unit:
+#   ~/.config/systemd/user/apptivity-uptime.timer
+# Manual CI check still available:
 on:
-  schedule:
-    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 permissions:
