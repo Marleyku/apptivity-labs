@@ -35,15 +35,16 @@ function isAdminPath(pathname) {
 }
 
 /**
- * Defense-in-depth for /admin* when Access JWT is present or ADMIN_BASIC_* secrets are set.
+ * Defense-in-depth for /admin* when Access JWT is present or admin_username/admin_password are set.
  * Edge Access should still be the primary gate (see scripts/setup-cloudflare-access.mjs).
+ * Credentials live in gitignored `.env` (local) and Worker secrets (production).
  */
 function gateAdmin(request, env) {
   const accessEmail = request.headers.get('Cf-Access-Authenticated-User-Email');
   if (accessEmail) return null;
 
-  const user = env.ADMIN_BASIC_USER;
-  const pass = env.ADMIN_BASIC_PASS;
+  const user = env.admin_username;
+  const pass = env.admin_password;
   if (user && pass) {
     const header = request.headers.get('Authorization') || '';
     if (header.startsWith('Basic ')) {
@@ -68,7 +69,7 @@ function gateAdmin(request, env) {
 
   // No Access identity and no basic fallback — refuse rather than leave admin public.
   return new Response(
-    'Admin gallery is locked. Configure Cloudflare Access for /admin* (see README) or set ADMIN_BASIC_USER / ADMIN_BASIC_PASS Worker secrets.',
+    'Admin gallery is locked. Configure Cloudflare Access for /admin* (see README) or set admin_username / admin_password in .env (synced to Worker secrets).',
     {
       status: 401,
       headers: { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' },

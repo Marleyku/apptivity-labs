@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "npm run build && wrangler deploy",
+    "secrets:admin": "node scripts/sync-admin-secrets.mjs",
     "test:e2e:pw": "playwright test",
     "test:e2e:pw:ui": "playwright test --ui",
     "playwright:install": "playwright install chromium"
