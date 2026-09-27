@@ -8,6 +8,6 @@ LINEAR_API_KEY=
 # LINEAR_FEEDBACK_LABEL_ID=ce252be7-84b7-4e92-a675-dd594483fcf4
 # LINEAR_FEEDBACK_STATE_ID=8ea9b562-ba0b-4e94-83e1-71e31e9ac4d0
 
-# Prefer gitignored `.env` for secrets (including admin_username / admin_password).
+# Prefer gitignored `.env` for secrets (including ADMIN_USERNAME / ADMIN_PASSWORD).
 # Only create `.dev.vars` if you intentionally opt out of `.env` for Wrangler —
 # when `.dev.vars` exists, Wrangler ignores `.env` for the Worker.

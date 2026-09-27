@@ -1,5 +1,5 @@
 /**
- * Sync admin_username / admin_password from gitignored `.env` to Worker secrets.
+ * Sync ADMIN_USERNAME / ADMIN_PASSWORD from gitignored `.env` to Worker secrets.
  * Usage: node scripts/sync-admin-secrets.mjs
  * Does not print secret values.
  */
@@ -32,16 +32,16 @@ function parseEnv(text) {
 }
 
 if (!existsSync(envPath)) {
-  console.error('Missing .env — add admin_username and admin_password first.');
+  console.error('Missing .env — add ADMIN_USERNAME and ADMIN_PASSWORD first.');
   process.exit(1);
 }
 
 const env = parseEnv(readFileSync(envPath, 'utf8'));
-const user = env.admin_username || '';
-const pass = env.admin_password || '';
+const user = env.ADMIN_USERNAME || env.admin_username || '';
+const pass = env.ADMIN_PASSWORD || env.admin_password || '';
 
 if (!user || !pass) {
-  console.error('`.env` must define non-empty admin_username and admin_password.');
+  console.error('`.env` must define non-empty ADMIN_USERNAME and ADMIN_PASSWORD.');
   process.exit(1);
 }
 
@@ -58,6 +58,6 @@ function putSecret(name, value) {
   }
 }
 
-putSecret('admin_username', user);
-putSecret('admin_password', pass);
-console.log('Synced admin_username and admin_password to Worker secrets.');
+putSecret('ADMIN_USERNAME', user);
+putSecret('ADMIN_PASSWORD', pass);
+console.log('Synced ADMIN_USERNAME and ADMIN_PASSWORD to Worker secrets.');

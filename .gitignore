@@ -7,7 +7,7 @@ dist
 *.log
 .DS_Store
 
-# Legacy local admin file (prefer admin_username/admin_password in .env)
+# Legacy local admin file (prefer ADMIN_USERNAME/ADMIN_PASSWORD in .env)
 .admin-basic.local
 
 # FAB watcher local state
