@@ -37,6 +37,15 @@ Add `.serve/`, `dist.staging/`, and `dist.previous/` to `.gitignore`.
 - Treat “I killed the port” as “the watcher is dead”
 - Tell the user the UI is live only because a stamp check exited 0, unless this guard produced that `dist/`
 
+## Teaching / local serve notes (merged from serve-dist-sync)
+
+When a product uses `npm run serve` (or similar) against **`dist/`** rather than Vite HMR:
+
+1. Do **not** assume `dist/version.json` SHA matching `git rev-parse --short HEAD` means the UI is current. Uncommitted `src/` can share that SHA while `dist/` is stale.
+2. Prefer the product’s `serve` / `serve:fresh` / `serve:check` scripts that rebuild when dist is missing, SHA ≠ HEAD, or the serve source stamp does not match HEAD + dirty fingerprint.
+3. Before telling the user a UI fix is live: freshness check must succeed, then confirm the browser has taken the new `buildId` (update prompt / Refresh) — stale service-worker shells cause “in dist but not in my tab.”
+4. Do not strip the watch process from serve; do not start a second serve/watch beside one already up.
+
 ## Reference
 
-Teaching: `scripts/ensure-serve-fresh.sh`, `scripts/watch-serve-dist.sh`, `.cursor/rules/serve-dist-sync.mdc`.
+Teaching: `scripts/ensure-serve-fresh.sh`, `scripts/watch-serve-dist.sh`. ALGR scrap: `scraps/dist-rebuild-race/`.

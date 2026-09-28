@@ -1,0 +1,26 @@
+---
+description: When a Linear ticket is completed, append what was built to finish it
+alwaysApply: true
+---
+
+# Linear completion notes (all repos)
+
+When you mark a Linear issue **Done** (or otherwise complete it) in any site or repo, **append** a completion comment on that issue before ending the turn. Do this for every completed ticket, including follow-ups you close in the same session.
+
+## How
+
+- Use the Linear workspace that owns the issue (`save_comment` with `issueId` + `body`).
+- **Append only.** Do not rewrite or replace the original description, acceptance criteria, or earlier comments.
+- If the issue was completed by someone else and has no completion note, add one when you are the one closing it.
+
+## What to include
+
+A short Markdown comment titled `Completed` covering only what actually shipped to finish **this** ticket:
+
+- What changed (behavior, not a file dump)
+- Where (repo, key paths, PR/commit SHA if one exists)
+- How it was verified
+- Deploy or release state if this ticket required one (`shipped` / `not deployed`)
+- Anything explicitly left out of scope
+
+Skip secrets, credentials, and PII. One comment per completed issue; do not batch several tickets into one note.

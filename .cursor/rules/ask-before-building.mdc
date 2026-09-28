@@ -1,0 +1,12 @@
+---
+description: Ask for missing requirements before executing or building code (all Labs repos)
+alwaysApply: true
+---
+
+# Ask before building
+
+Always ask for information you need before executing or building code.
+
+- If requirements, titles, copy, or behavior are unclear or unspecified, ask the user to clarify before implementing.
+- Do not assume values for page titles, labels, API contracts, or product behavior when they are not stated.
+- For new screens, features, or config: confirm the desired outcome and any constraints (e.g. where it lives, what it's called) before writing code.

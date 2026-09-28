@@ -1,0 +1,27 @@
+---
+description: Shared FAB feedback hard gate — intake until authorized (all FAB products)
+alwaysApply: true
+---
+
+# FAB feedback hard gate (ALGR)
+
+In-app **Feedback FAB** → Linear issues are **intake only** unless authorized.
+
+## Authorized without a separate chat “approve”
+
+1. User **explicitly approved** that issue in this conversation (or clearly moved it out of review with intent to build).
+2. Title or description contains **`-AMK`**.
+3. **Owner auto-approve:** submitter matches the **product’s** owner allowlist (see that repo’s `fab-feedback-gate.mdc` overlay) **or** Linear `Approval: auto-approved`.
+
+Always **read and cite the submitter**. Implement only the authorized issue; do not batch other pending non-owner FAB items.
+
+## Gated signals (unless authorized above)
+
+- Title `[Needs Review]` / `[FAB form]` / `[Needs Review & Authorization]`
+- Label **Needs Review** (or product equivalent)
+- `NEEDS REVIEW …` banner / `Approval: pending`
+- `Source: in-app-fab`
+
+## Product overlays
+
+Owner emails/ids, Linear team/project, and deploy targets stay in each product’s `.cursor/rules/fab-feedback-gate.mdc`. Skill: `fab-feedback`.

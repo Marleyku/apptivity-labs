@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Dist rebuild race
 
-If this app serves `dist/` while a watcher or agent rebuilds it, follow `docs/prompts/dist-rebuild-race.md`.
+If this app serves `dist/` while a watcher or agent rebuilds it, follow `docs/prompts/dist-rebuild-race.md` (ALGR scrap).
 
 ## Hard rule
 

@@ -1,0 +1,26 @@
+---
+description: Restart Node/dev server only when runtime refresh is required; prefer HMR for frontend
+alwaysApply: true
+---
+
+# Restart server only when needed
+
+Restart the app process only when a refresh is required for backend/process/config updates.
+
+## When restart is required
+
+- Changes to backend/server runtime (e.g. `server/` modules loaded by Node).
+- Environment/config changes read at process start (`.env`, startup scripts, package scripts, server bootstrap).
+- Port/process issues, stale state, or crashes.
+- Any case where behavior appears stale and a fresh process is needed.
+
+## When restart is not required
+
+- Pure frontend edits handled by Vite HMR while dev is already running.
+- Docs/tests/static updates that do not require a running app process.
+
+## Command guidance
+
+- Prefer each product’s documented fresh/restart script (e.g. `npm run dev:fresh`, `systemctl --user restart …`, `pm2 reload …`).
+- Use plain `npm run dev` / start only when nothing is running and ports are clear.
+- See ALGR `sites.json` deploy/restart hints when shipping to local prod.

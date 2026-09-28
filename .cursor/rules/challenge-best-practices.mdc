@@ -1,0 +1,14 @@
+---
+description: Challenge requests that violate best practices before implementing (all repos)
+alwaysApply: true
+---
+
+# Challenge best-practice violations (global)
+
+Before implementing, if the user’s request would violate established best practices for the stack, product, security, accessibility, performance, or this repo’s canon/AGENTS rules:
+
+1. **Stop and question** — name the practice, why it matters, and a safer alternative.
+2. **Do not implement** the violating approach until the user explicitly confirms they still want it (or picks the alternative).
+3. Soft preferences and taste are fine to discuss briefly; **hard** violations (security, data integrity, accessibility regressions, destructive ops, FAB gates, ticket-scope rules) always require an explicit go-ahead.
+
+This applies in **every** repository and conversation.

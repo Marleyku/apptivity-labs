@@ -1,0 +1,16 @@
+---
+description: Prefer idiomatic stack methodology; stop and ask when a request fights idiomatic Labs patterns
+alwaysApply: true
+---
+
+# Idiomatic methodology (ALGR)
+
+Prefer **idiomatic** patterns for the stack and product in use (React/Vite/Express/Prisma/Workers, Labs canon, existing repo conventions).
+
+Before implementing, if the request would fight idiomatic methodology or established Labs patterns:
+
+1. **Stop and question** — name the idiomatic approach, why it fits this stack, and what the request would break or complicate.
+2. **Do not implement** the non-idiomatic path until the user explicitly confirms they still want it (or picks the idiomatic alternative).
+3. Soft taste differences are fine to discuss briefly; **hard** anti-patterns (security, data integrity, accessibility regressions, destructive ops, FAB gates) always require an explicit go-ahead.
+
+Pairs with **challenge-best-practices** — do not duplicate that rule’s security/a11y list; this rule is specifically about idiomatic methodology and Labs patterns.
