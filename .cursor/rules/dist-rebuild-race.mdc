@@ -1,0 +1,19 @@
+---
+description: Never rebuild a live dist in place — one watcher, staged swap, stamp outside dist.
+alwaysApply: true
+---
+
+# Dist rebuild race
+
+If this app serves `dist/` while a watcher or agent rebuilds it, follow `docs/prompts/dist-rebuild-race.md`.
+
+## Hard rule
+
+- One watcher (`flock` `.serve/watch.lock`). Starting serve kills leftover watchers, not only port PIDs. A port-only kill reparents the loop to init and the next serve starts a second loop.
+- One build (`flock` `.serve/build.lock`).
+- Build into `dist.staging`, then swap onto `dist`. Do not `vite build` into the live directory (`emptyOutDir` deletes it mid-request).
+- Stamp **outside** `dist/` (`.serve/source-stamp`) with the fingerprint of the tree **compiled**, taken before the build. A stamp inside `dist/` is wiped, then rewritten for newer sources than the bundle — the freshness check goes green while the UI stays stale.
+- `version.json` SHA equal to HEAD is not proof the working tree is in the bundle.
+- Restart the API on `server/` changes (`node --watch` or equivalent).
+
+Do not report a UI fix as live on a green stamp check unless this guard produced that `dist/`.
