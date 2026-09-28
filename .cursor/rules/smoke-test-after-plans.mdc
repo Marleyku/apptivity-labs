@@ -1,0 +1,26 @@
+---
+description: After implementing a plan or shippable change, run an appropriate smoke test before declaring done
+alwaysApply: true
+---
+
+# Smoke test after plans (ALGR)
+
+When you finish implementing a **plan**, a multi-step feature, or other **shippable** work, run a **smoke test at the appropriate timing** before ending the turn as done.
+
+## When
+
+- After executing an agreed plan (or a substantial slice of one).
+- After shippable UI/API/Worker changes that should work on the running host.
+- Before marking related Linear issues Done (pair with completion notes).
+
+## What “appropriate” means
+
+- Hit the changed path in the running app (local URL, health endpoint, or `version.json` as relevant).
+- Prefer an automated check when the product already has one; otherwise a short manual/browser or curl smoke of the happy path.
+- If deploy is required (`ship-after-change`), smoke **after** publish when that is how truth is verified.
+
+## Do not
+
+- Claim “done” on plan implementation with zero verification.
+- Skip smoke because unit tests passed if the change is integration/runtime-facing.
+- Block forever on unavailable environments — note what could not be smoked and why.

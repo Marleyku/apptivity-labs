@@ -1,5 +1,5 @@
 ---
-description: After shippable work, publish using the product deploy map — do not leave local prod stale
+description: After shippable work, commit/push when shipping and publish using the product deploy map — keep local and prod in sync
 alwaysApply: true
 ---
 
@@ -7,7 +7,7 @@ alwaysApply: true
 
 When you finish work that should run on this product’s **local or production** host (API, `dist` SPA, Worker assets, schema used by prod), **publish using that product’s deploy map** before ending the turn—unless the user explicitly says not to deploy.
 
-Git commit/push alone is not enough when the user asked to ship or the work is meant to be live.
+**Keep local and prod in sync.** Git commit/push alone is not enough when the user asked to ship or the work is meant to be live. When the user asks to **commit and push** (or SPCD / ship) for shippable app changes, **also deploy** per the product map in the same turn unless they say otherwise.
 
 ## Deploy map
 
@@ -18,3 +18,4 @@ Commands live in ALGR [`sites.json`](../../sites.json) under each product’s `d
 - Assume remote/tunnel will magically pick up an unbuilt `dist/`
 - Skip migrations when Prisma schema changed
 - Batch unrelated products’ deploys
+- Leave prod on an older build after pushing shippable changes the user expected live

@@ -1,0 +1,21 @@
+---
+description: Use the Labs SMS opt-in VIA_TEXT compliance template across products — only app placeholders change
+alwaysApply: true
+---
+
+# SMS opt-in compliance (ALGR)
+
+When creating or updating **SMS opt-in / Twilio TFV consent** pages or copy for any Labs product, use the shared compliance template. Consent structure stays identical; only placeholders (app name, emails, URLs, sample flavor) change.
+
+## Canon
+
+Playbook: `docs/prompts/sms-opt-in-compliance.md` (synced from ALGR scrap).
+
+Hard rules:
+
+1. **VIA_TEXT** primary consent (`START` / `Y`) — do not make a website checkbox the primary opt-in method.
+2. Do **not** narrow the six TFV use-case categories.
+3. Program is **transactional/service only** — no marketing SMS under this consent.
+4. Keep product pages congruent with the approved Labs TFV use cases.
+
+Pairs with `legal-tos` (account Terms/consent); SMS opt-in remains a separate surface.
