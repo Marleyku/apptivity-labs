@@ -1,0 +1,38 @@
+---
+description: Web apps and sites use local time by default; only honor an explicit user timezone preference
+alwaysApply: true
+---
+
+# Local time default (ALGR)
+
+All Labs **web apps and sites** present and format times in the **viewer’s local timezone** unless the signed-in user (or prefs) has **explicitly selected a different timezone**.
+
+## Default
+
+- **Display / UI copy / relative labels** → device/browser local timezone (`Intl`, `Temporal`, or equivalent).
+- **User preference timezone** → when set, use that IANA zone for that user’s views; do not invent a product-wide default zone.
+- **No preference set** → stay on device local; do not fall back to UTC, “server time,” or a hard-coded region (e.g. `America/Denver`).
+
+## Build & ops stamps
+
+Version Refresh / `version.json` / build ids use the **build host’s local** offset (see skill `version-refresh`). That is host-local, not UTC `Z`.
+
+## Storage & APIs
+
+Keep **absolute instants** on the wire and in storage when that is idiomatic (e.g. UTC ISO for DB columns). Convert at the edge for display and for preference-TZ views. Do not store or show “naive” wall times as if they were UTC without an explicit product decision.
+
+## Anti-patterns
+
+| Avoid | Why |
+|-------|-----|
+| Defaulting UI to UTC `Z` | Users expect local wall time |
+| `Date#toISOString()` for user-visible labels | Always UTC |
+| Hard-coded product timezone with no pref | Wrong for multi-region / travel |
+| Ignoring an explicit timezone preference | Preference is the override |
+| Assuming “local” means the agent’s machine in client UI | Use the **viewer’s** environment |
+
+## When implementing
+
+1. Prefer existing app date helpers / prefs timezone if the product already has them.
+2. New time UI: local first; wire preference TZ only when the product has (or is adding) that setting.
+3. If a request would force UTC or a fixed zone into user-facing UI without a preference path — **stop and question** (pairs with challenge-best-practices / idiomatic-methodology).
