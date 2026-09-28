@@ -13,8 +13,9 @@ Watch Linear for in-app FAB → `[Needs Review]` issues, then either:
 |--------|----------------|
 | `[Needs Review]` / label Needs Review / `Approval: pending` / `Source: in-app-fab` | Summarize only. Do **not** code. |
 | Title or body contains **`-AMK`** | Authorized — implement immediately in mapped repo |
+| Submitter matches product **owner allowlist** / `Approval: auto-approved` | Authorized — implement immediately; cite submitter |
 | Human says **approve \<issue\>** in chat, or Linear `Approval: approved` | Implement that one issue only |
-| “process feedback” / “next iteration” | Fetch newest FAB issue → ask approve/defer/reject |
+| “process feedback” / “next iteration” | Fetch newest FAB issue → auto-build if owner/`-AMK`, else ask approve/defer/reject |
 
 Never batch-implement ungated FAB items.
 
@@ -39,7 +40,7 @@ Each tick:
 
 1. List issues updated in the last ~20m with Needs Review / `[Needs Review]` / `in-app-fab`
 2. Skip already-seen ids (state file below)
-3. For each new issue: triage email **or** `-AMK`/approved build
+3. For each new issue: triage email **or** owner/`-AMK`/approved build
 4. Comment on Linear when work starts/finishes
 
 ## State file

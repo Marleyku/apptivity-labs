@@ -2,7 +2,7 @@
 
 Paste or adapt these into product Privacy pages. Keep aligned with Terms §5 (required telemetry) and §6 (no sale).
 
-**Version alignment:** Terms version `2026-09-09` / effective September 9, 2026.
+**Version alignment:** Terms version `2026-09-28` / effective September 28, 2026.
 
 ---
 

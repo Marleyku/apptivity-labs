@@ -21,6 +21,48 @@ const REVIEW_BANNER = [
   '> before any code changes. Agents: summarize only; wait for approval.',
 ].join('\n');
 
+const AUTO_APPROVED_BANNER = [
+  '> **AUTO-APPROVED — OWNER SUBMITTER**',
+  '>',
+  '> This FAB came from an allowlisted Labs owner identity. Agents may',
+  '> implement without a separate chat approval step. Still cite the submitter.',
+].join('\n');
+
+/** Default owner allowlist — override with FAB_AUTO_APPROVE_EMAILS (comma-separated). */
+const DEFAULT_AUTO_APPROVE_EMAILS = ['mkunzler@gmail.com'];
+
+/**
+ * @param {string|undefined|null} raw
+ * @param {string[]} defaults
+ * @returns {Set<string>}
+ */
+function parseAllowlist(raw, defaults) {
+  const fromEnv = String(raw || '')
+    .split(',')
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean);
+  const base = fromEnv.length ? fromEnv : defaults.map((s) => s.toLowerCase());
+  return new Set(base);
+}
+
+/**
+ * Owner FAB submissions are auto-approved for implementation.
+ * Match on Access-backed email only — never display name alone.
+ * @param {{
+ *   id?: string|null,
+ *   email?: string|null,
+ *   anonymous?: boolean,
+ * }} submitter
+ * @param {{ FAB_AUTO_APPROVE_EMAILS?: string }} [env]
+ * @returns {boolean}
+ */
+export function isAutoApprovedSubmitter(submitter = {}, env = {}) {
+  if (submitter.anonymous) return false;
+  const emails = parseAllowlist(env.FAB_AUTO_APPROVE_EMAILS, DEFAULT_AUTO_APPROVE_EMAILS);
+  const email = submitter.email != null ? String(submitter.email).trim().toLowerCase() : '';
+  return Boolean(email && emails.has(email));
+}
+
 /**
  * @param {{
  *   id?: string|null,
@@ -154,6 +196,7 @@ export async function createLinearIssueFromFeedback(env, input) {
 
   const submitter = input.submitter || { anonymous: true };
   logFeedbackSubmitter(`fab:${input.feedbackId}`, submitter);
+  const autoApproved = isAutoApprovedSubmitter(submitter, env);
 
   try {
     let imageMd = '';
@@ -170,15 +213,16 @@ export async function createLinearIssueFromFeedback(env, input) {
     }
 
     const titleBase = (input.message || input.category || 'Feedback').trim().slice(0, 70);
+    // Keep [Needs Review] prefix for inbox filtering; Approval line carries the gate.
     const title = `[Needs Review][${input.category}] ${titleBase}`;
     const description = [
-      REVIEW_BANNER,
+      autoApproved ? AUTO_APPROVED_BANNER : REVIEW_BANNER,
       '',
       input.message || '_No message_',
       '',
       '---',
       `Source: \`in-app-fab\``,
-      `Approval: \`pending\``,
+      autoApproved ? `Approval: \`auto-approved\`` : `Approval: \`pending\``,
       `Feedback id: \`${input.feedbackId}\``,
       `Site: \`${input.site || 'apptivity.online'}\``,
       ...formatSubmitterMarkdownLines(submitter),
@@ -226,7 +270,9 @@ export async function createLinearIssueFromFeedback(env, input) {
     if (!data?.issueCreate?.success || !issue?.id) {
       throw new Error('Linear issueCreate failed');
     }
-    console.log(`[feedback] Linear issue ${issue.identifier || issue.id} (needs review)`);
+    console.log(
+      `[feedback] Linear issue ${issue.identifier || issue.id} (${autoApproved ? 'auto-approved' : 'needs review'})`,
+    );
     return {
       id: issue.id,
       identifier: issue.identifier || null,

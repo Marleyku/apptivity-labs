@@ -2,7 +2,7 @@
 
 Implementer spec for APPtivity Labs products with accounts. Source of truth for UX + API expectations.
 
-**Terms version:** `2026-09-09`  
+**Terms version:** `2026-09-28`  
 **Brand:** APPtivity Labs, LLC
 
 ## Flow (both steps required)
@@ -88,7 +88,7 @@ Copy from skill templates or Miles2Go reference:
 
 ## Versioning
 
-`TERMS_VERSION = '2026-09-09'`. Re-prompt when stored version &lt; current.
+`TERMS_VERSION = '2026-09-28'`. Re-prompt when stored version &lt; current.
 
 ## Hard rules
 

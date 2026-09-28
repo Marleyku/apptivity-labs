@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import LegalLayout from '../components/LegalLayout.jsx';
 
 /** Labs Terms version — keep in sync with docs/legal/TOS-TEMPLATE.md */
-export const TERMS_VERSION = '2026-09-09';
+export const TERMS_VERSION = '2026-09-28';
 
 export default function Terms() {
   return (
@@ -10,7 +10,7 @@ export default function Terms() {
       kicker="Terms"
       title="Terms of Service"
       lead="These Terms govern APPtivity Labs websites and products operated by APPtivity Labs, LLC, unless a product publishes separate addenda."
-      updated={`Effective September 9, 2026 · Version ${TERMS_VERSION}`}
+      updated={`Effective September 28, 2026 · Version ${TERMS_VERSION}`}
     >
       <p>
         These Terms of Service (“Terms”) govern your access to and use of APPtivity Labs websites
@@ -124,18 +124,20 @@ export default function Terms() {
       <h2>10. Disclaimers</h2>
       <p>
         THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE.” TO THE MAXIMUM EXTENT PERMITTED BY LAW,
-        WE DISCLAIM WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
-        NON-INFRINGEMENT. We do not warrant uninterrupted or error-free operation.
+        WE DISCLAIM ALL WARRANTIES WITH REGARD TO THE SERVICE, EXPRESS OR IMPLIED, INCLUDING IMPLIED
+        WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. We do
+        not warrant uninterrupted or error-free operation.
       </p>
 
       <h2>11. Limitation of liability</h2>
       <p>
         TO THE MAXIMUM EXTENT PERMITTED BY LAW, APPtivity Labs, LLC AND ITS AFFILIATES WILL NOT BE
-        LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR LOST
-        PROFITS, DATA, OR GOODWILL, ARISING FROM YOUR USE OF THE SERVICE. OUR AGGREGATE LIABILITY
-        FOR CLAIMS RELATING TO THE SERVICE WILL NOT EXCEED THE GREATER OF (A) AMOUNTS YOU PAID US
-        FOR THE SERVICE IN THE TWELVE MONTHS BEFORE THE CLAIM OR (B) ONE HUNDRED U.S. DOLLARS
-        (US $100).
+        LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR
+        FOR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA, PROFITS, OR GOODWILL, WHETHER IN
+        AN ACTION OF CONTRACT, NEGLIGENCE, OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
+        WITH YOUR USE OR THE PERFORMANCE OF THE SERVICE. OUR AGGREGATE LIABILITY FOR CLAIMS RELATING
+        TO THE SERVICE WILL NOT EXCEED THE GREATER OF (A) AMOUNTS YOU PAID US FOR THE SERVICE IN THE
+        TWELVE MONTHS BEFORE THE CLAIM OR (B) ONE HUNDRED U.S. DOLLARS (US $100).
       </p>
 
       <h2>12. Indemnification</h2>

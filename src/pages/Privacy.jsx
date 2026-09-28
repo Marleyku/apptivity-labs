@@ -7,7 +7,7 @@ export default function Privacy() {
       kicker="Privacy Policy"
       title="Privacy Policy"
       lead="This policy explains how APPtivity Labs, LLC handles information for its administrative website and software products."
-      updated="Effective September 9, 2026 · Aligned with Terms version 2026-09-09"
+      updated="Effective September 28, 2026 · Aligned with Terms version 2026-09-28"
     >
       <h2>Who we are</h2>
       <p>
