@@ -1,0 +1,59 @@
+---
+description: Notify the user when Linear open issues exceed 240 or Free-plan caps are at risk (250 non-archived issues, 2 teams, 10MB uploads)
+alwaysApply: true
+---
+
+# Linear Free-plan / issue-count guard (ALGR)
+
+**Notify the user immediately** (do not silently continue) when Labs Linear usage crosses these thresholds — for **any** site/product/team in the workspace.
+
+## Notify when
+
+| Signal | Threshold | Why |
+|--------|-----------|-----|
+| **Open issues** (state type not `completed` / `canceled`) | **> 240** workspace-wide | User-set alert before Free-plan pressure / backlog overload |
+| **Non-archived issues** (includes Done/Canceled until archived) | **≥ 230** (hard Free cap **250**) | Linear Free: cannot create new issues past 250 non-archived |
+| **Teams** | **> 2** on Free (or at paid plan’s team max) | Free allows **2 teams**; creating more fails or forces upgrade |
+| **File upload** | **> 10 MB** per file on Free | Free upload size cap (FAB screenshots / attachments) |
+
+Also notify if Linear returns errors that imply plan limits (e.g. cannot create issue / team / upload).
+
+## What to say
+
+Short alert with:
+
+1. Which threshold tripped (open count, non-archived count, teams, upload).
+2. Current numbers vs limit.
+3. Suggested relief: archive Done/Canceled, close+archive stale, upgrade plan, shrink attachments — **ask before bulk-archiving**.
+
+## When agents must check
+
+- Before creating **many** Linear issues (FAB backfill, bulk import, ticket mill).
+- After creating issues if the inbox was already large.
+- When a create/team/upload fails with a plan/limit error.
+- When the user asks about Linear capacity / Free plan / “how many tickets”.
+
+Helper script (optional): `skills/algr/scripts/linear-plan-guard.mjs` (or run equivalent GraphQL / MCP counts).
+
+## Free-plan reference (Linear pricing)
+
+- Free: **250** non-archived issues, **2** teams, **10 MB** uploads, unlimited members.
+- Archived issues do **not** count toward the 250.
+- Done/Canceled still count until archived.
+
+## Scope (workspaces)
+
+Linear Free caps are **per workspace**. Labs currently uses more than one:
+
+- **APPtivity Labs** (`linear.app/marley`) — Cursor Apps + any product FAB teams in that workspace
+- **GOATkitz** (separate MCP / API key) — GOATkitz team
+
+Check **each** workspace the current site uses. Notify if **any** workspace crosses a threshold (do not average across workspaces).
+
+Helper: `skills/algr/scripts/linear-plan-guard.mjs` with that workspace’s `LINEAR_API_KEY`.
+
+## Do not
+
+- Bulk-archive or delete issues without explicit user approval.
+- Ignore create failures that mention issue/team limits.
+- Count only one team when the workspace has several — sum **all** teams in that workspace.
