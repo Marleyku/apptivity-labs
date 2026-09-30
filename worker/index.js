@@ -39,25 +39,42 @@ function isAdminPath(pathname) {
  * Edge Access should still be the primary gate (see scripts/setup-cloudflare-access.mjs).
  * Credentials live in gitignored `.env` (local) and Worker secrets (production).
  */
+function decodeBasicAuth(header) {
+  if (!header.startsWith('Basic ')) return null;
+  try {
+    const binary = atob(header.slice(6).trim());
+    const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
+    const decoded = new TextDecoder('utf-8').decode(bytes);
+    const idx = decoded.indexOf(':');
+    if (idx < 0) return null;
+    return { user: decoded.slice(0, idx), pass: decoded.slice(idx + 1) };
+  } catch {
+    return null;
+  }
+}
+
+function resolveAdminPassword(env) {
+  if (env.ADMIN_PASSWORD_B64) {
+    try {
+      const binary = atob(String(env.ADMIN_PASSWORD_B64).trim());
+      const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
+      return new TextDecoder('utf-8').decode(bytes);
+    } catch {
+      /* fall through to plain password */
+    }
+  }
+  return env.ADMIN_PASSWORD || '';
+}
+
 function gateAdmin(request, env) {
   const accessEmail = request.headers.get('Cf-Access-Authenticated-User-Email');
   if (accessEmail) return null;
 
-  const user = env.ADMIN_USERNAME;
-  const pass = env.ADMIN_PASSWORD;
+  const user = env.ADMIN_USERNAME || '';
+  const pass = resolveAdminPassword(env);
   if (user && pass) {
-    const header = request.headers.get('Authorization') || '';
-    if (header.startsWith('Basic ')) {
-      try {
-        const decoded = atob(header.slice(6));
-        const idx = decoded.indexOf(':');
-        const u = decoded.slice(0, idx);
-        const p = decoded.slice(idx + 1);
-        if (u === user && p === pass) return null;
-      } catch {
-        /* fall through */
-      }
-    }
+    const creds = decodeBasicAuth(request.headers.get('Authorization') || '');
+    if (creds && creds.user === user && creds.pass === pass) return null;
     return new Response('Authentication required', {
       status: 401,
       headers: {
