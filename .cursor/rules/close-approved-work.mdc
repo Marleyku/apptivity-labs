@@ -1,0 +1,39 @@
+---
+description: Check outstanding git work first; finish approved tasks through test, commit, push, merge, and deploy; never call work live unverified
+alwaysApply: true
+---
+
+# Close approved work (all repos)
+
+## Before starting
+
+In the repo(s) for **this** task, check and **report** anything relevant:
+
+- Uncommitted / unstaged changes
+- Open PRs **including drafts**
+- Local and remote branches with commits **not in `main`**
+
+Do not hide leftover work. Unrelated leftovers stay listed, not silently merged.
+
+## During the task
+
+Carry **approved** changes all the way through, in order as applicable:
+
+1. Test (smoke / product check as required)
+2. Commit
+3. Push
+4. Merge into `main` (open the PR if that is the path; do not leave a draft sitting)
+5. Deploy **when the user included deploy** (or existing ship-after-change applies)
+
+If blocked (review, secrets, CI, missing approval), say **exactly** what remains and why. Do not abandon a branch or draft PR without saying so.
+
+## Before calling it done
+
+Check outstanding work again. Report:
+
+- Commit SHA(s)
+- PR / merge status
+- Deployed version **only if deploy was verified**
+- Anything still pending
+
+Never describe work as **live** unless that deploy was checked. Do **not** merge unrelated, obsolete, or untested branches just to empty the list.
