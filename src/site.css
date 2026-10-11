@@ -1684,6 +1684,7 @@ footer {
   font-size: 0.9rem;
   box-shadow: var(--shadow);
   cursor: pointer;
+  touch-action: none;
 }
 
 .feedback-fab:hover {

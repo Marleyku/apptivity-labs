@@ -1,0 +1,13 @@
+---
+description: FAB feedback UX — Ctrl+Enter submits; FAB can be temporarily dragged, resets on navigation/reload
+alwaysApply: true
+---
+
+# FAB feedback UX (ALGR)
+
+For every site with an in-app **Feedback FAB**:
+
+1. **Ctrl+Enter / ⌘+Enter** in the message field submits feedback (same guards as the Send button).
+2. Users may **temporarily drag** the FAB to uncover other controls. Position is **session-only** — reset on **page load** and on **route/page change**. Do **not** persist in `localStorage`.
+
+Full playbook: `docs/prompts/fab-feedback-ux.md`. Pairs with skill `fab-feedback`.

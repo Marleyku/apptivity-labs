@@ -467,6 +467,12 @@ export function FeedbackModal() {
                 data-feedback-mask
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key !== 'Enter' || !(e.ctrlKey || e.metaKey)) return;
+                  e.preventDefault();
+                  if (busy || capturing || (category === 'bug' && !message.trim())) return;
+                  void submit();
+                }}
                 maxLength={4000}
                 placeholder={
                   category === 'bug'
@@ -474,6 +480,9 @@ export function FeedbackModal() {
                     : 'What should we know?'
                 }
               />
+              <span className="feedback-muted" style={{ display: 'block', marginTop: 4, fontSize: 11 }}>
+                Tip: Ctrl+Enter or ⌘+Enter to send
+              </span>
             </label>
 
             {error && <p className="feedback-error">{error}</p>}
