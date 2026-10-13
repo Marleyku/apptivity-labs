@@ -1,0 +1,15 @@
+---
+description: Phased Labs software upgrades — backup all sites first, then one runtime per phase to practical latest (not RCs)
+alwaysApply: false
+---
+
+# Software upgrade path (ALGR)
+
+Bring every Labs product to the **latest practical** stack version **one software at a time**. Do **not** jump to RCs or breaking majors (Prisma 8 RC, Express 5, Vite 8, TypeScript 7, Node Current) in this campaign.
+
+## Hard rules
+
+1. **Phase 0 first** — forced Auto-Backup (code + data) for every site before any bump.
+2. **One software per phase** — finish + smoke + pause for approval before the next phase.
+3. **Practical latest** — Node 24 LTS, Vite 7, Vitest 5, Wrangler 4.x; confirm React 19.3 / Prisma 7.10 / Express 4.22 (already current).
+4. Playbook: `docs/prompts/software-upgrade-path.md`.
