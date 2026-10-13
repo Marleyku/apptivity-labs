@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@playwright/mcp": "^0.0.80",
-    "@playwright/test": "^1.62.1",
+    "@playwright/test": "^1.63.0",
     "@vitejs/plugin-react": "^5.2.0",
     "dotenv": "^17.4.2",
     "twilio": "^6.1.0",
