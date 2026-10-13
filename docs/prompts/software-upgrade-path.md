@@ -102,9 +102,13 @@ Declare/pin **5.9.3** on products that already use TS (calendar, goatkitz, apoch
 
 ## Confirm / no-op (document on upgrade day; no forced churn)
 
-- **React 19.3.0** — already latest; keep pins.
-- **Prisma 7.10.0** — latest stable; do not adopt 8 RC.
-- **Express 4.22.3** — latest 4.x; Express 5 is a future phase.
+Confirmed **2026-10-13** (full Phase 0–6 campaign):
+
+- **React 19.3.0** — already latest; keep pins (Teaching stays `^19.0.0` resolving on 19.x).
+- **Prisma 7.10.0** — latest stable; do not adopt 8 RC (`8.0.0-rc.*` on npm).
+- **Express 4.22.3** — latest 4.x; Express 5 (`5.3.x`) is a future phase.
+
+Campaign skips / follow-ups from that run: Calendar Vitest 5 (11 pre-existing suite failures); FavorBank analytics Vitest pin (posthogImportBoundary ENOENT); Calendar unit suite still red on main (auth/role/catalog).
 
 ## Future backlog (own campaigns)
 
