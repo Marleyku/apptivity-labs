@@ -76,14 +76,15 @@ export const HEALTH_SERVICES = [
       {
         id: 'front',
         kind: 'frontend',
+        // Canonical app is apex; www is a separate static Pages “coming soon” host.
         label: 'Web app',
-        url: 'https://www.favorbank.app/',
+        url: 'https://favorbank.app/',
       },
       {
         id: 'api',
         kind: 'backend',
         label: 'API /api/health',
-        url: 'https://www.favorbank.app/api/health',
+        url: 'https://favorbank.app/api/health',
         expectJsonOk: true,
       },
     ],
