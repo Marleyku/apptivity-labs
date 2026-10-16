@@ -1,0 +1,28 @@
+---
+description: App Store asset best practices for Labs iOS apps (screenshots, previews, icons, creative)
+alwaysApply: true
+---
+
+# App Store asset best practices (ALGR)
+
+When creating or updating **App Store assets** (icon, screenshots, app previews, product-page header, search results creative, In‑App Events media) for any Labs product that **ships an iOS app**, follow Apple’s asset best practices.
+
+## Applies to
+
+Labs products with an iOS / App Store presence (Capacitor / CapGo / native shell). **Current:** FavorBank, Miles2Go. **Future:** any product that adds `ios/` / CapGo / App Store listing — do not invent store assets for web-only products.
+
+## Canon
+
+Playbook: `docs/prompts/app-store-asset-best-practices.md` (synced from ALGR scrap).  
+Upstream: [App Store asset best practices](https://developer.apple.com/app-store/asset-best-practices/) · App Review Guidelines **2.3 Accurate Metadata** · Apple Advertising Policies.
+
+## Hard rules
+
+1. **Core experience only** — assets must show the app in use (or closely related). No pricing/discounts, website URLs, © marks, unverifiable awards, other-platform logos, or Apple badges (Editor’s Choice, App of the Day, etc.).
+2. **Safe for 4+ on the Store** — App Store–displayed assets must meet a **4+** age rating even if the app’s rating is higher. No objectionable, sexually suggestive, hate, drug, self-harm, or gore imagery; no weapons aimed at a person/viewer.
+3. **Global + inclusive** — design for a worldwide audience; localize metadata/assets where the app is localized.
+4. **Legible + safe area** — keep focal content and text inside template safe areas; preview in App Store Connect before shipping.
+5. **Video** — strong poster frame; lead with value; seamless loop; works muted first; audio is brand texture, not information.
+6. **Cohesive set** — icon, screenshots, previews, and creatives share palette/type/tone and tell one story; lead screenshots with strongest features in a natural use order.
+
+Pairs with skills `app-marketing-catalog` and `app-docs-marketing` when store shots or marketing frames are regenerated.
