@@ -81,7 +81,7 @@ node scripts/setup-cloudflare-access.mjs
 
 **Browser access:** complete Cloudflare Access login (email / IdP). Access sits at the edge before the Worker.
 
-**Stored Worker Basic Auth** (second layer / local / fallback if Access identity is absent or Access is disabled): set `ADMIN_USERNAME` and `ADMIN_PASSWORD` in gitignored `.env`. Wrangler loads them for local Worker runs; sync to production with `npm run secrets:admin`. When Access has authenticated the request (`Cf-Access-Authenticated-User-Email`), Basic Auth is skipped.
+**Stored Worker Basic Auth** (second layer / local / fallback if Access identity is absent or Access is disabled): set `ADMIN_USERNAME` and `ADMIN_PASSWORD` in gitignored `.env` using **single quotes** so special characters (`# $ " !`) stay literal — e.g. `ADMIN_PASSWORD='p@ss#word$'`. Or set `ADMIN_PASSWORD_B64` to a base64 UTF-8 password. Run `node scripts/normalize-admin-env.mjs` then `npm run secrets:admin` to rewrite quoting and sync to production. When Access has authenticated the request (`Cf-Access-Authenticated-User-Email`), Basic Auth is skipped.
 
 ### Regenerate catalogs
 
