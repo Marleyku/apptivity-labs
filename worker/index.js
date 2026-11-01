@@ -324,6 +324,22 @@ async function handleFeedback(request, env) {
   });
 }
 
+/** Teaching app lives on teaching.apptivity.online; marketing path redirects. */
+function teachingAppRedirect(url) {
+  if (url.pathname !== '/teaching' && !url.pathname.startsWith('/teaching/')) {
+    return null;
+  }
+  const dest = new URL('https://teaching.apptivity.online/');
+  const rest =
+    url.pathname === '/teaching' || url.pathname === '/teaching/'
+      ? '/'
+      : url.pathname.slice('/teaching'.length);
+  dest.pathname = rest.startsWith('/') ? rest : `/${rest}`;
+  dest.search = url.search;
+  dest.hash = url.hash;
+  return Response.redirect(dest.toString(), 308);
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -332,6 +348,9 @@ export default {
       url.hostname = 'www.apptivity.online';
       return Response.redirect(url.toString(), 308);
     }
+
+    const teachingRedirect = teachingAppRedirect(url);
+    if (teachingRedirect) return teachingRedirect;
 
     if (isAdminPath(url.pathname)) {
       const denied = gateAdmin(request, env);
