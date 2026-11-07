@@ -26,10 +26,12 @@ Never batch-implement ungated FAB items.
 | Miles2Go / `M2G-*` | `/home/marley/Code/miles2go` | `npm run build` + `systemctl --user restart miles2go` |
 | FavorBank / `FVRB-*` | `/home/marley/Code/favorbank` | `npm run build` + `pm2 restart favorbank` |
 | Teaching / `TEA-*` | `/home/marley/Code/teaching` | `npm run build` + restart `npm run serve` |
-| Calendar / CreateACal | `/home/marley/Code/calendar` | `npm run deploy` |
-| Cursor Apps + `apptivity.online` | `/home/marley/Code/sites` | `npm run deploy` |
+| Calendar / `CAC-*` (FAB) | `/home/marley/Code/calendar` | `npm run deploy` |
+| Cursor Apps / `CURSOR-*` (direct + sites marketing FAB) | `/home/marley/Code/sites` (FAB) or product repo named in issue | `npm run deploy` for sites |
 | APPtivity product (`goapptivity.com`) | `/home/marley/Code/apptivity` | restart `apptivity` + `apptivity-vite` |
 | GOATkitz / `GOA-*` | `/home/marley/Code/goatkitz` | `npm run build` + restart `goatkitz` (+ vite) |
+
+**ALGR:** Direct Linear (no FAB) → `CURSOR-*`. Product FAB → product team keys. Do not treat `CURSOR-*` as CreateACal FAB (`CAC-*`).
 
 ## Watcher cadence
 

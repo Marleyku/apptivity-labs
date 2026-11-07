@@ -270,12 +270,30 @@ export async function createLinearIssueFromFeedback(env, input) {
     if (!data?.issueCreate?.success || !issue?.id) {
       throw new Error('Linear issueCreate failed');
     }
+
+    // Stamp CURSOR-* confirmation into title (sites marketing FAB on Cursor Apps until Sites team exists)
+    const identifier = issue.identifier || null;
+    if (identifier) {
+      try {
+        const stamped = `[Needs Review][${input.category}] ${identifier} ${titleBase}`.slice(0, 200);
+        await linearGraphql(
+          env,
+          `mutation IssueUpdate($id: String!, $input: IssueUpdateInput!) {
+            issueUpdate(id: $id, input: $input) { success }
+          }`,
+          { id: issue.id, input: { title: stamped } },
+        );
+      } catch (stampErr) {
+        console.error('[feedback] Could not stamp CURSOR confirmation on title:', stampErr?.message || stampErr);
+      }
+    }
+
     console.log(
-      `[feedback] Linear issue ${issue.identifier || issue.id} (${autoApproved ? 'auto-approved' : 'needs review'})`,
+      `[feedback] Linear issue ${identifier || issue.id} (${autoApproved ? 'auto-approved' : 'needs review'})`,
     );
     return {
       id: issue.id,
-      identifier: issue.identifier || null,
+      identifier,
       url: issue.url || null,
     };
   } catch (err) {

@@ -1,0 +1,33 @@
+---
+description: Suggest hardening when it would improve quality or best practices (all repos)
+alwaysApply: true
+---
+
+# Suggest hardening (ALGR)
+
+**Harden** = take something that already works on the happy path and make it **reliable under real use** (edges, retries, caps, tests, stale canon, dual-notify, empty states).
+
+When shipping or reviewing work, **suggest** hardening if it would improve **quality** or **best practices** — do not wait to be asked.
+
+## When to suggest
+
+- New or changed behavior that works only on the main path
+- Missing caps, coalesce, idle, idempotency, or skip reasons
+- Docs/UI still describing old timing or copy
+- Immediate alerts that also queue a digest (or other duplicate sends)
+- Tests that do not lock the new invariant
+- Accessibility, data integrity, or ops gaps that are not already a hard stop
+
+## How
+
+1. Name the gap in one or two sentences and the harden (what would change).
+2. **Ask** before doing extra hardening unless the user already said to harden this work.
+3. Keep the suggestion short; do not turn every tweak into a program.
+
+## Do not
+
+- Silently expand scope with unrequested hardening
+- Repeat the same suggestion after they defer or reject it
+- Duplicate **challenge-best-practices** (that rule **stops** violating approaches). This rule **offers** reliability work when the request itself is valid.
+
+Pairs with **harden-audit** (full-repo suggestion list on request), **ask-before-building**, and **idiomatic-methodology**.

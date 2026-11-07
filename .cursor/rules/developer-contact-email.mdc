@@ -1,0 +1,41 @@
+---
+description: Per-site developer contact is admin@ plus the product domain; unknown sites use admin1@goapptivity.com
+alwaysApply: true
+---
+
+# Developer contact email (ALGR)
+
+Every Labs site has a **developer contact** used when agents need to reach the developer (upgrade notices, ops digests, “email me” requests). This is **not** product `support@`, FAB owner auto-approve identities, or transactional `EMAIL_FROM` / `noreply@`.
+
+## How to choose
+
+1. If the user **requested a specific address** for that site, use it and record it in ALGR `sites.json` (`developerEmail`).
+2. Else use `sites.json` `developerEmail` for that product.
+3. Else default to **`admin@` + the product’s primary domain** (`sites.json` `domain`).
+4. If domain/email is **not on file or not known**, use **`admin1@goapptivity.com`**.
+
+## Seed registry (2026-10-03)
+
+| Product | Domain | Developer email |
+|---------|--------|-----------------|
+| sites | apptivity.online | `admin@apptivity.online` |
+| calendar / createacal-www | createacal.com | `admin@createacal.com` |
+| favorbank | favorbank.app | `admin@favorbank.app` |
+| miles2go | mymiles2go.com | `admin@mymiles2go.com` |
+| goatkitz | goatkitz.com | `admin@goatkitz.com` |
+| apptivity | goapptivity.com | `admin@goapptivity.com` |
+| apochromatic | kunzlerfamily.com | `admin@kunzlerfamily.com` |
+| teaching | (none on file) | `teaching@goapptivity.com` (user-requested) |
+
+Authoritative copy: `/home/marley/Code/algr/sites.json` (`domain`, `developerEmail`).
+
+## Teaching outbound mail
+
+For the Teaching repo, **all agent/ops emails** go to **`teaching@goapptivity.com`** unless the user names a different address for that send.
+
+## Do not
+
+- Substitute FAB owner emails (`mkunzler@gmail.com`, product owner addresses) unless the user asked for that identity.
+- Use `support@`, `tickets@`, `hello@`, or `noreply@` as the developer contact unless explicitly requested.
+- Fall back to `admin1@goapptivity.com` for Teaching — use `teaching@goapptivity.com`.
+- Invent a domain for other products without a recorded domain — use `admin1@goapptivity.com`.

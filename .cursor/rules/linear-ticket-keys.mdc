@@ -1,0 +1,40 @@
+---
+description: Direct Linear uses CURSOR-*; FAB uses product keys CAL/FVRB/M2G/APP/TEA/GOA/SITE
+alwaysApply: true
+---
+
+# Linear ticket keys (ALGR / Rulebook)
+
+Two intake paths — **never mix their keys**.
+
+## Direct Linear (generic / agent)
+
+Tickets entered in Linear UI, agent/`save_issue`, or any **non-FAB** path that is not scoped to a product team use the **Cursor Apps** team → **`CURSOR-*`**.
+
+- Prefer **Cursor Apps** for cross-product / agent / ops work that is **not** an in-app FAB submission.
+- Do **not** file product FAB intake on Cursor Apps when that product has its own Linear team.
+
+## In-app FAB feedback (product keys)
+
+FAB → Linear **must** use that product’s **own team** so the thank-you confirmation and Linear identifier match:
+
+| Product | Team | Key / confirmation |
+|---------|------|--------------------|
+| Calendar / CreateACal | Calendar | `CAL-*` |
+| FavorBank | FavorBank | `FVRB-*` |
+| Miles2Go | Miles2Go | `M2G-*` |
+| APPtivity | APPtivity | `APP-*` |
+| Teaching | Teaching | `TEA-*` |
+| GOATkitz | GOATkitz | `GOA-*` |
+| sites (apptivity.online) | Sites | `SITE-*` |
+| Generic / unset | Cursor Apps | `CURSOR-*` |
+
+Title pattern for FAB: `[FAB form]…` **including the confirmation code** when known (e.g. `[FAB form] CAL-760 [bug] …`). Description must include `Source: in-app-fab`.
+
+## Agents
+
+- Creating a **non-FAB** Linear issue → Cursor Apps → expect **`CURSOR-*`**.
+- Processing FAB → filter by **product team key** (`CAL`, `FVRB`, `M2G`, `APP`, `TEA`, `GOA`, `SITE`), not Cursor Apps.
+- Never treat `CURSOR-*` as product FAB.
+
+Pairs with `fab-feedback` skill and `fab-feedback-hard-gate`.

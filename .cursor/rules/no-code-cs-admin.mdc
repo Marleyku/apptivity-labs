@@ -1,0 +1,16 @@
+---
+description: No-Code CS admin — curated /admin actions, audit, roles; never send CS to /dev for routine tickets
+alwaysApply: true
+---
+
+# No-Code CS admin (product overlay)
+
+When adding or editing staff tooling for customer service on this product:
+
+1. Put curated assists on **`/admin`** (CS / Ops / Messages tabs as appropriate).
+2. Do **not** make `/dev` the CS primary surface.
+3. Gate destructive privacy/ops mutates to `cs_lead` / `eng` (or product equivalents).
+4. Write `AdminAuditLog` (or product equivalent) on every mutate.
+5. Keep product no-code audit docs current when capabilities ship.
+
+Full Labs rule: ALGR principle `no-code-cs-admin`. Playbook: `docs/prompts/no-code-cs-admin.md`.

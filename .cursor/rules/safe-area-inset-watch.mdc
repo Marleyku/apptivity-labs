@@ -1,0 +1,18 @@
+---
+description: Safe-area inset watch for webapps that may ship as native App Store / Play builds (Capacitor / CapGo)
+alwaysApply: true
+---
+
+# Safe-area inset watch (ALGR)
+
+Every Labs **webapp that may become a native store build** (Capacitor / CapGo / WKWebView) must keep chrome clear of the notch, status bar, home indicator, and display cutouts.
+
+## Hard rules
+
+1. **`viewport-fit=cover`** on the app `index.html` viewport meta so `env(safe-area-inset-*)` is non-zero under native shells.
+2. **Prefer `env(safe-area-inset-*)`** (with `0px` fallback) for fixed headers, bottom nav, FABs, sheets, full-bleed auth/marketing screens — do **not** hard-code notch/home-indicator padding.
+3. **Install a safe-area inset watch** at app boot that mirrors insets onto CSS variables and **re-applies on orientation / visualViewport / resize** (native WebViews can change insets after first paint).
+4. When Cap / native StatusBar is used, **overlay the WebView** and rely on safe-area padding (see Miles2Go `initNativeStatusBar`) — do not draw interactive controls under the status bar.
+5. Marketing-only / static sites without SPA chrome may skip the JS watch, but still use `viewport-fit=cover` + env insets on any fixed UI.
+
+Full playbook: `docs/prompts/safe-area-inset-watch.md`. Template: ALGR `scraps/safe-area-inset-watch/templates/installSafeAreaInsetWatch.js`.

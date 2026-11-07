@@ -36,7 +36,7 @@ Beta applications are stored in the `BETA_APPLICATIONS` KV namespace (`beta:<uui
 Public floating **Feedback** button (screenshot + markup → `POST /api/feedback`).
 
 - Persists to KV as `feedback:<uuid>` (+ `feedback:index`)
-- Best-effort sync to Linear **Cursor Apps** as `[Needs Review][category] …` (Backlog + **Needs Review** label)
+- Best-effort sync to Linear **Cursor Apps** as `[Needs Review][category] CURSOR-n …` (Backlog + **Needs Review** label). Team key is **`CURSOR`** (direct Linear + sites marketing FAB). Product FABs use their own teams (`M2G` / `FVRB` / `TEA` / `CAC` / `GOA`).
 - Agents must **not** implement FAB issues until a human explicitly approves them (see `.cursor/rules/fab-feedback-gate.mdc`)
 
 ### Linear secrets (Worker)
