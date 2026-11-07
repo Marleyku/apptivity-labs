@@ -15,6 +15,11 @@ In-app **Feedback FAB** → Linear issues are **intake only** unless authorized.
 
 Always **read and cite the submitter**. Implement only the authorized issue; do not batch other pending non-owner FAB items.
 
+## Ticket keys
+
+- **Direct Linear (no FAB)** → Cursor Apps → **`CURSOR-*`**
+- **FAB** → product team confirmation (`CAL-*`, `FVRB-*`, `M2G-*`, `APP-*`, `TEA-*`, `GOA-*`, `SITE-*`) — see principle `linear-ticket-keys` and skill `fab-feedback`
+
 ## Gated signals (unless authorized above)
 
 - Title `[Needs Review]` / `[FAB form]` / `[Needs Review & Authorization]`

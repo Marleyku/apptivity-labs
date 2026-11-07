@@ -1,0 +1,22 @@
+---
+description: Use the Labs typing animation (three bouncing dots in a chat bubble) for pending/awaiting content — especially APPtivity chat and similar cues
+alwaysApply: true
+---
+
+# Typing animation (ALGR)
+
+When a surface needs a **“someone/something is still coming”** cue (chat peer typing, AI composing, deferred reveal), use the Labs **typing animation** — do not invent a one-off pulse or spinner for that role.
+
+## Canon
+
+Playbook + markup/CSS templates: `docs/prompts/typing-animation.md` (synced from ALGR scrap `scraps/typing-animation/`).
+
+## Hard rules
+
+1. **Name it typing animation** in product copy, code comments, and tickets — not “loading spinner” or a product-only nickname (Teaching’s Split View instance historically used `split-typing-*` classes; new work uses `typing-animation*`).
+2. **Shape:** three dots inside a small chat-style bubble; staggered bounce; `prefers-reduced-motion: reduce` disables motion and keeps a static cue.
+3. **A11y:** wrapper is `role="status"` + `aria-live="polite"` with a visually hidden sentence; the bubble/dots are `aria-hidden="true"`.
+4. **Tint from the product palette** (dot/bubble colors) — keep structure, timing, and reduced-motion behavior identical.
+5. **Primary adopters:** APPtivity chat (peer/assistant typing); other Labs chat or “more content pending” surfaces (e.g. Teaching Split View title-only Present).
+
+Pairs with product chat/presence designs; not a general page-load spinner.

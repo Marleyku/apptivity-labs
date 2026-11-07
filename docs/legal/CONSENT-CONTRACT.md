@@ -34,12 +34,13 @@ Full Terms stay at `/terms` for SEO/footer. **Signup acknowledgment happens insi
 
 Shared behavior:
 
-1. Parent shows required control: link **Terms of Service** (and Privacy) that opens the popover.
-2. Popover: short summary + scrollable full Terms (or Privacy) body.
-3. Quiet **Open full page** link to `/terms` (accessibility / print).
-4. Footer: primary **I agree** / **Acknowledge**; Cancel/Close without accepting.
-5. Agreeing sets local `tosAcknowledged` for that version; parent **Continue** stays disabled until recorded.
-6. Submit gate: `POST /api/auth/accept-terms` with `{ termsVersion }` → persist `termsAcceptedAt` + `termsVersion` on the user (server of truth). **Never trust client-only acceptance.**
+1. Parent shows **two visible checkboxes** (CURSOR-759 / formerly CAL-759): one for **Terms of Service**, one for **Privacy Policy**. Continue stays disabled until both are acknowledged.
+2. Terms row: checkbox + link opens the Terms popover; **I agree** in the popover checks the Terms box (do not accept via bold link alone).
+3. Privacy row: checkbox + link to `/privacy` (new tab OK); user checks the box after reading.
+4. Popover: short summary + scrollable full Terms body; quiet **Open full page** link for a11y/print.
+5. Footer: primary **I agree** / **Acknowledge**; Cancel/Close without accepting.
+6. Agreeing sets local `tosAcknowledged` for that version; parent **Continue** stays disabled until both boxes are done.
+7. Submit gate: `POST /api/auth/accept-terms` with `{ termsVersion }` → persist `termsAcceptedAt` + `termsVersion` on the user (server of truth). **Never trust client-only acceptance.**
 
 ### Default — `acknowledge`
 
@@ -96,4 +97,5 @@ Copy from skill templates or Miles2Go reference:
 2. No-sale / no-trade / no-exchange language in Terms + Privacy companion.
 3. Never trust client-only Terms acceptance without a server timestamp.
 4. Default TOS UX is **popover acknowledge**; secondary is **scroll-to-end then acknowledge**.
-5. Marketing-only surfaces (no accounts): Terms pages only; if a checkbox is added later, it must open the same popover pattern—not a bare external link.
+5. **Two visible checkboxes** for Terms and Privacy on accept-terms (CURSOR-759); Continue disabled until both are acknowledged — never bold-link-only acknowledgement.
+6. Marketing-only surfaces (no accounts): Terms pages only; if a checkbox is added later, it must open the same popover pattern—not a bare external link.

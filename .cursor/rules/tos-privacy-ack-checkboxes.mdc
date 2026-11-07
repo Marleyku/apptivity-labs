@@ -1,0 +1,33 @@
+---
+description: Accept-terms UX must show explicit TOS and Privacy checkboxes — never rely on bold link-only acknowledgement (CURSOR-759)
+alwaysApply: true
+---
+
+# TOS / Privacy acknowledgement checkboxes (ALGR)
+
+**Source:** Linear [CURSOR-759](https://linear.app/marley/issue/CURSOR-759/new-user-tosprivacy-acknowledgement) (formerly CAL-759). Applies to **all Labs account products**.
+
+New users must not get stuck on accept-terms because acknowledgement is only implied by clicking bolded Terms/Privacy names.
+
+## Required UX (all sites with accounts)
+
+On accept-terms / first-login legal gate:
+
+1. Show **two visible checkboxes** (or equivalent explicit controls), one for **Terms of Service** and one for **Privacy Policy**.
+2. **Continue** (or equivalent) stays **disabled** until **both** are checked/acknowledged.
+3. Terms checkbox opens `TermsConsentPopover` (or product equivalent); agreeing in the dialog checks the Terms box. Do not treat a bare external link click as acceptance.
+4. Privacy checkbox is checked after the user opens/reads Privacy (link may open `/privacy`; checking the box is the acknowledgement signal).
+5. Persist Terms acceptance on the **server** (`termsAcceptedAt` + `termsVersion`) — never client-only.
+
+## Anti-patterns
+
+| Avoid | Why |
+|-------|-----|
+| Bold link text only, no checkbox | Users do not realize they must “acknowledge” |
+| Single combined “I agree to Terms and Privacy” without separate controls | Ambiguous which document was reviewed |
+| Continue enabled before both acknowledgements | Locks / confusion; fails CURSOR-759 |
+| Checkbox that only navigates away and never records state | No durable acknowledgement |
+
+## Reference
+
+FavorBank `AcceptTermsPage` (CURSOR-759 / CAL-759). Full contract: `sites/docs/legal/CONSENT-CONTRACT.md` + skill `legal-tos`.

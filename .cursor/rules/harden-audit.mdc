@@ -1,0 +1,45 @@
+---
+description: When asked, audit a repo for hardening opportunities and list suggestions only (do not implement unless asked)
+alwaysApply: true
+---
+
+# Harden audit (ALGR)
+
+When the user asks for a **harden audit**, **best-practice audit**, **“areas to harden”**, or equivalent for a repo (or product), **audit and produce a list of suggestions** — do **not** implement, code, or expand scope unless they explicitly ask to harden specific items afterward.
+
+**Harden** = take something that already works on the happy path and make it **reliable under real use** (edges, retries, caps, tests, stale canon, dual-notify, empty states, a11y, ops). Same definition as **suggest-hardening**.
+
+## When to run
+
+- User requests an audit / harden pass / “what should we harden” for a named repo or the current workspace.
+- User asks for a prioritized backlog of reliability/best-practice gaps (not a feature wishlist).
+
+Do **not** run a full harden audit unprompted on every task. Opportunistic one-off suggestions during ship/review stay under **suggest-hardening**.
+
+## What to scan (representative; not a checklist to exhaust)
+
+- Happy-path-only flows missing caps, coalesce, idle, idempotency, or skip reasons
+- Duplicate notify paths (immediate alert + digest, double email/SMS)
+- Missing or weak tests for new invariants
+- Stale docs/UI vs actual timing, copy, or deploy paths
+- Auth/session, PII, and admin mutate/audit gaps
+- Accessibility (focus, live regions, contrast) and empty/error states
+- Native/Cap chrome (safe-area, StatusBar overlay) where the product may ship store builds
+- Ops: health/version freshness, rebuild races, plan/limit guards (e.g. Linear Free)
+- Labs canon mismatches (FAB gates, ticket keys, TOS ack, local-time default) when relevant
+
+## How to report
+
+1. Short verdict (overall posture) in one or two sentences.
+2. A **prioritized list** of suggestions. Each item: gap + proposed harden (what would change) + rough impact (high/med/low) when useful.
+3. Note what was **out of scope** or not inspected if the audit was partial.
+4. **Ask** which items (if any) to implement — do not start coding from the list alone.
+
+## Do not
+
+- Implement hardening during the audit turn unless the user already named items to ship.
+- Treat the list as tickets to open without asking (Linear Free pressure; ask first).
+- Duplicate **challenge-best-practices** (that rule **stops** bad approaches). This rule **inventories** reliability work.
+- Repeat deferred/rejected items from an earlier harden audit in the same conversation without new evidence.
+
+Pairs with **suggest-hardening** (opportunistic, short), **ask-before-building**, and **idiomatic-methodology**.

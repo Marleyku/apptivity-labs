@@ -26,6 +26,7 @@ Preserve product-specific IP addenda (e.g. CreateACal photo license) after the c
 ## 3. Consent gate (account products)
 
 - [ ] `TermsConsentPopover` wired on accept-terms / onboarding (`acknowledge` default)
+- [ ] Accept-terms shows **two visible checkboxes** (Terms + Privacy); Continue disabled until both (CURSOR-759)
 - [ ] `POST /api/auth/accept-terms` (or equivalent) persists `termsAcceptedAt` + `termsVersion`
 - [ ] Core tracking consent with `requireCoreConsent: true`; decline blocks entry
 - [ ] App shell blocked while gate incomplete
